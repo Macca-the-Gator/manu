@@ -25,27 +25,44 @@
   <meta name="twitter:description" content="An anatomical body revealed layer by layer as you scroll.">
   <meta name="twitter:image" content="https://macca-the-gator.github.io/manu/inner-green-assets/card-ethos.jpg">
   <link rel="icon" href="https://macca-the-gator.github.io/manu/assets/favicon.svg">
+  <link rel="stylesheet" href="../assets/site-shell.css">
   <style>
     *{box-sizing:border-box}
-    html{background:#242923}
-    body{margin:0;overflow-x:hidden}
+    html{background:#171d19}
+    body.about-page{margin:0;overflow-x:hidden;background:#171d19;color:#e8eee4;font-family:Inter,"Segoe UI",Arial,sans-serif}
     .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .anatomy-scroll{height:500vh;position:relative;background:#242923}
+    .about-intro{max-width:1200px;margin:auto;padding:clamp(110px,14vh,165px) 24px 105px;display:grid;grid-template-columns:104px minmax(0,1fr) 300px;align-items:center;gap:clamp(26px,4vw,64px);min-height:620px}
+    .about-side-title{align-self:start;color:#b9d4ab;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;line-height:1.1;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap}
+    .about-intro-copy{max-width:610px}
+    .about-intro-copy p{margin:0;color:#c5cfc2;font-size:clamp(1.1rem,2vw,1.55rem);line-height:1.65}
+    .about-intro-copy strong{color:#b9d4ab;font-weight:600}
+    .about-profile{width:min(100%,300px);aspect-ratio:1;justify-self:center;padding:14px;border:1px solid rgba(185,212,171,.5);border-radius:50%;box-shadow:0 0 0 13px rgba(185,212,171,.04),0 0 70px rgba(138,180,130,.12)}
+    .about-profile img{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%}
+    .anatomy-scroll{height:440vh;position:relative;background:#242923}
     .anatomy-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse 65% 56% at 50% 46%,#343b32 0%,#242923 76%)}
     .anatomy-stage:before{content:"";position:absolute;inset:0;background:url("./plate-thorax.webp") center 38%/cover no-repeat;opacity:.16;filter:grayscale(.4) brightness(.65);pointer-events:none}
     .anatomy-stage:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,24,20,.13),transparent 30%,transparent 70%,rgba(20,24,20,.13));pointer-events:none}
-    .anatomy-canvas{position:absolute;inset:0}
+    .anatomy-canvas{position:absolute;inset:0;cursor:grab}
+    .anatomy-canvas:active{cursor:grabbing}
     .anatomy-canvas canvas{display:block;width:100%;height:100%}
-    @media(max-width:700px){.anatomy-scroll{height:460vh}.anatomy-stage:before{background-size:auto 100%;opacity:.13}}
+    .about-page.anatomy-active .sylva-switcher-shell{opacity:0;pointer-events:none}
+    @media(max-width:850px){.about-intro{grid-template-columns:1fr;justify-items:center;gap:28px;padding:110px 28px 72px;min-height:0;text-align:center}.about-side-title{writing-mode:initial;transform:none;justify-self:center}.about-profile{grid-row:1;width:220px}.about-intro-copy{grid-row:3}.anatomy-scroll{height:420vh}.anatomy-stage:before{background-size:auto 100%;opacity:.13}}
+    @media(max-width:520px){.about-intro{padding-top:94px}.about-profile{width:186px}.about-intro-copy p{font-size:1rem}}
   </style>
 </head>
-<body>
+<body class="about-page">
   <main>
-    <h1 class="visually-hidden">About Manu</h1>
+    <section class="about-intro" aria-labelledby="about-title">
+      <h1 class="about-side-title" id="about-title">About Manu</h1>
+      <div class="about-intro-copy"><p><strong>Manu</strong> is an invitation to look closer. Explore the body, one anatomical layer at a time.</p></div>
+      <div class="about-profile"><img src="../inner-green-assets/card-ethos.jpg" alt="Moss growing among stones" width="300" height="300"></div>
+    </section>
     <section class="anatomy-scroll" aria-label="Anatomical body opening layer by layer as you scroll">
       <div class="anatomy-stage"><div class="anatomy-canvas" id="anatomy-canvas" aria-hidden="true"></div></div>
     </section>
   </main>
+  <footer class="footer-minimal footer-split"><div class="footer-container"><div class="footer-split-left"><span class="footer-copyright-line">&copy; <span data-current-year></span> Manu</span></div><span class="footer-split-spacer" aria-hidden="true"></span><div class="footer-split-right"><span class="footer-legal-inline"><a class="footer-legal-link" href="../privacy-policy/">Privacy Policy</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="../terms-of-use/">Terms of Use</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="../credits/">Credits</a></span></div></div></footer>
+  <script src="../assets/site-shell.js" defer></script>
   <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
   <script type="module">
     import * as THREE from 'three';
@@ -87,26 +104,11 @@
       Bursa: ['#a3b3b0', 0.36, 0.26],
       'Articular capsule': ['#ac9f88', 0.62, 0.34]
     };
-    const shellMaterial = new THREE.ShaderMaterial({
-      transparent: true,
-      depthWrite: false,
-      side: THREE.FrontSide,
-      uniforms: { opacity: { value: 0.72 } },
-      vertexShader: `varying vec3 normalWorld; varying vec3 viewWorld;
-        void main(){vec4 world=modelMatrix*vec4(position,1.0);normalWorld=normalize(mat3(modelMatrix)*normal);
-        viewWorld=normalize(cameraPosition-world.xyz);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`,
-      fragmentShader: `uniform float opacity; varying vec3 normalWorld; varying vec3 viewWorld;
-        void main(){float edge=pow(1.0-abs(dot(normalize(normalWorld),normalize(viewWorld))),2.4);
-        vec3 tint=vec3(0.54,0.65,0.73)+edge*0.35;
-        gl_FragColor=vec4(tint,(0.1+edge*0.9)*opacity);}`
-    });
-
-    const cameraPoints = [
-      [0, 0.2, 17.6], [3.4, 1.6, 8], [-4.6, 1.9, 8.6], [3, 2, 6.4], [0.78, 2.3, 3.05]
-    ];
-    const targetPoints = [
-      [0, -0.2, 0], [0, 1.4, 0], [0, 1.6, 0], [0, 1.9, 0], [0.13, 2.14, 0.06]
-    ];
+    const figure = new THREE.Group();
+    scene.add(figure);
+    let drag = null;
+    let rotationY = 0;
+    let rotationX = 0;
     const clamp = (value) => Math.max(0, Math.min(1, value));
     const smooth = (value, start, end) => {
       const x = clamp((value - start) / (end - start));
@@ -122,13 +124,18 @@
       if (!width || !height) return;
       renderer.setSize(width, height, false);
       camera.aspect = width / height;
+      const distance = width < 700 ? 12.5 : 9.8;
+      camera.position.set(0, 0.9, distance);
+      camera.lookAt(0, 0.9, 0);
       camera.updateProjectionMatrix();
     }
 
     function onScroll() {
-      const top = section.getBoundingClientRect().top;
+      const rect = section.getBoundingClientRect();
+      const top = rect.top;
       const length = Math.max(1, section.offsetHeight - window.innerHeight);
       scrollTarget = clamp(-top / length);
+      document.body.classList.toggle('anatomy-active', top <= 0 && rect.bottom > window.innerHeight * 0.5);
     }
 
     function styleLayer(root, kind) {
@@ -137,11 +144,6 @@
       root.traverse((mesh) => {
         if (!mesh.isMesh) return;
         mesh.frustumCulled = false;
-        if (kind === 'skin') {
-          mesh.material = shellMaterial;
-          mesh.renderOrder = 4;
-          return;
-        }
         const source = Array.isArray(mesh.material) ? mesh.material[0] : mesh.material;
         const material = source.clone();
         if (kind === 'muscle') {
@@ -190,41 +192,26 @@
       }
     }
 
-    function path(points, progress) {
-      const step = clamp(progress) * (points.length - 1);
-      const index = Math.min(Math.floor(step), points.length - 2);
-      const eased = smooth(step - index, 0, 1);
-      return new THREE.Vector3(...points[index]).lerp(new THREE.Vector3(...points[index + 1]), eased);
-    }
-
     function frame() {
       requestAnimationFrame(frame);
       if (!ready) return;
       scrollCurrent += (scrollTarget - scrollCurrent) * 0.12;
       const p = scrollCurrent;
-      const shellOpacity = 0.72 * (1 - smooth(p, 0.12, 0.26));
-      shellMaterial.uniforms.opacity.value = shellOpacity;
-      layers.skin.visible = shellOpacity > 0.01;
-      setOpacity('muscle', band(p, 0.18, 0.28, 0.34, 0.42));
-      const residualBone = 0.36 * smooth(p, 0.56, 0.66) * (1 - 0.62 * smooth(p, 0.8, 0.94));
-      setOpacity('skeleton', Math.max(band(p, 0.32, 0.42, 0.56, 0.66), residualBone));
-      setOpacity('vessels', smooth(p, 0.5, 0.62) * (1 - 0.6 * smooth(p, 0.8, 0.94)));
-      setOpacity('heart', smooth(p, 0.72, 0.8));
-      const cameraProgress = clamp((p - 0.1) / 0.8);
-      const target = path(targetPoints, cameraProgress);
-      const position = path(cameraPoints, cameraProgress);
-      if (camera.aspect < 0.8) position.sub(target).multiplyScalar(1.15).add(target);
-      camera.position.copy(position);
-      camera.lookAt(target);
+      setOpacity('muscle', 1 - smooth(p, 0.17, 0.35));
+      const residualBone = 0.34 * smooth(p, 0.58, 0.72) * (1 - 0.6 * smooth(p, 0.8, 0.95));
+      setOpacity('skeleton', Math.max(band(p, 0.18, 0.36, 0.59, 0.74), residualBone));
+      setOpacity('vessels', smooth(p, 0.48, 0.67) * (1 - 0.6 * smooth(p, 0.8, 0.95)));
+      setOpacity('heart', smooth(p, 0.75, 0.92));
+      figure.rotation.set(rotationX, rotationY, 0);
       renderer.render(scene, camera);
     }
 
     async function loadModels() {
-      const files = ['skin-shell', 'muscles', 'skeleton', 'vessels', 'heart'];
+      const files = ['muscles', 'skeleton', 'vessels', 'heart'];
       const results = await Promise.all(files.map((kind) => loader.loadAsync(`./models/${kind}.glb`)));
-      const skin = results[0].scene;
-      skin.updateMatrixWorld(true);
-      const bounds = new THREE.Box3().setFromObject(skin);
+      const muscle = results[0].scene;
+      muscle.updateMatrixWorld(true);
+      const bounds = new THREE.Box3().setFromObject(muscle);
       const size = bounds.getSize(new THREE.Vector3());
       const scale = 10 / size.y;
       const offset = new THREE.Vector3(
@@ -232,38 +219,56 @@
         -5.3 - bounds.min.y * scale,
         -(bounds.min.z + size.z / 2) * scale
       );
-      for (let index = 0; index < 4; index++) {
+      for (let index = 0; index < 3; index++) {
         const kind = files[index];
         const root = results[index].scene;
         if (kind === 'vessels') {
-          const vesselScale = 10 / 1719.5;
+          const vesselBounds = new THREE.Box3().setFromObject(root);
+          const skeletonBounds = new THREE.Box3().setFromObject(layers.skeleton);
+          const vesselScale = skeletonBounds.getSize(new THREE.Vector3()).y / vesselBounds.getSize(new THREE.Vector3()).y;
           root.scale.setScalar(vesselScale);
-          root.position.set(-(-334.1 + 666.9 / 2) * vesselScale, 78.1 * vesselScale - 5.3, -(-45.2 + 292 / 2) * vesselScale);
+          root.position.copy(skeletonBounds.getCenter(new THREE.Vector3())).addScaledVector(vesselBounds.getCenter(new THREE.Vector3()), -vesselScale);
         } else {
           root.scale.setScalar(scale);
           root.position.copy(offset);
         }
-        const layerName = kind === 'skin-shell' ? 'skin' : kind === 'muscles' ? 'muscle' : kind;
+        const layerName = kind === 'muscles' ? 'muscle' : kind;
         styleLayer(root, layerName);
         layers[layerName] = root;
-        scene.add(root);
+        figure.add(root);
       }
-      const heart = results[4].scene;
+      const heart = results[3].scene;
       const heartBounds = new THREE.Box3().setFromObject(heart);
       const heartSize = heartBounds.getSize(new THREE.Vector3());
       const heartCenter = heartBounds.getCenter(new THREE.Vector3());
       const heartScale = (231.8 * 10 / 1719.5) / Math.max(heartSize.x, heartSize.y, heartSize.z);
       heart.scale.setScalar(heartScale);
-      heart.position.set(-heartCenter.x * heartScale + 0.137, -heartCenter.y * heartScale + 2.154, -heartCenter.z * heartScale + 0.09);
+      heart.position.set(-heartCenter.x * heartScale + 0.137, -heartCenter.y * heartScale + 1.7, -heartCenter.z * heartScale - 0.08);
       styleLayer(heart, 'heart');
       layers.heart = heart;
-      scene.add(heart);
+      figure.add(heart);
       ready = true;
       host.dataset.ready = 'true';
     }
 
     resize();
     onScroll();
+    host.style.touchAction = 'pan-y';
+    host.addEventListener('pointerdown', (event) => {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+      drag = { id: event.pointerId, x: event.clientX, y: event.clientY };
+      host.setPointerCapture(event.pointerId);
+    });
+    host.addEventListener('pointermove', (event) => {
+      if (!drag || drag.id !== event.pointerId) return;
+      rotationY += (event.clientX - drag.x) * 0.008;
+      rotationX = Math.max(-0.35, Math.min(0.35, rotationX + (event.clientY - drag.y) * 0.004));
+      drag.x = event.clientX;
+      drag.y = event.clientY;
+    });
+    for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
+      host.addEventListener(type, () => { drag = null; });
+    }
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', resize, { passive: true });
     new ResizeObserver(resize).observe(host);
