@@ -14,9 +14,9 @@
 
   // Official Lucide SVG files kept locally so their color remains CSS-editable.
   var ICON_FILES = {
-    layers: '/manu/about/assets/icons/navigation/layers.svg',
-    newspaper: '/manu/about/assets/icons/navigation/newspaper.svg',
-    store: '/manu/about/assets/icons/navigation/store.svg'
+    layers: 'about/assets/icons/navigation/layers.svg',
+    newspaper: 'about/assets/icons/navigation/newspaper.svg',
+    store: 'about/assets/icons/navigation/store.svg'
   };
 
   var COPY = {
@@ -47,6 +47,39 @@
     navigationObserver: null
   };
 
+  function getSiteBase() {
+    if (document.documentElement.hasAttribute('data-site-base-local')) return '/';
+    var base = document.documentElement.getAttribute('data-site-base');
+    if (base) return normalizePath(base);
+
+    var path = window.location.pathname || '/';
+    var aboutIndex = path.lastIndexOf('/about/');
+    var localizedAboutIndex = path.lastIndexOf('/sobre/');
+    var aboutStart = Math.max(aboutIndex, localizedAboutIndex);
+    if (aboutStart >= 0) return normalizePath(path.slice(0, aboutStart + 1) || '/');
+
+    var blogIndex = path.lastIndexOf('/blog/');
+    if (blogIndex >= 0) return normalizePath(path.slice(0, blogIndex + 1) || '/');
+
+    var storeIndex = path.lastIndexOf('/store/');
+    if (storeIndex >= 0) return normalizePath(path.slice(0, storeIndex + 1) || '/');
+    return '/';
+  }
+
+  function addSiteBase(path) {
+    var route = normalizePath(path);
+    var base = getSiteBase();
+    if (base === '/') return route;
+    return normalizePath(base + route.replace(/^\//, ''));
+  }
+
+  function stripSiteBase(path) {
+    var normalized = normalizePath(path);
+    var base = getSiteBase();
+    if (base === '/' || normalized.indexOf(base) !== 0) return normalized;
+    return normalizePath('/' + normalized.slice(base.length));
+  }
+
   function normalizePath(path) {
     var normalized = String(path || '/').replace(/\/index\.html$/i, '/');
     if (normalized.charAt(0) !== '/') normalized = '/' + normalized;
@@ -59,7 +92,7 @@
       return window.PkLavcI18n.getCurrentLanguage();
     }
 
-    var path = normalizePath(window.location.pathname);
+    var path = stripSiteBase(normalizePath(window.location.pathname));
     if (/^\/blog\/(?:pt|es)\//.test(path) || /^\/store\/(?:pt|es)\//.test(path)) {
       return path.split('/')[2];
     }
@@ -72,27 +105,23 @@
       return window.PkLavcI18n.getLocalizedRoute(route, locale);
     }
 
-    if (route === '/') return locale === 'en' ? '/' : '/' + locale + '/';
-    if (route === '/blog/') return locale === 'en' ? '/blog/' : '/blog/' + locale + '/';
-    if (route === '/store/') return locale === 'en' ? '/store/' : '/store/' + locale + '/';
+    if (route === '/') return addSiteBase(locale === 'en' ? '/' : '/' + locale + '/');
+    if (route === '/blog/') return addSiteBase(locale === 'en' ? '/blog/' : '/blog/' + locale + '/');
+    if (route === '/store/') return addSiteBase(locale === 'en' ? '/store/' : '/store/' + locale + '/');
 
     var translated = {
       pt: { '/about/': '/pt/sobre/' },
       es: { '/about/': '/es/sobre/' }
     };
 
-    return locale === 'en' ? route : translated[locale][route];
+    return addSiteBase(locale === 'en' ? route : translated[locale][route]);
   }
 
   function getActiveIndex(path) {
-    var routePath = normalizePath(path);
+    var routePath = stripSiteBase(normalizePath(path));
     if (window.PkLavcI18n && typeof window.PkLavcI18n.getEnglishRoute === 'function') {
-      routePath = normalizePath(window.PkLavcI18n.getEnglishRoute(routePath));
-    } else {
-      var basePath = normalizePath(document.documentElement.getAttribute('data-site-base') || '/');
-      if (basePath !== '/' && routePath.indexOf(basePath) === 0) {
-        routePath = normalizePath('/' + routePath.slice(basePath.length));
-      }
+      routePath = normalizePath(window.PkLavcI18n.getEnglishRoute(addSiteBase(routePath)));
+      routePath = stripSiteBase(routePath);
     }
     if (document.documentElement.hasAttribute('data-blog-navigation') && routePath === '/') return 2;
     var section = routePath.split('/').filter(Boolean)[0] || '';
@@ -215,7 +244,7 @@
         var iconMask = document.createElement('span');
         iconMask.className = 'spotlight-navigation-icon spotlight-navigation-icon-mask';
         iconMask.setAttribute('aria-hidden', 'true');
-        iconMask.style.setProperty('--spotlight-icon-url', 'url("' + definition.iconFile + '")');
+        iconMask.style.setProperty('--spotlight-icon-url', 'url("' + addSiteBase('/' + definition.iconFile) + '")');
         control.appendChild(iconMask);
       } else {
         control.innerHTML = createIcon(definition.icon);

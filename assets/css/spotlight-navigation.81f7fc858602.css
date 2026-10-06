@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Bottom spotlight navigation.
  * Adapted for the static site from the Spotlight Button component by
  * Waleed Kibhen (21st.dev). Everything required to render it lives locally.
@@ -6,6 +6,8 @@
 
 :root {
     --spotlight-nav-accent: var(--clr-primary, #00d1ff);
+    --spotlight-nav-ink: #101010;
+    --spotlight-nav-surface: rgba(8, 8, 8, 0.96);
     --spotlight-nav-footer-space: calc(104px + env(safe-area-inset-bottom));
 }
 
@@ -33,12 +35,12 @@
     border-bottom: 0;
     border-radius: 14px 14px 0 0;
     background:
-        linear-gradient(180deg, rgba(8, 11, 18, 0.88), rgba(5, 7, 12, 0.94)) padding-box,
-        linear-gradient(110deg, rgba(0, 209, 255, 0.24), rgba(255, 255, 255, 0.07) 48%, rgba(255, 42, 170, 0.16)) border-box;
+        linear-gradient(180deg, rgba(16, 16, 16, 0.97), rgba(8, 8, 8, 0.98)) padding-box,
+        linear-gradient(110deg, rgba(0, 209, 255, 0.34), rgba(255, 255, 255, 0.1) 52%, rgba(0, 168, 204, 0.24)) border-box;
     box-shadow:
-        0 -10px 32px rgba(5, 7, 12, 0.2),
-        0 0 28px rgba(0, 209, 255, 0.045),
-        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+        0 -10px 32px rgba(0, 0, 0, 0.38),
+        0 0 24px rgba(0, 209, 255, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
     -webkit-backdrop-filter: blur(18px) saturate(1.12);
     backdrop-filter: blur(18px) saturate(1.12);
     isolation: isolate;
@@ -293,8 +295,8 @@ body.spotlight-navigation-enabled footer {
 body.page-index.spotlight-navigation-enabled .footer-minimal {
     border-top-color: rgba(0, 209, 255, 0.07);
     background:
-        radial-gradient(circle at 72% 0%, rgba(255, 42, 170, 0.055), transparent 36%),
-        linear-gradient(135deg, #06080f 0%, #090b14 58%, #120717 100%);
+        radial-gradient(circle at 72% 0%, rgba(0, 209, 255, 0.035), transparent 36%),
+        linear-gradient(135deg, #080808 0%, #101010 58%, #080808 100%);
 }
 
 /* Keep the Skylet launcher clear of the centered navigation on compact screens. */
@@ -376,3 +378,20 @@ body.page-index.spotlight-navigation-enabled .footer-minimal {
         max-height: calc(100vh - var(--spotlight-nav-footer-space) - 174px);
     }
 }
+
+/* Main-site palette: near-black surfaces and the home page cyan accent. */
+.spotlight-navigation-shell { bottom: 0; }
+.spotlight-navigation {
+    border-radius: 14px 14px 0 0;
+    background:
+      linear-gradient(180deg, rgba(23, 23, 23, 0.98), rgba(8, 8, 8, 0.98)) padding-box,
+      linear-gradient(110deg, rgba(0, 209, 255, 0.38), rgba(255, 255, 255, 0.1) 55%, rgba(0, 168, 204, 0.28)) border-box;
+    box-shadow: 0 -12px 36px rgba(0,0,0,.44), 0 0 26px rgba(0,209,255,.055), inset 0 1px 0 rgba(255,255,255,.055);
+}
+.spotlight-navigation-item,
+button.spotlight-navigation-item { color: #aaa !important; }
+.spotlight-navigation-item:hover { color: #f5f5f5; }
+.spotlight-navigation-item.is-presented,
+button.spotlight-navigation-item.is-presented,
+.spotlight-navigation-item.is-presented .spotlight-navigation-label { color: #00d1ff !important; }
+.spotlight-navigation-language-menu { background: #171717; }

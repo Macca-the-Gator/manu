@@ -1136,33 +1136,39 @@ function loadSkyletWidgetAssets() {
 
 // Spotlight navigation is the sole site navigation.
 function loadSpotlightNavigationAssets() {
-  function loadScript() {
-    if (document.getElementById('spotlight-navigation-script')) {
-      return;
-    }
+  var scriptId = 'spotlight-navigation-script';
+  var styleId = 'spotlight-navigation-style';
+  var localServer = /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname);
+  var siteBase = localServer ? '/' : (document.documentElement.getAttribute('data-site-base') || '/');
+  var base = siteBase.replace(/\/$/, '');
 
+  function sitePath(path) {
+    return (base || '') + '/' + path.replace(/^\//, '');
+  }
+
+  function loadScript() {
+    if (document.getElementById(scriptId)) return;
     var script = document.createElement('script');
-    script.id = 'spotlight-navigation-script';
-    script.src = '/manu/about/js/spotlight-navigation.js?v=20261001j';
+    script.id = scriptId;
+    script.src = sitePath('about/js/spotlight-navigation.js?v=20261006-local-base');
     script.defer = true;
     document.body.appendChild(script);
   }
 
-  var existingStyle = document.getElementById('spotlight-navigation-style');
-
-  if (!existingStyle) {
-    var link = document.createElement('link');
-    link.id = 'spotlight-navigation-style';
-    link.rel = 'stylesheet';
-    link.href = '/manu/assets/css/spotlight-navigation.81f7fc858602.css';
-    link.addEventListener('load', loadScript, { once: true });
-    document.head.appendChild(link);
+  var style = document.getElementById(styleId);
+  if (!style) {
+    style = document.createElement('link');
+    style.id = styleId;
+    style.rel = 'stylesheet';
+    style.href = sitePath('assets/css/spotlight-navigation.81f7fc858602.css');
+    style.addEventListener('load', loadScript, { once: true });
+    style.addEventListener('error', loadScript, { once: true });
+    document.head.appendChild(style);
     return;
   }
 
   loadScript();
 }
-
 
 function isStoreRoute() {
   var path = String(window.location.pathname || '/').replace(/\/index\.html$/i, '/');
