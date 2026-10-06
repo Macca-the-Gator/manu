@@ -14,25 +14,25 @@
 
   // Official Lucide SVG files kept locally so their color remains CSS-editable.
   var ICON_FILES = {
-    layers: '/manu/about/assets/icons/navigation/layers.svg',
-    newspaper: '/manu/about/assets/icons/navigation/newspaper.svg',
-    store: '/manu/about/assets/icons/navigation/store.svg'
+    layers: '/manu/blog/assets/icons/navigation/layers.svg?v=8f85ce6ea6',
+    newspaper: '/manu/blog/assets/icons/navigation/newspaper.svg?v=54da9f962f',
+    store: '/manu/blog/assets/icons/navigation/store.svg?v=d14f2efa30'
   };
 
   var COPY = {
     en: {
       navigation: 'Primary navigation',
-      items: ['Home', 'About', 'Blog', 'Store', 'Language'],
+      items: ['Home', 'About', 'Projects', 'Blog', 'Store', 'Language'],
       languageMenu: 'Choose language'
     },
     pt: {
       navigation: 'Navega\u00e7\u00e3o principal',
-      items: ['In\u00edcio', 'Sobre', 'Blog', 'Loja', 'Idioma'],
+      items: ['In\u00edcio', 'Sobre', 'Projetos', 'Blog', 'Loja', 'Idioma'],
       languageMenu: 'Escolher idioma'
     },
     es: {
       navigation: 'Navegaci\u00f3n principal',
-      items: ['Inicio', 'Sobre', 'Blog', 'Tienda', 'Idioma'],
+      items: ['Inicio', 'Sobre', 'Proyectos', 'Blog', 'Tienda', 'Idioma'],
       languageMenu: 'Elegir idioma'
     }
   };
@@ -73,31 +73,27 @@
     }
 
     if (route === '/') return locale === 'en' ? '/' : '/' + locale + '/';
-    if (route === '/blog/') return locale === 'en' ? '/blog/' : '/blog/' + locale + '/';
-    if (route === '/store/') return locale === 'en' ? '/store/' : '/store/' + locale + '/';
+    if (route === '/manu/blog/') return locale === 'en' ? '/manu/blog/' : '/manu/blog/' + locale + '/';
+    if (route === '/manu/store/') return locale === 'en' ? '/manu/store/' : '/manu/store/' + locale + '/';
 
     var translated = {
-      pt: { '/about/': '/pt/sobre/' },
-      es: { '/about/': '/es/sobre/' }
+      pt: { '/manu/about/': '/pt/sobre/', 'https://pklavc.com/projects/': '/pt/projetos/' },
+      es: { '/manu/about/': '/es/sobre/', 'https://pklavc.com/projects/': '/es/proyectos/' }
     };
 
     return locale === 'en' ? route : translated[locale][route];
   }
 
   function getActiveIndex(path) {
-    var routePath = normalizePath(path);
-    if (window.PkLavcI18n && typeof window.PkLavcI18n.getEnglishRoute === 'function') {
-      routePath = normalizePath(window.PkLavcI18n.getEnglishRoute(routePath));
-    } else {
-      var basePath = normalizePath(document.documentElement.getAttribute('data-site-base') || '/');
-      if (basePath !== '/' && routePath.indexOf(basePath) === 0) {
-        routePath = normalizePath('/' + routePath.slice(basePath.length));
-      }
-    }
-    if (document.documentElement.hasAttribute('data-blog-navigation') && routePath === '/') return 2;
-    var section = routePath.split('/').filter(Boolean)[0] || '';
-    if (section === 'blog') return 2;
-    if (section === 'store') return 3;
+    var normalized = normalizePath(path);
+    var parts = normalized.split('/').filter(Boolean);
+    var first = parts[0] || '';
+    if (document.documentElement.hasAttribute('data-blog-navigation') && (first === '' || first === 'en' || first === 'pt' || first === 'es')) return 3;
+    var section = first === 'pt' || first === 'es' ? (parts[1] || '') : first;
+
+    if (first === 'blog' || section === 'blog') return 3;
+    if (first === 'store' || section === 'store') return 4;
+    if (['projects', 'projetos', 'proyectos', 'collections', 'colecoes', 'colecciones', 'stacks'].indexOf(section) !== -1) return 2;
     if (['about', 'sobre', 'resume', 'uses', 'now', 'certifications', 'visitors', 'visitantes'].indexOf(section) !== -1) return 1;
     return 0;
   }
@@ -149,7 +145,6 @@
 
     nav.style.setProperty('--spotlight-indicator-left', indicatorLeft + 'px');
     nav.style.setProperty('--spotlight-indicator-width', indicatorWidth + 'px');
-    nav.style.setProperty('--spotlight-item-left', (itemRect.left - navRect.left) + 'px');
   }
 
   function setPresentedItem(nav, items, presentedIndex, animate) {
@@ -180,9 +175,10 @@
     var activeIndex = getActiveIndex(window.location.pathname);
     var definitions = [
       { icon: ICONS.home, route: '/' },
-      { icon: ICONS.user, route: '/about/' },
-      { iconFile: ICON_FILES.newspaper, route: '/blog/' },
-      { iconFile: ICON_FILES.store, route: '/store/' },
+      { icon: ICONS.user, route: '/manu/about/' },
+      { iconFile: ICON_FILES.layers, route: 'https://pklavc.com/projects/' },
+      { iconFile: ICON_FILES.newspaper, route: '/manu/blog/' },
+      { iconFile: ICON_FILES.store, route: '/manu/store/' },
       { icon: ICONS.settings, action: 'language' }
     ];
     var shell = document.createElement('div');

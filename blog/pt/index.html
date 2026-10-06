@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html data-site-base="/manu/" lang="pt-BR" data-blog-navigation>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Patrick Araujo">
+    <title>Blog de Engenharia | Agentes de IA, automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de backend, APIs e design de sistema - Patrick Araujo</title>
+    <meta name="description" content="Blog t�f�'�?�?T�f�?s�,©cnico que cobre engenharia de agentes de IA, automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de backend, integra�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes de APIs, arquitetura SaaS, software automotivo e design de sistema escalon�f�'�?�?T�f�?s�,¡vel. Escrito por Patrick Araujo a partir de experi�f�'�?�?T�f�?s�,ªncia real de produ�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o.">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="engenharia de backend, agentes de IA, arquitetura de automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o, integra�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes de APIs, backend SaaS, design de sistema, protocolo MCP, Claude Code, agentes de codifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o aut�f�'�?�?T�f�?s�,´nomos, fluxos de trabalho multiagentes">
+    <link rel="canonical" href="https://pklavc.com/blog/pt/">
+    <link rel="alternate" href="https://pklavc.com/blog/" hreflang="en">
+    <link rel="alternate" href="https://pklavc.com/blog/pt/" hreflang="pt-BR">
+    <link rel="alternate" href="https://pklavc.com/blog/es/" hreflang="es">
+    <link rel="alternate" href="https://pklavc.com/blog/" hreflang="x-default">
+
+
+
+<meta property="og:title" content="Blog de Engenharia | Agentes de IA, automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de backend e design de sistemas">
+    <meta property="og:description" content="Artigos t�f�'�?�?T�f�?s�,©cnicos sobre engenharia de agentes de IA, automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de backend, integra�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes de APIs, arquitetura de plataforma SaaS e sistemas escalon�f�'�?�?T�f�?s�,¡veis por Patrick Araujo.">
+    <meta property="og:url" content="https://pklavc.com/blog/pt/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://pklavc.com/blog/assets/manu/blog/images/brand/lavc.webp?v=5e84850f26">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Patrick Araujo">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:image:alt" content="Retrato da marca do engenheiro de backend e especialista em automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o Patrick Araujo">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog de Engenharia | Agentes de IA, automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de backend e design de sistemas">
+    <meta name="twitter:description" content="Artigos t�f�'�?�?T�f�?s�,©cnicos sobre fluxos de trabalho de agentes de IA, sistemas de automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o, engenharia de integra�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de APIs, padr�f�'�?�?T�f�?s�,µes de backend SaaS e arquitetura de sistema escalon�f�'�?�?T�f�?s�,¡vel.">
+    <meta name="twitter:image" content="https://pklavc.com/blog/assets/manu/blog/images/brand/lavc.webp?v=5e84850f26">
+    <meta name="twitter:image:alt" content="Retrato da marca do engenheiro de backend e especialista em automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o Patrick Araujo">
+    <meta name="twitter:site" content="@PkLavc">
+    <meta name="twitter:creator" content="@PkLavc">
+    <link rel="icon" type="image/svg+xml" href="/manu/blog/assets/favicon.svg?v=d15fe4e492">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Monoton&amp;family=Poppins:wght@500;600;700&amp;family=Raleway:wght@300&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Monoton&amp;family=Poppins:wght@500;600;700&amp;family=Raleway:wght@300&amp;display=swap"></noscript>
+    <link rel="stylesheet" href="/manu/blog/assets/css/global.css?v=1d91cf360c">
+    <link rel="stylesheet" href="/manu/blog/assets/css/blog.css?v=804d631dbb">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Blog",
+                "@id": "https://pklavc.com/blog/pt/#blog/",
+                "url": "https://pklavc.com/blog/pt/",
+                "name": "Blog de Engenharia de Patrick Araujo",
+                "description": "Artigos t�f�'�?�?T�f�?s�,©cnicos sobre engenharia backend, fluxos de automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o, integra�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes de APIs e arquitetura de sistemas escal�f�'�?�?T�f�?s�,¡veis.",
+                "publisher": {
+                    "@id": "https://pklavc.com/#person"
+                },
+                "blogPost": [
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "�f�'�?�?T�f�?s�,ndia como polo de desenvolvimento e servi�f�'�?�?T�f�?s�,§os de IA: engenharia distribu�f�'�?�?T�f�?s�,­da",
+                        "url": "https://pklavc.com/blog/pt/india-developer-ai-services-hub/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Data centers de IA na �f�'�?�?T�f�?s�,sia: energia, �f�'�?�?T�f�?s�,¡gua, lat�f�'�?�?T�f�?s�,ªncia e estrat�f�'�?�?T�f�?s�,©gia",
+                        "url": "https://pklavc.com/blog/pt/ai-data-centers-asia-power-water-latency/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Semicondutores na �f�'�?�?T�f�?s�,sia-Pac�f�'�?�?T�f�?s�,­fico: o backend por tr�f�'�?�?T�f�?s�,¡s do hardware de IA",
+                        "url": "https://pklavc.com/blog/pt/apac-semiconductors-backend-story-ai-hardware/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Transpar�f�'�?�?T�f�?s�,ªncia de IA: rotulagem de conte�f�'�?�?T�f�?s�,ºdo em fluxos de produto",
+                        "url": "https://pklavc.com/blog/pt/ai-transparency-generated-content-product-workflows/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Cidades inteligentes e telemetria que preserva a privacidade",
+                        "url": "https://pklavc.com/blog/pt/smart-cities-privacy-preserving-telemetry/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Sustentabilidade do open source na Europa: mantendo as depend�f�'�?�?T�f�?s�,ªncias cr�f�'�?�?T�f�?s�,­ticas",
+                        "url": "https://pklavc.com/blog/pt/europe-open-source-sustainability/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "IA na sa�f�'�?�?T�f�?s�,ºde: um pipeline de conformidade do dado ao monitoramento cl�f�'�?�?T�f�?s�,­nico",
+                        "url": "https://pklavc.com/blog/pt/healthcare-ai-compliance-pipelines/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Trem de alta velocidade como estudo de caso de sistemas distribu�f�'�?�?T�f�?s�,­dos",
+                        "url": "https://pklavc.com/blog/pt/high-speed-rail-distributed-systems/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "APIs Telecom Open Gateway na Europa",
+                        "url": "https://pklavc.com/blog/pt/telecom-open-gateway-apis-europe/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "DORA para engenharia backend no setor financeiro",
+                        "url": "https://pklavc.com/blog/pt/dora-backend-engineers-financial-resilience/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Carteiras europeias de identidade digital e credenciais verific�f�'�?�?T�f�?s�,¡veis",
+                        "url": "https://pklavc.com/blog/pt/eu-digital-identity-wallets-verifiable-credentials/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Migra�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o p�f�'�?�?T�f�?s�,³s-qu�f�'�?�?T�f�?s�,¢ntica em sistemas regulados europeus",
+                        "url": "https://pklavc.com/blog/pt/post-quantum-migration-regulated-european-systems/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "IA industrial, rob�f�'�?�?T�f�?s�,³tica e sistemas de alto risco",
+                        "url": "https://pklavc.com/blog/pt/industrial-ai-robotics-high-risk-systems/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Arquitetura de software consciente de energia",
+                        "url": "https://pklavc.com/blog/pt/energy-aware-software-architecture/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Cyber Resilience Act para mantenedores de c�f�'�?�?T�f�?s�,³digo aberto",
+                        "url": "https://pklavc.com/blog/pt/cyber-resilience-act-open-source-maintainers/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Passaporte Digital de Produto: engenharia para rastreabilidade da cadeia",
+                        "url": "https://pklavc.com/blog/pt/digital-product-passports-supply-chain-traceability/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "GDPR para agentes de IA: minimize dados pessoais em mem�f�'�?�?T�f�?s�,³ria, ferramentas e logs",
+                        "url": "https://pklavc.com/blog/pt/gdpr-ai-agents-data-minimization/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "EURO-3C e a federa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o telco-edge-cloud: arquitetura na pr�f�'�?�?T�f�?s�,¡tica",
+                        "url": "https://pklavc.com/blog/pt/federated-telco-edge-cloud-infrastructure-europe/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "A D�f�'�?�?T�f�?s�,©cada Digital Europeia: das lacunas em IA, cloud e chips ao trabalho de engenharia",
+                        "url": "https://pklavc.com/blog/pt/european-digital-decade-ai-cloud-cybersecurity/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Cloud soberana e geopatria�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o: guia para posicionar workloads",
+                        "url": "https://pklavc.com/blog/pt/sovereign-cloud-geopatriation-workload-location/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "NIS2 para desenvolvedores: transformando regula�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o em requisitos de backend",
+                        "url": "https://pklavc.com/blog/pt/nis2-developer-backend-requirements/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "O EU AI Act como problema de arquitetura de software",
+                        "url": "https://pklavc.com/blog/pt/eu-ai-act-software-architecture-problem/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Construindo APIs confi�f�'�?�?T�f�?s�,¡veis para redes de alta vari�f�'�?�?T�f�?s�,¢ncia",
+                        "url": "https://pklavc.com/blog/pt/reliable-apis-high-variance-networks/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de servi�f�'�?�?T�f�?s�,§o de campo para infraestrutura de conectividade",
+                        "url": "https://pklavc.com/blog/pt/field-service-automation-connectivity-infrastructure/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "IA para monitoramento da biodiversidade: c�f�'�?�?T�f�?s�,¢meras, sensores e pipelines cloud",
+                        "url": "https://pklavc.com/blog/pt/ai-biodiversity-monitoring-cameras-sensors-cloud/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Regi�f�'�?�?T�f�?s�,µes de nuvem, resid�f�'�?�?T�f�?s�,ªncia de dados e lat�f�'�?�?T�f�?s�,ªncia na Am�f�'�?�?T�f�?s�,©rica Latina",
+                        "url": "https://pklavc.com/blog/pt/cloud-regions-data-residency-latency-latin-america/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Servi�f�'�?�?T�f�?s�,§os p�f�'�?�?T�f�?s�,ºblicos digitais e APIs GovTech na Am�f�'�?�?T�f�?s�,©rica Latina",
+                        "url": "https://pklavc.com/blog/pt/digital-public-services-govtech-apis-latam/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Grafos antifraude para fintechs regionais",
+                        "url": "https://pklavc.com/blog/pt/anti-fraud-graphs-regional-fintech/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Minera�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o inteligente e telemetria industrial na Am�f�'�?�?T�f�?s�,©rica Latina",
+                        "url": "https://pklavc.com/blog/pt/smart-mining-industrial-telemetry-latin-america/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "IoT agr�f�'�?�?T�f�?s�,­cola com ESP32: sensores de solo, irriga�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o e alertas preditivos",
+                        "url": "https://pklavc.com/blog/pt/agricultural-iot-esp32-soil-irrigation-alerts/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Bots de suporte com IA em espanhol, portugu�f�'�?�?T�f�?s�,ªs e ingl�f�'�?�?T�f�?s�,ªs",
+                        "url": "https://pklavc.com/blog/pt/multilingual-ai-support-bots-latam/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Engenharia nearshore: APIs entre times dos EUA e Am�f�'�?�?T�f�?s�,©rica Latina",
+                        "url": "https://pklavc.com/blog/pt/nearshore-engineering-api-design-us-latam/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Integra�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de ERP na Am�f�'�?�?T�f�?s�,©rica Latina: Omie, SIGE, Zoho, Sheets e SQL",
+                        "url": "https://pklavc.com/blog/pt/erp-integration-latin-america-omie-sige-zoho-sql/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Observabilidade de baixo custo para PMEs latino-americanas",
+                        "url": "https://pklavc.com/blog/pt/low-cost-observability-latin-american-smes/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Pix, Open Finance e pipelines de concilia�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o no Brasil",
+                        "url": "https://pklavc.com/blog/pt/pix-open-finance-reconciliation-pipelines/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de vendas no WhatsApp: CRM, pagamentos, log�f�'�?�?T�f�?s�,­stica e handoff",
+                        "url": "https://pklavc.com/blog/pt/whatsapp-commerce-automation-crm-payments-logistics/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Satellite direct-to-device e backend resiliente",
+                        "url": "https://pklavc.com/blog/pt/satellite-direct-to-device-resilient-backend-design/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "IA no atendimento de telecom: de chamadas �f�'�?�?T�f�?s�,  resolu�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o",
+                        "url": "https://pklavc.com/blog/pt/ai-customer-care-telecom-call-logs-resolution/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "A oportunidade de 5G e IA no Brasil para desenvolvedores",
+                        "url": "https://pklavc.com/blog/pt/brazil-5g-ai-developer-opportunity/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "A lacuna de uso de 32%: sistemas offline-first",
+                        "url": "https://pklavc.com/blog/pt/offline-first-systems-mobile-internet-gaps/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Confian�f�'�?�?T�f�?s�,§a digital na Am�f�'�?�?T�f�?s�,©rica Latina: fraude, identidade e APIs de pagamento",
+                        "url": "https://pklavc.com/blog/pt/latin-america-digital-trust-fraud-identity-payment-apis/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Arquitetura 5G na Am�f�'�?�?T�f�?s�,©rica Latina: da cobertura aos casos empresariais",
+                        "url": "https://pklavc.com/blog/pt/latin-america-5g-enterprise-architecture/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "LLMs locais seguros para workflows sens�f�'�?�?T�f�?s�,­veis de desenvolvimento",
+                        "url": "https://pklavc.com/blog/pt/secure-local-llms-sensitive-development/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Pipelines de avalia�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de modelos para equipes de produto",
+                        "url": "https://pklavc.com/blog/pt/model-evaluation-pipelines-product-teams/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Energia de data centers como restri�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de arquitetura de software",
+                        "url": "https://pklavc.com/blog/pt/data-center-energy-software-architecture/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Runbooks de resposta a incidentes assistidos por IA",
+                        "url": "https://pklavc.com/blog/pt/ai-assisted-incident-response-runbooks/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Quando o API gateway vira um agent gateway",
+                        "url": "https://pklavc.com/blog/pt/api-gateway-agent-gateway/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Proveni�f�'�?�?T�f�?s�,ªncia de dados para sistemas RAG",
+                        "url": "https://pklavc.com/blog/pt/data-provenance-rag-systems/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Confidential computing para dados de SaaS multi-tenant",
+                        "url": "https://pklavc.com/blog/pt/confidential-computing-multi-tenant-saas/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Agentes de IA em pain�f�'�?�?T�f�?s�,©is administrativos de SaaS",
+                        "url": "https://pklavc.com/blog/pt/ai-agents-saas-admin-panels/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "IA f�f�'�?�?T�f�?s�,­sica em armaz�f�'�?�?T�f�?s�,©ns e rob�f�'�?�?T�f�?s�,³tica: o backend por tr�f�'�?�?T�f�?s�,¡s de m�f�'�?�?T�f�?s�,¡quinas aut�f�'�?�?T�f�?s�,´nomas",
+                        "url": "https://pklavc.com/blog/pt/physical-ai-robotics-backend-systems/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Prepara�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o p�f�'�?�?T�f�?s�,³s-qu�f�'�?�?T�f�?s�,¢ntica para engenheiros backend",
+                        "url": "https://pklavc.com/blog/pt/post-quantum-readiness-backend-engineers/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Proveni�f�'�?�?T�f�?s�,ªncia da software supply chain para pull requests gerados por IA",
+                        "url": "https://pklavc.com/blog/pt/software-supply-chain-provenance-ai-prs/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Plataformas de seguran�f�'�?�?T�f�?s�,§a de IA: de ferramentas dispersas a um control plane",
+                        "url": "https://pklavc.com/blog/pt/ai-security-platform-control-plane/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Ciberseguran�f�'�?�?T�f�?s�,§a preemptiva: detectando risco antes do ticket de incidente",
+                        "url": "https://pklavc.com/blog/pt/preemptive-cybersecurity-detection-pipelines/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Observabilidade de custos cloud para workloads de IA",
+                        "url": "https://pklavc.com/blog/pt/cloud-cost-observability-ai-workloads/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Engenharia de custos de compute para IA: tokens, GPUs, caches e backpressure",
+                        "url": "https://pklavc.com/blog/pt/ai-compute-cost-engineering/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "TypeScript, Python e gera�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de c�f�'�?�?T�f�?s�,³digo por IA: onde cada um se encaixa",
+                        "url": "https://pklavc.com/blog/pt/typescript-python-ai-code-generation/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Plataformas de desenvolvimento AI-native: o pipeline CI/CD depois dos coding agents",
+                        "url": "https://pklavc.com/blog/pt/ai-native-development-platforms-ci-cd/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Identidade n�f�'�?�?T�f�?s�,£o humana: service accounts, agentes, bots e trilhas de auditoria",
+                        "url": "https://pklavc.com/blog/pt/non-human-identity-agents-bots-audit-trails/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Seguran�f�'�?�?T�f�?s�,§a de agentes de IA: por que prompt injection �f�'�?�?T�f�?s�,© um problema de autoriza�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o",
+                        "url": "https://pklavc.com/blog/pt/prompt-injection-authorization-problem/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Padr�f�'�?�?T�f�?s�,µes para agentes de IA e a nova fronteira backend",
+                        "url": "https://pklavc.com/blog/pt/ai-agent-standards-backend-boundary/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "A camada de API para agentes de IA: MCP, OpenAPI, webhooks e ferramentas permissionadas",
+                        "url": "https://pklavc.com/blog/pt/api-layer-for-ai-agents-mcp-openapi-webhooks/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "AI SOC Automation: de filas de alerta a pipelines de resposta aprovados por humanos",
+                        "url": "https://pklavc.com/blog/pt/ai-soc-automation-human-approved-response/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Proveni�f�'�?�?T�f�?s�,ªncia digital, SBOMs e c�f�'�?�?T�f�?s�,³digo gerado por IA assinado",
+                        "url": "https://pklavc.com/blog/pt/digital-provenance-sboms-signed-ai-code/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Confidential computing para pipelines de IA: protegendo dados em uso",
+                        "url": "https://pklavc.com/blog/pt/confidential-computing-ai-pipelines/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Infraestrutura de IA na APAC: semicondutores, data centers e supply chain de software",
+                        "url": "https://pklavc.com/blog/pt/apac-ai-infrastructure-semiconductors-data-centers/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "O stack de 5G, IA e confian�f�'�?�?T�f�?s�,§a digital da Am�f�'�?�?T�f�?s�,©rica Latina",
+                        "url": "https://pklavc.com/blog/pt/latin-america-5g-ai-digital-trust-stack/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "EU AI Act para builders: transformando regula�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o em requisitos de engenharia",
+                        "url": "https://pklavc.com/blog/pt/eu-ai-act-engineering-requirements/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "TypeScript, IA para c�f�'�?�?T�f�?s�,³digo e confiabilidade backend: por que tipos viraram gate de produ�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o",
+                        "url": "https://pklavc.com/blog/pt/typescript-ai-coding-backend-reliability/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Kubernetes como sistema operacional para cargas de IA: GPUs, model serving, observabilidade e platform engineering",
+                        "url": "https://pklavc.com/blog/pt/kubernetes-ai-workload-operating-system/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Pipeline de telemetria com ESP32: MQTT, Cloudflare Workers, Supabase, SQL e dashboards",
+                        "url": "https://pklavc.com/blog/pt/esp32-telemetry-pipeline-mqtt-workers-supabase/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Protegendo agentes de IA contra prompt injection, abuso de ferramentas e privil�f�'�?�?T�f�?s�,©gio excessivo",
+                        "url": "https://pklavc.com/blog/pt/securing-ai-agents-prompt-injection-tool-abuse/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Identidade e autoriza�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o para agentes de IA: OAuth para workers n�f�'�?�?T�f�?s�,£o humanos",
+                        "url": "https://pklavc.com/blog/pt/ai-agent-identity-authorization-oauth/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Ferrari Luce and the Software Layer: Embedded Systems, Telemetry, OTA, AI, and Cloud Integration",
+                        "url": "https://pklavc.com/blog/pt/ferrari-luce-embedded-software-telemetry-ota/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Ferrari Luce: ECUs, Sensors, CAN/Ethernet Networks, Embedded Computing, Edge Computing, and Real-Time Systems",
+                        "url": "https://pklavc.com/blog/pt/ferrari-luce-ecus-sensors-can-ethernet-realtime/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Ferrari Luce: Critical Systems, Low Latency, Fault Tolerance, OTA Safety, and Embedded Observability",
+                        "url": "https://pklavc.com/blog/pt/ferrari-luce-critical-systems-fault-tolerance-observability/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "The Probable Software Stack of an Electric Ferrari: Linux, RTOS, C/C++, Rust, Telemetry, and Edge AI",
+                        "url": "https://pklavc.com/blog/pt/ferrari-luce-electric-software-stack-speculation/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Software That Controls an Electric Ferrari: Torque, Traction, Regeneration, Power Distribution, Suspension, and Driving Modes",
+                        "url": "https://pklavc.com/blog/pt/ferrari-luce-software-defined-vehicle-dynamics/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Software Recalls, OTA Failures, Cybersecurity, Hackable Cars, and Digital Dependence in Modern Vehicles",
+                        "url": "https://pklavc.com/blog/pt/ferrari-luce-software-recalls-cybersecurity-risks/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Autonomous Coding Agents: How Claude Code, Codex, and Cursor Are Changing Engineering",
+                        "url": "https://pklavc.com/blog/pt/autonomous-coding-agents/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "MCP �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�, Model Context Protocol: The Standard Interface for AI Agent Tooling",
+                        "url": "https://pklavc.com/blog/pt/model-context-protocol-mcp/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Spec-Driven Development: Writing Specifications That Machines and Humans Can Execute",
+                        "url": "https://pklavc.com/blog/pt/spec-driven-development/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Vibe Coding vs Real Engineering: Why the Hype Fails in Production",
+                        "url": "https://pklavc.com/blog/pt/vibe-coding-vs-real-engineering/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Multi-AI Workflows: Orchestrating Multiple Agents in Real Engineering",
+                        "url": "https://pklavc.com/blog/pt/multi-ai-workflows/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "AI-Native Engineering: Building Systems That Assume AI Agent Participation",
+                        "url": "https://pklavc.com/blog/pt/ai-native-engineering/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Governance and Security for AI-Generated Code: Protecting Production from Agent Output",
+                        "url": "https://pklavc.com/blog/pt/ai-code-governance-security/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Building Lavc Systems: Architecture of a Local Multi-Agent AI Platform",
+                        "url": "https://pklavc.com/blog/pt/lavc-systems-architecture/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "API Integration with Hablla, Zoho, SIGE and Zenvia: GitHub Actions and Supabase",
+                        "url": "https://pklavc.com/blog/pt/raw-api-ingestion-supabase-sql/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Backend Automation Systems: How to Reduce Manual Operations Without Breaking Reliability",
+                        "url": "https://pklavc.com/blog/pt/backend-automation-systems/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Multi-Tenant SaaS Architecture: Patterns for Secure and Scalable APIs",
+                        "url": "https://pklavc.com/blog/pt/multi-tenant-saas-architecture/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Event-Driven API Integrations: Designing for Retries, Idempotency, and Traceability",
+                        "url": "https://pklavc.com/blog/pt/event-driven-api-integrations/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "OAuth Token Management in Backend Workers: Secure Credential Flow for API Integrations",
+                        "url": "https://pklavc.com/blog/pt/oauth-token-management/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "zero-trust API Proxy Design: AES-256 Encryption and PII Detection in Python",
+                        "url": "https://pklavc.com/blog/pt/api-proxy-security-design/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "ETL Pipelines in API Integration Workers: Data Extraction, Normalization, and Sync",
+                        "url": "https://pklavc.com/blog/pt/integration-worker-etl-pipelines/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Monorepo Architecture for Backend APIs: CI Workflows and Code Execution at Scale",
+                        "url": "https://pklavc.com/blog/pt/monorepo-backend-architecture/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Infrastructure Anomaly Detection and Self-Healing Backends in Python",
+                        "url": "https://pklavc.com/blog/pt/infrastructure-anomaly-detection/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Cloud Deployment Patterns: Container Orchestration, CI/CD, and Infrastructure as Code",
+                        "url": "https://pklavc.com/blog/pt/cloud-deployment-patterns/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "UX Analysis: How the GTA VI Official Website Builds Hype Through Motion and Storytelling",
+                        "url": "https://pklavc.com/blog/pt/gta-vi-website-ux-analysis/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Web Performance for Immersive Marketing Sites: How to Keep Heavy Experiences Fluid",
+                        "url": "https://pklavc.com/blog/pt/web-performance-immersive-marketing/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Data Engineering for Game Marketing Hype: Engagement Signals in AAA Launches",
+                        "url": "https://pklavc.com/blog/pt/aaa-game-launch-data-engineering/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "AAA Game Leaks: Security Engineering, Asset Protection, and Social Engineering Risks",
+                        "url": "https://pklavc.com/blog/pt/aaa-game-leaks-security-engineering/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Global Launch Systems Architecture: What Happens When Millions Hit a Site at Once",
+                        "url": "https://pklavc.com/blog/pt/global-launch-systems-architecture/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Automating AAA Launch Tracking: Bots, Site Change Monitoring, and Hype Intelligence",
+                        "url": "https://pklavc.com/blog/pt/game-launch-monitoring-automation/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Rob�f�'�?�?T�f�?s�,³tica no Jap�f�'�?�?T�f�?s�,£o: automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o backend diante da escassez de m�f�'�?�?T�f�?s�,£o de obra",
+                        "url": "https://pklavc.com/blog/pt/japan-robotics-backend-automation-labor-shortages/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Coreia do Sul e IA no dispositivo: infer�f�'�?�?T�f�?s�,ªncia de borda confi�f�'�?�?T�f�?s�,¡vel",
+                        "url": "https://pklavc.com/blog/pt/south-korea-on-device-ai-edge-inference/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Digitaliza�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o industrial na China: IA de borda, dados e integra�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o segura",
+                        "url": "https://pklavc.com/blog/pt/china-industrial-digitalization-edge-ai/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Pagamentos digitais no Sudeste Asi�f�'�?�?T�f�?s�,¡tico: backends de superapps al�f�'�?�?T�f�?s�,©m das fronteiras",
+                        "url": "https://pklavc.com/blog/pt/southeast-asia-digital-payments-superapp-backends/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Golpes na APAC: sinais de telecom em uma defesa antifraude em camadas",
+                        "url": "https://pklavc.com/blog/pt/apac-scam-economy-telecom-fraud-detection/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "5G privado na manufatura inteligente: al�f�'�?�?T�f�?s�,©m das barras de sinal",
+                        "url": "https://pklavc.com/blog/pt/private-5g-smart-manufacturing/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Microcontroladores RISC-V e IoT de baixo custo: o que o firmware precisa verificar",
+                        "url": "https://pklavc.com/blog/pt/risc-v-microcontrollers-low-cost-iot/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Portos inteligentes e log�f�'�?�?T�f�?s�,­stica mar�f�'�?�?T�f�?s�,­tima: pipeline confi�f�'�?�?T�f�?s�,¡vel de eventos",
+                        "url": "https://pklavc.com/blog/pt/smart-ports-maritime-logistics-systems/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Sistemas de alerta de desastres: sensores edge e avisos confi�f�'�?�?T�f�?s�,¡veis",
+                        "url": "https://pklavc.com/blog/pt/disaster-warning-systems-edge-sensors/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "IA multil�f�'�?�?T�f�?s�,­ngue na APAC: roteamento por idioma, contexto e qualidade",
+                        "url": "https://pklavc.com/blog/pt/multilingual-ai-apac-routing-translation-context/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Regula�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de IA na �f�'�?�?T�f�?s�,sia: projete por jurisdi�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o, n�f�'�?�?T�f�?s�,£o por APAC",
+                        "url": "https://pklavc.com/blog/pt/ai-regulation-diversity-asia/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Vis�f�'�?�?T�f�?s�,£o edge no controle de qualidade: da c�f�'�?�?T�f�?s�,¢mera �f�'�?�?T�f�?s�,  rejei�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o verificada",
+                        "url": "https://pklavc.com/blog/pt/edge-vision-factory-quality-control/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Localiza�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de dados em SaaS: projete todo o fluxo transfronteiri�f�'�?�?T�f�?s�,§o",
+                        "url": "https://pklavc.com/blog/pt/cross-border-data-localization-saas-platforms/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Arquitetura de liquida�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes rel�f�'�?�?T�f�?s�,¢mpago: absorva picos sem vender estoque inexistente",
+                        "url": "https://pklavc.com/blog/pt/ecommerce-flash-sales-sudden-demand-spikes/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Plataformas de jogos na �f�'�?�?T�f�?s�,sia: live ops, matchmaking e anti-cheat em escala regional",
+                        "url": "https://pklavc.com/blog/pt/gaming-platforms-asia-live-ops-anti-cheat-scale/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Entrega aut�f�'�?�?T�f�?s�,´noma com drones: software de frota, geofencing e recupera�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o segura",
+                        "url": "https://pklavc.com/blog/pt/drones-autonomous-delivery-systems/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Cadeia de hardware para IA: como HBM e encapsulamento afetam a lat�f�'�?�?T�f�?s�,ªncia",
+                        "url": "https://pklavc.com/blog/pt/ai-infrastructure-supply-chains-hbm-model-latency/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Dispositivo Matter com ESP32-C6: da firmware �f�'�?�?T�f�?s�,  nuvem com seguran�f�'�?�?T�f�?s�,§a",
+                        "url": "https://pklavc.com/blog/pt/esp32-c6-matter-secure-smart-home-cloud/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "TinyML com c�f�'�?�?T�f�?s�,¢mera no ESP32-S3: da captura �f�'�?�?T�f�?s�,  classifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o local",
+                        "url": "https://pklavc.com/blog/pt/esp32-s3-camera-tinyml-image-classification/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Atualiza�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes OTA no ESP32: rollout seguro, health check e rollback",
+                        "url": "https://pklavc.com/blog/pt/esp32-ota-updates-safe-firmware-rollouts/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Secure Boot e flash encryption no ESP32: seguran�f�'�?�?T�f�?s�,§a para produ�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o",
+                        "url": "https://pklavc.com/blog/pt/esp32-secure-boot-flash-encryption-web-developers/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Telemetria com deep sleep no ESP32: autonomia calculada pelo ciclo completo",
+                        "url": "https://pklavc.com/blog/pt/esp32-deep-sleep-telemetry-battery-life/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "ESP-NOW e redes mesh: sensores locais com entrega confi�f�'�?�?T�f�?s�,¡vel",
+                        "url": "https://pklavc.com/blog/pt/esp-now-mesh-networks-local-sensors/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "ESP32 + MQTT: um pipeline de observabilidade que funciona",
+                        "url": "https://pklavc.com/blog/pt/esp32-mqtt-observability-pipeline/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "ESP32 CAN/TWAI: laborat�f�'�?�?T�f�?s�,³rio de telemetria sem arriscar um ve�f�'�?�?T�f�?s�,­culo",
+                        "url": "https://pklavc.com/blog/pt/esp32-can-twai-telemetry-lab/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Vibra�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o com ESP32: das amostras �f�'�?�?T�f�?s�,  an�f�'�?�?T�f�?s�,¡lise de anomalias em Python",
+                        "url": "https://pklavc.com/blog/pt/esp32-vibration-anomaly-detection-python/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Monitoramento ac�f�'�?�?T�f�?s�,ºstico com ESP32: do som da m�f�'�?�?T�f�?s�,¡quina ao alerta revis�f�'�?�?T�f�?s�,¡vel",
+                        "url": "https://pklavc.com/blog/pt/esp32-acoustic-monitoring-machine-problems/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Posicionamento indoor BLE com ESP32: RSSI, �f�'�?�?T�f�?s�,¢ncoras e precis�f�'�?�?T�f�?s�,£o honesta",
+                        "url": "https://pklavc.com/blog/pt/esp32-ble-indoor-positioning/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Estufa inteligente com ESP32: dados, hist�f�'�?�?T�f�?s�,³rico SQL e alertas de irriga�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o",
+                        "url": "https://pklavc.com/blog/pt/esp32-smart-greenhouse-sql-alerts/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Triagem de res�f�'�?�?T�f�?s�,­duos com ESP32-S3 e IA de borda: c�f�'�?�?T�f�?s�,¢mera, modelo e seguran�f�'�?�?T�f�?s�,§a",
+                        "url": "https://pklavc.com/blog/pt/esp32-s3-edge-ai-waste-sorting/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Dashboard ESP32 no navegador com WebSockets: atualidade, reconex�f�'�?�?T�f�?s�,£o e controle",
+                        "url": "https://pklavc.com/blog/pt/browser-esp32-dashboard-websockets/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Registry de dispositivos ESP32: identidade, sa�f�'�?�?T�f�?s�,ºde e atualiza�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes da frota",
+                        "url": "https://pklavc.com/blog/pt/esp32-device-registry-iot-nodes/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Bancos de s�f�'�?�?T�f�?s�,©ries temporais para IoT: Supabase/Postgres, InfluxDB ou SQLite?",
+                        "url": "https://pklavc.com/blog/pt/time-series-databases-iot-supabase-influxdb-sqlite/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "G�f�'�?�?T�f�?s�,ªmeo digital de baixo custo com dados de sensores ESP32",
+                        "url": "https://pklavc.com/blog/pt/low-cost-digital-twin-esp32-sensor-data/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Checklist de seguran�f�'�?�?T�f�?s�,§a IoT: do projeto maker ao produto mantido",
+                        "url": "https://pklavc.com/blog/pt/iot-security-checklist-makers-turning-pro/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "ESP32 e Cloudflare Workers: API serverless para dispositivos f�f�'�?�?T�f�?s�,­sicos",
+                        "url": "https://pklavc.com/blog/pt/esp32-cloudflare-workers-serverless-api/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Da protoboard �f�'�?�?T�f�?s�,  produ�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o: o que muda no software embarcado",
+                        "url": "https://pklavc.com/blog/pt/breadboard-to-production-embedded-software/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Confiabilidade de webhooks: a arquitetura discreta por tr�f�'�?�?T�f�?s�,¡s do SaaS",
+                        "url": "https://pklavc.com/blog/pt/webhook-reliability-modern-saas/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Chaves de idempot�f�'�?�?T�f�?s�,ªncia: retries seguros em integra�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes reais",
+                        "url": "https://pklavc.com/blog/pt/idempotency-keys-real-integration-examples/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Rate limits s�f�'�?�?T�f�?s�,£o arquitetura de produto, n�f�'�?�?T�f�?s�,£o apenas um 429",
+                        "url": "https://pklavc.com/blog/pt/api-rate-limits-product-architecture/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Arquitetura com filas para equipes pequenas: async sem mist�f�'�?�?T�f�?s�,©rio",
+                        "url": "https://pklavc.com/blog/pt/queue-based-architecture-small-teams/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Do Google Sheets ao SQL: quando o fluxo de relat�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,³rios amadurece",
+                        "url": "https://pklavc.com/blog/pt/google-sheets-to-sql-reporting-workflow/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "RAG sem mist�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,©rio: dos documentos �f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,  recupera�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,§�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,£o confi�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,¡vel",
+                        "url": "https://pklavc.com/blog/pt/rag-document-pipeline-chunking-embeddings-retrieval/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Arquitetura local de LLM com Ollama, ChromaDB e FastAPI",
+                        "url": "https://pklavc.com/blog/pt/local-llm-architecture-ollama-chromadb-fastapi/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Mem�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,³ria de agentes: o que guardar, esquecer ou nunca coletar",
+                        "url": "https://pklavc.com/blog/pt/agent-memory-stored-forgotten-never-collected/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Event sourcing em dashboards operacionais: hist�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,³rico reconstru�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,­vel",
+                        "url": "https://pklavc.com/blog/pt/event-sourcing-operations-dashboards/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Feature flags para automa�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,§�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,µes backend: libere mudan�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,§as com controle",
+                        "url": "https://pklavc.com/blog/pt/feature-flags-backend-automations/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Observabilidade com or�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,§amento enxuto: logs, m�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,©tricas, traces e alertas",
+                        "url": "https://pklavc.com/blog/pt/observability-on-a-budget-logs-metrics-traces-alerts/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Postmortem de incidentes para quem desenvolve sozinho",
+                        "url": "https://pklavc.com/blog/pt/incident-postmortems-solo-developers/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Gest�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,£o de segredos em backends pequenos: da cria�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,§�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,£o �f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,  revoga�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,§�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,£o",
+                        "url": "https://pklavc.com/blog/pt/secrets-management-small-backend-projects/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Rota�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,§�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,£o de refresh tokens OAuth em arquiteturas Worker",
+                        "url": "https://pklavc.com/blog/pt/oauth-refresh-token-rotation-worker-architectures/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Disciplina em migra�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,§�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,µes de banco para projetos que evoluem r�f�'�?�?T�f�?�â�,��"��f�'â�,�š�f�?s�,¡pido",
+                        "url": "https://pklavc.com/blog/pt/database-migration-discipline-fast-moving-projects/"
+                    },
+                    {
+                        "@type": "BlogPosting",
+                        "headline": "Logs multi-tenant sem vazar dados entre clientes",
+                        "url": "https://pklavc.com/blog/pt/multi-tenant-logs-without-leaking-tenant-data/"
+                    }
+                ]
+            },
+            {
+                "@type": "Person",
+                "@id": "https://pklavc.com/#person",
+                "name": "Patrick Araujo",
+                "url": "https://pklavc.com/",
+                "jobTitle": "Backend Software Engineer | Automation, API Integrations & Scalable Systems",
+                "sameAs": [
+                    "https://github.com/PkLavc",
+                    "https://www.linkedin.com/in/pklavc/"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://pklavc.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://pklavc.com/blog/pt/"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+        <meta name="theme-color" content="#101114">
+        <link rel="alternate" type="application/rss+xml" title="Patrick Araujo Engineering Blog RSS" href="/manu/blog/feed.xml">
+    <link rel="search" type="application/opensearchdescription+xml" title="PkLavc" href="/manu/blog/opensearch.xml">
+        <link rel="manifest" href="/manu/blog/manifest.webmanifest?v=291169f445">
+        <link rel="icon" href="/manu/blog/assets/favicon.ico?v=3582ecf86f" sizes="any">
+        <link rel="apple-touch-icon" href="/manu/blog/apple-touch-icon.png?v=54c3825150">
+        <meta name="msapplication-config" content="/manu/browserconfig.xml">
+<link id="spotlight-navigation-style" rel="stylesheet" href="/manu/assets/css/spotlight-navigation.81f7fc858602.css">
+<link id="pklavc-newsletter-style" rel="stylesheet" href="/manu/blog/assets/css/newsletter.css?v=bab247dec2">
+<link rel="preload" as="script" href="/manu/blog/assets/js/vendor/three/three.min.js?v=9274bbcec8" data-horizon-three-preload>
+<link id="skylet-widget-style" rel="stylesheet" href="/manu/blog/assets/css/skylet-widget.css?v=e3ca269f9e">
+</head>
+<body class="blog-layout seo-layout">
+    <div id="breaker"></div>
+    <div id="breaker-two"></div>
+    <div id="all">
+        <div class="cursor"></div>
+
+
+        <section class="contact blog-contact" aria-labelledby="blog-techstack-title">
+            <h2 id="blog-techstack-title" class="visually-hidden">Tecnologias de backend apresentadas no blog</h2>
+            <div class="techstack-carousel" aria-hidden="true">
+                <div class="techstack-track">
+                    <img src="/manu/blog/assets/images/techstack/python-icon.svg?v=f660149a82" alt="�f�'�?�?T�f�?s�,­cone Python" class="contactpic">
+                    <img src="/manu/blog/assets/images/techstack/ts-icon.svg?v=049d3cb481" alt="�f�'�?�?T�f�?s�,­cone TypeScript" class="contactpic">
+                    <img src="/manu/blog/assets/images/techstack/js-icon.svg?v=fb8c820909" alt="�f�'�?�?T�f�?s�,­cone JavaScript" class="contactpic">
+                    <img src="/manu/blog/assets/images/techstack/restapi-icon.svg?v=05a7a5c2f4" alt="�f�'�?�?T�f�?s�,cone REST API" class="contactpic">
+                    <img src="/manu/blog/assets/images/techstack/mysql-icon.svg?v=ef168c99f5" alt="�f�'�?�?T�f�?s�,­cone SQL" class="contactpic">
+                    <img src="/manu/blog/assets/images/techstack/docker-icon.svg?v=45a744fddb" alt="�f�'�?�?T�f�?s�,cone do Docker" class="contactpic">
+                    <img src="/manu/blog/assets/images/techstack/aws-icon.svg?v=3cf6907977" alt="�f�'�?�?T�f�?s�,­cone AWS" class="contactpic">
+                    <img src="/manu/blog/assets/images/techstack/github-icon.svg?v=523699701b" alt="�f�'�?�?T�f�?s�,­cone GitHub" class="contactpic">
+                    <img src="/manu/blog/assets/images/techstack/python-icon.svg?v=f660149a82" alt="" class="contactpic" aria-hidden="true">
+                    <img src="/manu/blog/assets/images/techstack/ts-icon.svg?v=049d3cb481" alt="" class="contactpic" aria-hidden="true">
+                    <img src="/manu/blog/assets/images/techstack/js-icon.svg?v=fb8c820909" alt="" class="contactpic" aria-hidden="true">
+                    <img src="/manu/blog/assets/images/techstack/restapi-icon.svg?v=05a7a5c2f4" alt="" class="contactpic" aria-hidden="true">
+                    <img src="/manu/blog/assets/images/techstack/mysql-icon.svg?v=ef168c99f5" alt="" class="contactpic" aria-hidden="true">
+                    <img src="/manu/blog/assets/images/techstack/docker-icon.svg?v=45a744fddb" alt="" class="contactpic" aria-hidden="true">
+                    <img src="/manu/blog/assets/images/techstack/aws-icon.svg?v=3cf6907977" alt="" class="contactpic" aria-hidden="true">
+                    <img src="/manu/blog/assets/images/techstack/github-icon.svg?v=523699701b" alt="" class="contactpic" aria-hidden="true">
+                </div>
+            </div>
+        </section>
+
+        <main class="blog-shell" role="main">
+            <section class="blog-horizon" aria-label="Introdu�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o ao blog de engenharia">
+                <div class="blog-horizon-stage hero-container cosmos-style">
+                    <canvas class="hero-canvas" data-horizon-canvas aria-hidden="true"></canvas>
+                    <button class="side-menu side-menu-posts" type="button" data-skip-to-posts>POSTAGENS</button>
+                    <article class="blog-horizon-copy hero-content cosmos-content">
+                        <span class="blog-horizon-kicker">Notas de Engenharia</span>
+                        <h1 class="hero-title">Blog de engenharia</h1>
+                        <div class="hero-subtitle cosmos-subtitle"><p class="subtitle-line">Artigos t�f�'�?�?T�f�?s�,©cnicos sobre arquitetura de automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o, integra�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes de APIs, fluxos de trabalho de agentes de IA, design de backend SaaS e design pr�f�'�?�?T�f�?s�,¡tico de sistema �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�, escritos a partir de experi�f�'�?�?T�f�?s�,ªncia real de produ�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o.</p></div>
+                        <div class="blog-horizon-tags" aria-label="Temas do blog"><span>Agentes de IA</span><span>Sistemas de APIs</span><span>Notas de campo</span></div>
+                    </article>
+                    <div class="scroll-sections" aria-hidden="true">
+                        <section class="content-section" data-horizon-section><h2>ARQUITETURA</h2><p>Sistemas confi�f�'�?�?T�f�?s�,¡veis come�f�'�?�?T�f�?s�,§am com decis�f�'�?�?T�f�?s�,µes claras,<br>limites bem definidos e c�f�'�?�?T�f�?s�,³digo preparado para evoluir.</p></section>
+                        <section class="content-section" data-horizon-section><h2>PRODU�f�'�?�?T�f¢â�?s¬�,¡�f�'�?�?T�f�?�â�,��"�O</h2><p>Da automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o �f�'�?�?T�f�?s�,  observabilidade,<br>cada artigo transforma experi�f�'�?�?T�f�?s�,ªncia real em engenharia aplic�f�'�?�?T�f�?s�,¡vel.</p></section>
+                    </div>
+                </div>
+            </section>
+            <section class="blog-featured-carousel" data-blog-carousel aria-label="Artigos de engenharia">
+                <div class="blog-carousel-track" aria-label="Artigos t�f�'�?�?T�f�?s�,©cnicos recentes"></div>
+            </section>
+            <section class="blog-section blog-library" aria-labelledby="blog-posts-title" hidden>
+                <h2 id="blog-posts-title">Postagens em destaque</h2>
+                <p>Artigos t&eacute;cnicos sobre backend, automa&ccedil;&atilde;o, APIs, cloud, dados, integra&ccedil;&otilde;es e IA aplicada a sistemas reais.</p>
+                <div class="blog-grid">
+                    <!-- strategic-blog-cards:start -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- strategic-blog-cards:end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <article class="blog-card" role="article">
+                        <div class="blog-card-meta">
+                            <span>Resposta a Incidentes</span>
+                            <span>15 min de leitura</span>
+                        </div>
+                        <h3><a href="/manu/blog/pt/ai-assisted-incident-response-runbooks/">Runbooks de resposta a incidentes assistidos por IA</a></h3>
+                        <p>Como IA resume evid�f�'�?�?T�f�?s�,ªncia, prop�f�'�?�?T�f�?s�,µe hunts e conten�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o, abre PRs e monitora recupera�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o enquanto humanos mant�f�'�?�?T�f�?s�,ªm autoridade relevante.</p>
+                        <div class="blog-tag-row">
+                            <span>incident response</span>
+                            <span>assist�f�'�?�?T�f�?s�,ªncia de IA</span>
+                            <span>aprova�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o humana</span>
+                        </div>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <article class="blog-card" role="article">
+                        <div class="blog-card-meta">
+                            <span>Arquitetura de Seguran�f�'�?�?T�f�?s�,§a em IA</span>
+                            <span>13 min de leitura</span>
+                        </div>
+                        <h3><a href="/manu/blog/pt/ai-agent-identity-authorization-oauth/">Identidade e autoriza�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o para agentes de IA: OAuth para workers n�f�'�?�?T�f�?s�,£o humanos</a></h3>
+                        <p>Como projetar acesso OAuth escopado, gateways de pol�f�'�?�?T�f�?s�,­tica, logs de auditoria e autoriza�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o com privil�f�'�?�?T�f�?s�,©gio m�f�'�?�?T�f�?s�,­nimo para agentes de IA que chamam APIs e ferramentas internas.</p>
+                        <div class="blog-tag-row">
+                            <span>identidade de agentes</span>
+                            <span>escopos OAuth</span>
+                            <span>gateway de pol�f�'�?�?T�f�?s�,­tica</span>
+                        </div>
+                        <a class="blog-link" href="/manu/blog/pt/ai-agent-identity-authorization-oauth/">Leia o artigo</a>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+                    <article class="blog-card" role="article">
+                        <div class="blog-card-meta">
+                            <span>Engenharia de IA</span>
+                            <span>10 minutos de leitura</span>
+                        </div>
+                        <h3><a href="/manu/blog/pt/spec-driven-development/">Desenvolvimento orientado a especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes: escrevendo especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes que m�f�'�?�?T�f�?s�,¡quinas e humanos podem executar</a></h3>
+                        <p>Como as especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes estruturadas se tornam a interface entre a inten�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o humana e a execu�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o do agente de IA �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�, e por que a qualidade das especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes determina a qualidade da sa�f�'�?�?T�f�?s�,­da do agente.</p>
+                        <div class="blog-tag-row">
+                            <span>orientado por especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes</span>
+                            <span>engenharia de contexto</span>
+                            <span>execu�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o do agente</span>
+                        </div>
+                        <a class="blog-link" href="/manu/blog/pt/spec-driven-development/">Leia o artigo</a>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </section>
+</main>
+    </div>
+
+    <footer class="footer-minimal footer-split footer-projects">
+        <div class="footer-container">
+            <div class="footer-split-left">
+                <span class="footer-copyright-line">&copy; <span data-current-year></span> Patrick Araujo</span>
+                <span class="footer-legal-inline" aria-label="Links legais"><a class="footer-legal-link" href="/manu/pt/politica-de-privacidade/">Pol�f�'�?�?T�f�?s�,­tica de Privacidade</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="/manu/pt/termos-de-uso/">Termos de Uso</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="/manu/pt/creditos/">Pol�f�'�?�?T�f�?s�,­tica Editorial</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="/manu/pt/creditos/">Cr�f�'�?�?T�f�?s�,©ditos</a></span>
+            </div>
+            <span class="footer-split-spacer" aria-hidden="true"></span>
+            <div class="footer-split-right">
+                <nav class="footer-social-icons" aria-label="Links sociais e de contato">
+                    <a class="footer-social-icon-link" href="https://github.com/PkLavc" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><lottie-player src="/manu/about/images/lottie/github.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="https://www.linkedin.com/in/pklavc/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><lottie-player src="/manu/about/images/lottie/linkedin.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="https://www.instagram.com/pklavc/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><lottie-player src="/manu/blog/assets/lottie/instagram-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="https://www.youtube.com/@PkLavc" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><lottie-player src="/manu/blog/assets/lottie/youtube-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="mailto:contact@pklavc.com" aria-label="E-mail"><lottie-player src="/manu/about/images/lottie/mail.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="https://github.com/sponsors/PkLavc" target="_blank" rel="noopener noreferrer" aria-label="Apoiar no GitHub"><lottie-player src="/manu/blog/assets/lottie/sponsor-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                </nav>
+            </div>
+        </div>
+    <div id="pklavc-newsletter-footer-entry" class="pklavc-newsletter-footer-entry"><button class="pklavc-newsletter-footer-trigger" type="button" data-newsletter-open aria-haspopup="dialog" aria-controls="pklavc-newsletter-dialog">Newsletter</button></div>
+</footer>
+
+    <script>
+        (function() {
+            document.querySelectorAll('[data-current-year]').forEach(function(node) {
+                node.textContent = String(new Date().getFullYear());
+            });
+        }());
+    </script>
+        <script src="/manu/about/js/i18n.js" defer></script>
+    <script src="/manu/blog/assets/js/jquery.min.js?v=d482871a5e" defer></script>
+    <script src="/manu/blog/assets/js/index.js?v=aace661eb10e" defer></script>
+    <script src="/manu/blog/assets/js/blog-horizon-loader.js?v=75e23b0c9c" defer></script>
+    <script src="/manu/blog/assets/js/blog-horizon.js?v=ab6880afca" defer></script>
+
+    <div class="visually-hidden">
+        <p>Blog de engenharia sobre fluxos de trabalho de agentes de IA, agentes de codifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o aut�f�'�?�?T�f�?s�,´nomos, protocolo MCP, orquestra�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o multiagente, sistemas de automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o, integra�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes de APIs, arquitetura de backend Node.js, fluxos de trabalho Python, sistemas orientados a eventos, design de plataforma SaaS, software automotivo incorporado e padr�f�'�?�?T�f�?s�,µes de implanta�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o em nuvem.</p>
+    </div>
+<script id="spotlight-navigation-script" src="/manu/about/js/spotlight-navigation.js?v=16fb92149af4" defer></script>
+<script id="pklavc-newsletter-script" src="/manu/blog/assets/js/newsletter.js?v=a1bab45aa7" defer></script>
+<script id="skylet-widget-script" src="/manu/blog/assets/js/skylet-widget.js?v=5b4ef16ead" defer></script>
+</body>
+</html>

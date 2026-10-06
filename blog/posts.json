@@ -1,0 +1,137 @@
+[
+  {
+    "title": "IBM Bob Offers Self-Hosted Deployment for AI Sovereignty and Governance",
+    "url": "/manu/blog/en/ibm-bob-self-hosted-ai-sovereignty-governance/",
+    "date": "2026-10-01",
+    "category": "AI and Models",
+    "tags": [
+      "AI Governance",
+      "AI Sovereignty",
+      "Enterprise AI",
+      "Hybrid Cloud"
+    ],
+    "description": "IBM has launched a self-hosted deployment option for its AI-powered software development and modernization tool, IBM Bob. This new offering empowers enterprises to maintain AI sovereignty and enhance governance by keeping sensitive code, data, and workflows within their own controlled infrastructure, addressing key concerns for secure and compliant AI adoption.",
+    "editorial_type": "CONFIRMED",
+    "localized": {
+      "pt": null,
+      "es": null
+    }
+  },
+  {
+    "title": "AI-Assisted Incident Response Runbooks",
+    "url": "/manu/blog/en/ai-assisted-incident-response-runbooks/",
+    "date": "2026-06-18",
+    "category": "Incident Response",
+    "tags": [
+      "incident response",
+      "AI assistance",
+      "human approval"
+    ],
+    "description": "How AI can summarize evidence, propose hunts and containment, open remediation PRs, and monitor recovery while humans retain consequential authority.",
+    "editorial_type": "CONFIRMED",
+    "localized": {
+      "pt": {
+        "url": "/manu/blog/pt/ai-assisted-incident-response-runbooks/",
+        "title": "Runbooks de resposta a incidentes assistidos por IA",
+        "description": "Como IA resume evidência, propõe hunts e contenção, abre PRs e monitora recuperação enquanto humanos mantêm autoridade relevante.",
+        "category": "Resposta a Incidentes",
+        "tags": [
+          "incident response",
+          "assistência de IA",
+          "aprovação humana"
+        ],
+        "date": "2026-06-18"
+      },
+      "es": {
+        "url": "/manu/blog/es/ai-assisted-incident-response-runbooks/",
+        "title": "Runbooks de respuesta a incidentes asistidos por IA",
+        "description": "Cómo la IA resume evidencia, propone hunts y contención, abre PRs y vigila recuperación mientras humanos conservan autoridad relevante.",
+        "category": "Respuesta a Incidentes",
+        "tags": [
+          "incident response",
+          "asistencia de IA",
+          "aprobación humana"
+        ],
+        "date": "2026-06-18"
+      }
+    }
+  },
+  {
+    "title": "AI Agent Identity and Authorization: OAuth for Non-Human Workers",
+    "url": "/manu/blog/en/ai-agent-identity-authorization-oauth/",
+    "date": "2026-06-01",
+    "category": "AI Security Architecture",
+    "tags": [
+      "agent identity",
+      "OAuth scopes",
+      "policy gateway"
+    ],
+    "description": "How to design scoped OAuth access, policy gateways, audit logs, and least-privilege authorization for AI agents that call APIs and internal tools.",
+    "editorial_type": "CONFIRMED",
+    "localized": {
+      "pt": {
+        "url": "/manu/blog/pt/ai-agent-identity-authorization-oauth/",
+        "title": "Identidade e autorização para agentes de IA: OAuth para workers não humanos",
+        "description": "Como projetar acesso OAuth escopado, gateways de política, logs de auditoria e autorização com privilégio mínimo para agentes de IA que chamam APIs e ferramentas internas.",
+        "category": "Arquitetura de Segurança em IA",
+        "tags": [
+          "identidade de agentes",
+          "escopos OAuth",
+          "gateway de política"
+        ],
+        "date": "2026-06-01"
+      },
+      "es": {
+        "url": "/manu/blog/es/ai-agent-identity-authorization-oauth/",
+        "title": "Identidad y autorización para agentes de IA: OAuth para servicios no humanos",
+        "description": "Cómo diseñar acceso OAuth acotado, gateways de políticas, logs de auditoría y autorización de mínimo privilegio para agentes de IA que llaman APIs y herramientas internas.",
+        "category": "Arquitectura de Seguridad en IA",
+        "tags": [
+          "identidad de agentes",
+          "alcances OAuth",
+          "gateway de políticas"
+        ],
+        "date": "2026-06-01"
+      }
+    }
+  },
+  {
+    "title": "Spec-Driven Development: Writing Specifications That Machines and Humans Can Execute",
+    "url": "/manu/blog/en/spec-driven-development/",
+    "date": "2026-05-28",
+    "category": "AI Engineering",
+    "tags": [
+      "spec-driven",
+      "context engineering",
+      "agent execution"
+    ],
+    "description": "How structured specifications become the interface between human intent and AI agent execution — and why spec quality determines agent output quality.",
+    "editorial_type": "CONFIRMED",
+    "localized": {
+      "pt": {
+        "url": "/manu/blog/pt/spec-driven-development/",
+        "title": "Desenvolvimento orientado a especificações: escrevendo especificações que máquinas e humanos podem executar",
+        "description": "Como as especificações estruturadas se tornam a interface entre a intenção humana e a execução do agente de IA — e por que a qualidade das especificações determina a qualidade da saída do agente.",
+        "category": "Engenharia de IA",
+        "tags": [
+          "orientado por especificações",
+          "engenharia de contexto",
+          "execução do agente"
+        ],
+        "date": "2026-05-28"
+      },
+      "es": {
+        "url": "/manu/blog/es/spec-driven-development/",
+        "title": "Desarrollo basado en especificaciones: redacción de especificaciones que las máquinas y los humanos puedan ejecutar",
+        "description": "Cómo las especificaciones estructuradas se convierten en la interfaz entre la intención humana y la ejecución del agente de IA y por qué la calidad de las especificaciones determina la calidad de los resultados del agente.",
+        "category": "Ingeniería de IA",
+        "tags": [
+          "basado en especificaciones",
+          "ingeniería de contexto",
+          "ejecución del agente"
+        ],
+        "date": "2026-05-28"
+      }
+    }
+  }
+]

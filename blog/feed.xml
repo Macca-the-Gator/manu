@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Patrick Araujo Engineering Blog</title>
+    <link>https://pklavc.com/blog/</link>
+    <description>Backend engineering, AI systems, automation, API integrations, cloud architecture, security, and software delivery notes by Patrick Araujo.</description>
+    <language>en</language>
+    <lastBuildDate>Thu, 01 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://pklavc.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>IBM Bob Offers Self-Hosted Deployment for AI Sovereignty and Governance</title>
+      <link>https://pklavc.com/blog/en/ibm-bob-self-hosted-ai-sovereignty-governance/</link>
+      <guid isPermaLink="true">https://pklavc.com/blog/en/ibm-bob-self-hosted-ai-sovereignty-governance/</guid>
+      <dc:creator>Patrick Araujo</dc:creator>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
+      <description>IBM has launched a self-hosted deployment option for its AI-powered software development and modernization tool, IBM Bob. This new offering empowers enterprises to maintain AI sovereignty and enhance governance by keeping sensitive code, data, and workflows within their own controlled infrastructure, addressing key concerns for secure and compliant AI adoption.</description>
+      <category>AI and Models</category>
+      <category>AI Governance, AI Sovereignty, Enterprise AI, Hybrid Cloud, Cybersecurity, Software Engineering, IBM, Developer Tools</category>
+    </item>
+    <item>
+      <title>AI-Assisted Incident Response Runbooks</title>
+      <link>https://pklavc.com/blog/en/ai-assisted-incident-response-runbooks/</link>
+      <guid isPermaLink="true">https://pklavc.com/blog/en/ai-assisted-incident-response-runbooks/</guid>
+      <dc:creator>Patrick Araujo</dc:creator>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 GMT</pubDate>
+      <description>How to design AI-assisted incident response runbooks that preserve evidence, summarize telemetry, propose containment, open remediation pull requests, require approvals, and verify recovery.</description>
+      <category>incident response</category>
+      <category>AI assistance</category>
+      <category>runbooks</category>
+      <category>containment</category>
+      <category>recovery</category>
+      <category>CACAO</category>
+      <category>OpenC2</category>
+    </item>
+    <item>
+      <title>AI Agent Identity and Authorization: OAuth for Non-Human Workers</title>
+      <link>https://pklavc.com/blog/en/ai-agent-identity-authorization-oauth/</link>
+      <guid isPermaLink="true">https://pklavc.com/blog/en/ai-agent-identity-authorization-oauth/</guid>
+      <dc:creator>Patrick Araujo</dc:creator>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
+      <description>How to design identity, OAuth scopes, policy gateways, audit logs, and least-privilege authorization for AI agents that act across APIs and internal tools.</description>
+      <category>AI agent identity</category>
+      <category>AI agent authorization</category>
+      <category>OAuth for AI agents</category>
+      <category>non-human identity</category>
+      <category>agent security</category>
+      <category>API authorization</category>
+      <category>least privilege</category>
+      <category>tool gateway</category>
+      <category>audit logs</category>
+    </item>
+    <item>
+      <title>Spec-Driven Development: Writing Specifications That Machines and Humans Can Execute</title>
+      <link>https://pklavc.com/blog/en/spec-driven-development/</link>
+      <guid isPermaLink="true">https://pklavc.com/blog/en/spec-driven-development/</guid>
+      <dc:creator>Patrick Araujo</dc:creator>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <description>How spec-driven development bridges human intent and AI agent execution — structured specifications as the interface between engineers and autonomous coding tools.</description>
+      <category>spec-driven development</category>
+      <category>ai specifications</category>
+      <category>agent execution</category>
+      <category>context engineering</category>
+      <category>structured specs</category>
+      <category>claude code</category>
+      <category>codex</category>
+      <category>cursor rules</category>
+      <category>automation</category>
+    </item>
+  </channel>
+</rss>

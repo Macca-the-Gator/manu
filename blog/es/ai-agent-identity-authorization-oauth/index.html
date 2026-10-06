@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html data-site-base="/manu/" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Patrick Araujo">
+    <title>Identidad y autorizaci�f�'�?�?T�f�?s�,³n para agentes de IA: OAuth para servicios no humanos</title>
+    <meta name="description" content="C�f�'�?�?T�f�?s�,³mo dise�f�'�?�?T�f�?s�,±ar identidad, alcances OAuth, gateways de pol�f�'�?�?T�f�?s�,­ticas, logs de auditor�f�'�?�?T�f�?s�,­a y autorizaci�f�'�?�?T�f�?s�,³n de m�f�'�?�?T�f�?s�,­nimo privilegio para agentes de IA que act�f�'�?�?T�f�?s�,ºan sobre APIs y herramientas internas.">
+    <meta name="keywords" content="identidad de agentes de IA, autorizaci�f�'�?�?T�f�?s�,³n para agentes de IA, OAuth para agentes de IA, identidad no humana, seguridad de agentes, seguridad MCP, autorizaci�f�'�?�?T�f�?s�,³n de API, m�f�'�?�?T�f�?s�,­nimo privilegio para agentes, logs de auditor�f�'�?�?T�f�?s�,­a, gateway de herramientas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pklavc.com/blog/es/ai-agent-identity-authorization-oauth/">
+    <link rel="alternate" href="https://pklavc.com/blog/en/ai-agent-identity-authorization-oauth/" hreflang="en">
+    <link rel="alternate" href="https://pklavc.com/blog/pt/ai-agent-identity-authorization-oauth/" hreflang="pt-BR">
+    <link rel="alternate" href="https://pklavc.com/blog/es/ai-agent-identity-authorization-oauth/" hreflang="es">
+    <link rel="alternate" href="https://pklavc.com/blog/en/ai-agent-identity-authorization-oauth/" hreflang="x-default">
+
+    <meta property="og:title" content="Identidad y autorizaci�f�'�?�?T�f�?s�,³n para agentes de IA: OAuth para servicios no humanos">
+    <meta property="og:description" content="Una gu�f�'�?�?T�f�?s�,­a de arquitectura backend para dar a los agentes de IA acceso acotado, auditable y revocable a APIs y herramientas sin convertirlos en cuentas de servicio con demasiado poder.">
+    <meta property="og:url" content="https://pklavc.com/blog/es/ai-agent-identity-authorization-oauth/">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-06-01">
+    <meta property="article:modified_time" content="2026-06-01">
+    <meta property="article:author" content="Patrick Araujo">
+    <meta property="article:section" content="Arquitectura de Seguridad en IA">
+    <meta property="article:tag" content="agentes de IA">
+    <meta property="article:tag" content="OAuth">
+    <meta property="article:tag" content="identidad no humana">
+    <meta property="article:tag" content="seguridad de APIs">
+    <meta property="og:image" content="https://pklavc.com/blog/assets/manu/blog/images/brand/lavc.webp?v=5e84850f26">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:site_name" content="Patrick Araujo">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:image:alt" content="Retrato de marca del ingeniero backend y especialista en automatizaci�f�'�?�?T�f�?s�,³n Patrick Araujo">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Identidad y autorizaci�f�'�?�?T�f�?s�,³n para agentes de IA">
+    <meta name="twitter:description" content="Alcances OAuth, gateways de pol�f�'�?�?T�f�?s�,­ticas, trazas de auditor�f�'�?�?T�f�?s�,­a y m�f�'�?�?T�f�?s�,­nimo privilegio para agentes de IA que llaman APIs y herramientas internas.">
+    <meta name="twitter:image" content="https://pklavc.com/blog/assets/manu/blog/images/brand/lavc.webp?v=5e84850f26">
+    <meta name="twitter:image:alt" content="Retrato de marca del ingeniero backend y especialista en automatizaci�f�'�?�?T�f�?s�,³n Patrick Araujo">
+    <meta name="twitter:site" content="@PkLavc">
+    <meta name="twitter:creator" content="@PkLavc">
+
+    <link rel="icon" type="image/svg+xml" href="/manu/blog/assets/favicon.svg?v=d15fe4e492">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Monoton&amp;family=Poppins:wght@500;600;700&amp;family=Raleway:wght@300&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Monoton&amp;family=Poppins:wght@500;600;700&amp;family=Raleway:wght@300&amp;display=swap"></noscript>
+    <link rel="stylesheet" href="/manu/blog/assets/css/global.css?v=1d91cf360c">
+    <link rel="stylesheet" href="/manu/blog/assets/css/blog.css?v=804d631dbb">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js" defer></script>
+    <style>
+        .blog-diagram {
+            margin: 24px 0;
+            padding: 20px;
+            border: 1px solid rgba(0, 209, 255, 0.22);
+            border-radius: 8px;
+            background: linear-gradient(180deg, rgba(0, 209, 255, 0.06), rgba(255, 255, 255, 0.025));
+        }
+
+        .blog-diagram-title {
+            display: block;
+            color: var(--clr-primary);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+        }
+
+        .blog-flow-grid {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .blog-flow-step,
+        .blog-control-card {
+            min-height: 104px;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            background: rgba(10, 10, 10, 0.68);
+        }
+
+        .blog-flow-step strong,
+        .blog-control-card strong {
+            display: block;
+            color: #ffffff;
+            font-size: 0.9rem;
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .blog-flow-step span,
+        .blog-control-card span {
+            color: #b9b9b9;
+            font-size: 0.84rem;
+            line-height: 1.55;
+        }
+
+        .blog-control-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin: 18px 0 24px;
+        }
+
+        .blog-table-wrap {
+            margin: 24px 0;
+            overflow-x: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .blog-table-wrap table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 680px;
+            background: #0f0f0f;
+        }
+
+        .blog-table-wrap th,
+        .blog-table-wrap td {
+            padding: 12px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            color: #b9b9b9;
+            line-height: 1.55;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .blog-table-wrap th {
+            color: #ffffff;
+            background: rgba(0, 209, 255, 0.08);
+        }
+
+        @media (max-width: 900px) {
+            .blog-flow-grid,
+            .blog-control-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Identidad y autorizaci�f�'�?�?T�f�?s�,³n para agentes de IA: OAuth para servicios no humanos",
+                "description": "C�f�'�?�?T�f�?s�,³mo dise�f�'�?�?T�f�?s�,±ar identidad, alcances OAuth, gateways de pol�f�'�?�?T�f�?s�,­ticas, logs de auditor�f�'�?�?T�f�?s�,­a y autorizaci�f�'�?�?T�f�?s�,³n de m�f�'�?�?T�f�?s�,­nimo privilegio para agentes de IA que act�f�'�?�?T�f�?s�,ºan sobre APIs y herramientas internas.",
+                "image": "https://pklavc.com/blog/assets/manu/blog/images/brand/lavc.webp?v=5e84850f26",
+                "datePublished": "2026-06-01",
+                "dateModified": "2026-06-01",
+                "author": {
+                    "@type": "Person",
+                    "name": "Patrick Araujo"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Patrick Araujo"
+                },
+                "mainEntityOfPage": "https://pklavc.com/blog/es/ai-agent-identity-authorization-oauth/",
+                "url": "https://pklavc.com/blog/es/ai-agent-identity-authorization-oauth/",
+                "keywords": [
+                    "identidad de agentes de IA",
+                    "autorizaci�f�'�?�?T�f�?s�,³n para agentes de IA",
+                    "OAuth para agentes de IA",
+                    "identidad no humana",
+                    "seguridad de agentes",
+                    "autorizaci�f�'�?�?T�f�?s�,³n de API",
+                    "m�f�'�?�?T�f�?s�,­nimo privilegio",
+                    "gateway de herramientas",
+                    "logs de auditor�f�'�?�?T�f�?s�,­a"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Inicio",
+                        "item": "https://pklavc.com/es/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://pklavc.com/blog/es/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Identidad y autorizaci�f�'�?�?T�f�?s�,³n para agentes de IA",
+                        "item": "https://pklavc.com/blog/es/ai-agent-identity-authorization-oauth/"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    <link rel="search" type="application/opensearchdescription+xml" title="PkLavc" href="/manu/blog/opensearch.xml">
+<link id="spotlight-navigation-style" rel="stylesheet" href="/manu/assets/css/spotlight-navigation.81f7fc858602.css">
+<link id="pklavc-newsletter-style" rel="stylesheet" href="/manu/blog/assets/css/newsletter.css?v=bab247dec2">
+<link id="skylet-widget-style" rel="stylesheet" href="/manu/blog/assets/css/skylet-widget.css?v=e3ca269f9e">
+</head>
+<body class="blog-layout seo-layout">
+    <div id="breaker"></div>
+    <div id="breaker-two"></div>
+    <div id="all">
+        <div class="cursor"></div>
+
+
+        <main class="blog-shell" role="main">
+            <div class="blog-columns">
+                <div>
+                    <article class="blog-post-hero">
+                        <div class="blog-breadcrumb" aria-label="Ruta de navegaci�f�'�?�?T�f�?s�,³n">
+                            <a href="/manu/blog/es/">Inicio</a>
+                            <span>/</span>
+                            <a href="/manu/blog/es/">Blog</a>
+                            <span>/</span>
+                            <span aria-current="page">Identidad de agentes de IA</span>
+                        </div>
+                        <span class="blog-kicker">Arquitectura de Seguridad en IA</span>
+                        <h1>Identidad y autorizaci�f�'�?�?T�f�?s�,³n para agentes de IA: OAuth para servicios no humanos</h1>
+                        <p>Los agentes de IA se est�f�'�?�?T�f�?s�,¡n convirtiendo en participantes activos de los sistemas de software. Leen issues, abren pull requests, consultan bases de datos, llaman APIs SaaS, programan tareas y disparan automatizaciones. Eso significa que necesitan modelos de identidad y autorizaci�f�'�?�?T�f�?s�,³n tan bien dise�f�'�?�?T�f�?s�,±ados como los que usamos para personas y servicios backend.</p>
+                        <div class="blog-post-meta">
+                            <span>Publicado el 1 de junio de 2026</span>
+                            <span>13 min de lectura</span>
+                            <span>Seguridad en IA</span>
+                        </div>
+                    </article>
+
+                    <article class="blog-article">
+                        <h2>El nuevo problema de identidad</h2>
+                        <p>Durante a�f�'�?�?T�f�?s�,±os, los sistemas backend separaron a los actores en dos grupos: personas y servicios. Las personas iniciaban sesi�f�'�?�?T�f�?s�,³n con cuentas de usuario. Los servicios usaban claves de API, cuentas de servicio, clientes OAuth o identidad de workload. Los agentes de IA rompen esa frontera porque se comportan como servicios, pero muchas veces act�f�'�?�?T�f�?s�,ºan en nombre de una persona y dentro de un contexto que cambia con cada tarea.</p>
+                        <p>Un agente que resume logs quiz�f�'�?�?T�f�?s�,¡ solo necesita lectura. Cinco minutos despu�f�'�?�?T�f�?s�,©s, ese mismo agente puede intentar crear un ticket de incidente, rotar una credencial o disparar un despliegue. Si el sistema lo trata como una cuenta de servicio administrativa permanente, cada llamada nace con demasiados privilegios. Si lo trata como una sesi�f�'�?�?T�f�?s�,³n normal de usuario, pierde la capacidad de distinguir intenci�f�'�?�?T�f�?s�,³n humana de ejecuci�f�'�?�?T�f�?s�,³n aut�f�'�?�?T�f�?s�,³noma.</p>
+
+                        <div class="blog-callout">
+                            La pregunta central no es "�f�'â�,�š�f�?s�,¿este agente puede llamar la API?". La pregunta correcta es: "�f�'â�,�š�f�?s�,¿qu�f�'�?�?T�f�?s�,© actor deleg�f�'�?�?T�f�?s�,³ qu�f�'�?�?T�f�?s�,© permiso a qu�f�'�?�?T�f�?s�,© agente, para qu�f�'�?�?T�f�?s�,© tarea, durante cu�f�'�?�?T�f�?s�,¡nto tiempo y con qu�f�'�?�?T�f�?s�,© rastro de auditor�f�'�?�?T�f�?s�,­a?"
+                        </div>
+
+                        <h2>Por qu�f�'�?�?T�f�?s�,© esto ya es urgente</h2>
+                        <p>En 2026, esto dej�f�'�?�?T�f�?s�,³ de ser un ejercicio te�f�'�?�?T�f�?s�,³rico de arquitectura. NIST lanz�f�'�?�?T�f�?s�,³ una <a href="https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure" target="_blank" rel="noopener noreferrer">iniciativa de est�f�'�?�?T�f�?s�,¡ndares para agentes de IA</a> centrada en ecosistemas seguros e interoperables. NIST tambi�f�'�?�?T�f�?s�,©n public�f�'�?�?T�f�?s�,³ un <a href="https://www.nist.gov/publications/summary-analysis-responses-request-information-regarding-security-considerations-ai" target="_blank" rel="noopener noreferrer">resumen de respuestas sobre seguridad de agentes de IA</a>, donde hubo amplio acuerdo en que los agentes introducen riesgos nuevos y que las pr�f�'�?�?T�f�?s�,¡cticas tradicionales de ciberseguridad necesitan adaptarse.</p>
+                        <p>Para quienes construyen backend, la conclusi�f�'�?�?T�f�?s�,³n pr�f�'�?�?T�f�?s�,¡ctica es clara: el acceso de agentes no puede improvisarse. Cuando un agente tiene acceso a herramientas, tus APIs deben saber qui�f�'�?�?T�f�?s�,©n es el agente, a qui�f�'�?�?T�f�?s�,©n representa, qu�f�'�?�?T�f�?s�,© puede hacer y c�f�'�?�?T�f�?s�,³mo revocar esa autoridad cuando la tarea termina.</p>
+
+                        <div class="blog-diagram" aria-label="Pipeline de autorizaci�f�'�?�?T�f�?s�,³n para agentes de IA">
+                            <span class="blog-diagram-title">Pipeline de autorizaci�f�'�?�?T�f�?s�,³n</span>
+                            <div class="blog-flow-grid">
+                                <div class="blog-flow-step">
+                                    <strong>Intenci�f�'�?�?T�f�?s�,³n humana</strong>
+                                    <span>El usuario pide al agente una tarea con l�f�'�?�?T�f�?s�,­mites claros.</span>
+                                </div>
+                                <div class="blog-flow-step">
+                                    <strong>Plan del agente</strong>
+                                    <span>El agente propone las herramientas y acciones necesarias.</span>
+                                </div>
+                                <div class="blog-flow-step">
+                                    <strong>Revisi�f�'�?�?T�f�?s�,³n de pol�f�'�?�?T�f�?s�,­tica</strong>
+                                    <span>Un gateway eval�f�'�?�?T�f�?s�,ºa riesgo, alcance, due�f�'�?�?T�f�?s�,±o y ambiente.</span>
+                                </div>
+                                <div class="blog-flow-step">
+                                    <strong>Token acotado</strong>
+                                    <span>OAuth o identidad de workload emite autoridad temporal.</span>
+                                </div>
+                                <div class="blog-flow-step">
+                                    <strong>Llamada de herramienta</strong>
+                                    <span>La API ejecuta �f�'�?�?T�f�?s�,ºnicamente la operaci�f�'�?�?T�f�?s�,³n aprobada.</span>
+                                </div>
+                                <div class="blog-flow-step">
+                                    <strong>Evento de auditor�f�'�?�?T�f�?s�,­a</strong>
+                                    <span>Actor, tarea, token, entrada, salida y resultado quedan registrados.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>OAuth es delegaci�f�'�?�?T�f�?s�,³n, no magia</h2>
+                        <p>OAuth es �f�'�?�?T�f�?s�,ºtil porque modela autorizaci�f�'�?�?T�f�?s�,³n delegada. Un usuario o sistema concede a un cliente acceso limitado a un resource server. Eso encaja bien con flujos de agentes, siempre que la implementaci�f�'�?�?T�f�?s�,³n no convierta OAuth en un contenedor de permisos amplios y de larga duraci�f�'�?�?T�f�?s�,³n.</p>
+                        <p>En un flujo delegado por una persona, el agente normalmente deber�f�'�?�?T�f�?s�,­a recibir un token estrecho, temporal y vinculado a una tarea. En flujos de agentes en segundo plano, client credentials o workload identity pueden tener sentido, pero tambi�f�'�?�?T�f�?s�,©n necesitan alcances, restricciones de pol�f�'�?�?T�f�?s�,­tica y trazabilidad. La clave es evitar un �f�'�?�?T�f�?s�,ºnico "token del agente" capaz de leer y escribir todo.</p>
+
+                        <h2>La identidad debe tener capas</h2>
+                        <p>Un buen modelo de identidad para agentes registra m�f�'�?�?T�f�?s�,¡s de un actor. Debe capturar la persona solicitante, la instancia del agente, la herramienta o servidor MCP usado, la API destino y la decisi�f�'�?�?T�f�?s�,³n de pol�f�'�?�?T�f�?s�,­tica que permiti�f�'�?�?T�f�?s�,³ la acci�f�'�?�?T�f�?s�,³n. Es parecido al tracing distribuido: una petici�f�'�?�?T�f�?s�,³n pasa por varios sistemas, pero el trace mantiene conectada la historia.</p>
+
+                        <div class="blog-control-grid" aria-label="Capas de identidad para agentes de IA">
+                            <div class="blog-control-card">
+                                <strong>Principal humano</strong>
+                                <span>La persona o equipo que solicit�f�'�?�?T�f�?s�,³ y aprob�f�'�?�?T�f�?s�,³ la tarea.</span>
+                            </div>
+                            <div class="blog-control-card">
+                                <strong>Principal del agente</strong>
+                                <span>Runtime, familia de modelo, configuraci�f�'�?�?T�f�?s�,³n e identidad de sesi�f�'�?�?T�f�?s�,³n.</span>
+                            </div>
+                            <div class="blog-control-card">
+                                <strong>Principal de herramienta</strong>
+                                <span>Cliente de API, servidor MCP, worker o integraci�f�'�?�?T�f�?s�,³n que ejecut�f�'�?�?T�f�?s�,³ la acci�f�'�?�?T�f�?s�,³n.</span>
+                            </div>
+                        </div>
+
+                        <p>Esta identidad por capas importa mucho durante una respuesta a incidentes. Si cambia una fila de la base de datos, el log no deber�f�'�?�?T�f�?s�,­a decir solo "service-account-agent-prod actualiz�f�'�?�?T�f�?s�,³ la fila 123". Deber�f�'�?�?T�f�?s�,­a responder: qu�f�'�?�?T�f�?s�,© usuario inici�f�'�?�?T�f�?s�,³ la tarea, qu�f�'�?�?T�f�?s�,© agente gener�f�'�?�?T�f�?s�,³ la acci�f�'�?�?T�f�?s�,³n, qu�f�'�?�?T�f�?s�,© permiso fue concedido, qu�f�'�?�?T�f�?s�,© herramienta la ejecut�f�'�?�?T�f�?s�,³ y si el resultado coincide con el plan aprobado.</p>
+
+                        <h2>El patr�f�'�?�?T�f�?s�,³n del gateway de pol�f�'�?�?T�f�?s�,­ticas</h2>
+                        <p>El lugar m�f�'�?�?T�f�?s�,¡s seguro para aplicar autorizaci�f�'�?�?T�f�?s�,³n de agentes no es el prompt. Los prompts pueden describir reglas, pero la aplicaci�f�'�?�?T�f�?s�,³n real pertenece al c�f�'�?�?T�f�?s�,³digo. Un gateway de pol�f�'�?�?T�f�?s�,­ticas se ubica entre el agente y las herramientas. Recibe llamadas propuestas, las eval�f�'�?�?T�f�?s�,ºa contra pol�f�'�?�?T�f�?s�,­ticas, solicita aprobaci�f�'�?�?T�f�?s�,³n humana cuando hace falta, emite credenciales acotadas y escribe eventos de auditor�f�'�?�?T�f�?s�,­a.</p>
+                        <p>Esto es especialmente importante en ecosistemas de herramientas tipo MCP. MCP puede exponer capacidades muy �f�'�?�?T�f�?s�,ºtiles a los agentes, pero cada capacidad expuesta tambi�f�'�?�?T�f�?s�,©n es una frontera de permisos. Un servidor MCP de base de datos no deber�f�'�?�?T�f�?s�,­a conceder escritura solo porque el agente formul�f�'�?�?T�f�?s�,³ una petici�f�'�?�?T�f�?s�,³n convincente. El gateway debe decidir si esa tarea, actor, ambiente y recurso justifican la acci�f�'�?�?T�f�?s�,³n.</p>
+
+                        <h2>Los alcances deben tener forma de tarea</h2>
+                        <p>Los alcances tradicionales suelen describir permisos amplios de aplicaci�f�'�?�?T�f�?s�,³n: leer facturas, escribir tickets, administrar usuarios. Los agentes necesitan alcances m�f�'�?�?T�f�?s�,¡s contextuales. Un alcance con forma de tarea podr�f�'�?�?T�f�?s�,­a permitir crear un solo ticket para un cliente, leer logs de un servicio durante la �f�'�?�?T�f�?s�,ºltima hora o generar un pull request en borrador sin permiso de merge.</p>
+
+                        <div class="blog-table-wrap" aria-label="Tabla de controles de autorizaci�f�'�?�?T�f�?s�,³n para agentes">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Control</th>
+                                        <th>Patr�f�'�?�?T�f�?s�,³n d�f�'�?�?T�f�?s�,©bil</th>
+                                        <th>Patr�f�'�?�?T�f�?s�,³n m�f�'�?�?T�f�?s�,¡s seguro</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Vida del token</td>
+                                        <td>Token compartido y duradero para todas las acciones del agente.</td>
+                                        <td>Token corto, vinculado a una tarea o sesi�f�'�?�?T�f�?s�,³n concreta.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dise�f�'�?�?T�f�?s�,±o de alcance</td>
+                                        <td>Alcances gen�f�'�?�?T�f�?s�,©ricos de administrador, como <code>write:all</code>.</td>
+                                        <td>Alcances limitados por recurso, acci�f�'�?�?T�f�?s�,³n, ambiente y tiempo.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Aprobaci�f�'�?�?T�f�?s�,³n humana</td>
+                                        <td>El agente decide por s�f�'�?�?T�f�?s�,­ mismo cu�f�'�?�?T�f�?s�,¡ndo una acci�f�'�?�?T�f�?s�,³n es segura.</td>
+                                        <td>La pol�f�'�?�?T�f�?s�,­tica exige aprobaci�f�'�?�?T�f�?s�,³n para llamadas destructivas o de alto riesgo.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Auditabilidad</td>
+                                        <td>Los logs muestran solo el nombre de una cuenta de servicio.</td>
+                                        <td>Los logs conectan persona, agente, herramienta, token, petici�f�'�?�?T�f�?s�,³n y resultado.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Revocaci�f�'�?�?T�f�?s�,³n</td>
+                                        <td>La credencial sigue activa despu�f�'�?�?T�f�?s�,©s de terminar la tarea.</td>
+                                        <td>El token expira autom�f�'�?�?T�f�?s�,¡ticamente y puede revocarse de inmediato.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h2>Lo que yo construir�f�'�?�?T�f�?s�,­a</h2>
+                        <p>Para una implementaci�f�'�?�?T�f�?s�,³n pr�f�'�?�?T�f�?s�,¡ctica y �f�'�?�?T�f�?s�,ºtil como pieza de portafolio, construir�f�'�?�?T�f�?s�,­a un gateway de autorizaci�f�'�?�?T�f�?s�,³n para agentes con Cloudflare Workers o FastAPI, usando Postgres/Supabase para pol�f�'�?�?T�f�?s�,­ticas y auditor�f�'�?�?T�f�?s�,­a. El agente nunca llamar�f�'�?�?T�f�?s�,­a APIs sensibles directamente. Enviar�f�'�?�?T�f�?s�,­a la acci�f�'�?�?T�f�?s�,³n propuesta al gateway. El gateway validar�f�'�?�?T�f�?s�,­a la petici�f�'�?�?T�f�?s�,³n, la mapear�f�'�?�?T�f�?s�,­a a una pol�f�'�?�?T�f�?s�,­tica, emitir�f�'�?�?T�f�?s�,­a una credencial corta o un token interno firmado y luego har�f�'�?�?T�f�?s�,­a proxy de la llamada aprobada.</p>
+                        <p>La primera versi�f�'�?�?T�f�?s�,³n incluir�f�'�?�?T�f�?s�,­a: registro de herramientas, definiciones de acciones acotadas, niveles de riesgo, estados de aprobaci�f�'�?�?T�f�?s�,³n humana, expiraci�f�'�?�?T�f�?s�,³n de tokens, logs estructurados y un peque�f�'�?�?T�f�?s�,±o dashboard con acciones recientes de agentes. Ese dashboard importa. La seguridad de agentes no consiste solo en bloquear ataques; tambi�f�'�?�?T�f�?s�,©n consiste en hacer visible la actividad aut�f�'�?�?T�f�?s�,³noma para que las personas puedan confiar en ella.</p>
+
+                        <h2>Fallos que conviene dise�f�'�?�?T�f�?s�,±ar desde el inicio</h2>
+                        <p>Los sistemas de autorizaci�f�'�?�?T�f�?s�,³n para agentes fallan de formas bastante predecibles. El fallo m�f�'�?�?T�f�?s�,¡s com�f�'�?�?T�f�?s�,ºn es el exceso de privilegios: un token amplio es m�f�'�?�?T�f�?s�,¡s f�f�'�?�?T�f�?s�,¡cil de entregar que uno acotado. El segundo es la falta de atribuci�f�'�?�?T�f�?s�,³n: el log muestra que se llam�f�'�?�?T�f�?s�,³ una API, pero no explica por qu�f�'�?�?T�f�?s�,©. El tercero es el bypass de pol�f�'�?�?T�f�?s�,­tica: el agente encuentra una ruta directa a la API y evita el gateway. El cuarto es la fatiga de aprobaci�f�'�?�?T�f�?s�,³n: las personas aprueban todo porque el sistema pide confirmaci�f�'�?�?T�f�?s�,³n demasiadas veces.</p>
+                        <p>Un buen dise�f�'�?�?T�f�?s�,±o reduce estos fallos con pol�f�'�?�?T�f�?s�,­ticas default-deny, emisi�f�'�?�?T�f�?s�,³n estrecha de tokens, acceso a herramientas por un camino controlado, aprobaci�f�'�?�?T�f�?s�,³n basada en riesgo y dashboards que resumen actividad en lugar de hundir a los revisores en logs crudos.</p>
+
+                        <h2>Observabilidad para acciones de agentes</h2>
+                        <p>Cada acci�f�'�?�?T�f�?s�,³n de agente deber�f�'�?�?T�f�?s�,­a generar telemetr�f�'�?�?T�f�?s�,­a estructurada. Como m�f�'�?�?T�f�?s�,­nimo: ID del agente, solicitante humano, ID de tarea, herramienta usada, recurso objetivo, alcances solicitados, alcances concedidos, decisi�f�'�?�?T�f�?s�,³n de pol�f�'�?�?T�f�?s�,­tica, estado de aprobaci�f�'�?�?T�f�?s�,³n, latencia, resultado y si hubo campos sensibles redactados.</p>
+                        <p>Con esos eventos, el sistema puede responder preguntas �f�'�?�?T�f�?s�,ºtiles: qu�f�'�?�?T�f�?s�,© herramientas usan m�f�'�?�?T�f�?s�,¡s los agentes, qu�f�'�?�?T�f�?s�,© acciones requieren m�f�'�?�?T�f�?s�,¡s aprobaci�f�'�?�?T�f�?s�,³n manual, qu�f�'�?�?T�f�?s�,© alcances son demasiado amplios, qu�f�'�?�?T�f�?s�,© prompts producen bloqueos repetidos y qu�f�'�?�?T�f�?s�,© automatizaciones ya son lo suficientemente seguras para ganar m�f�'�?�?T�f�?s�,¡s autonom�f�'�?�?T�f�?s�,­a.</p>
+
+                        <h2>El principio de dise�f�'�?�?T�f�?s�,±o</h2>
+                        <p>Los agentes de IA no deber�f�'�?�?T�f�?s�,­an heredar confianza por escribir con fluidez. Un plan bien redactado no es autorizaci�f�'�?�?T�f�?s�,³n. Una llamada de herramienta formulada con seguridad no es aprobaci�f�'�?�?T�f�?s�,³n. Los sistemas de producci�f�'�?�?T�f�?s�,³n necesitan l�f�'�?�?T�f�?s�,­mites aplicables: identidad, alcances, pol�f�'�?�?T�f�?s�,­tica, aprobaci�f�'�?�?T�f�?s�,³n, ejecuci�f�'�?�?T�f�?s�,³n, auditor�f�'�?�?T�f�?s�,­a y revocaci�f�'�?�?T�f�?s�,³n.</p>
+                        <p>Esa es la diferencia entre un agente simplemente conectado a herramientas y un agente capaz de participar con seguridad en operaciones backend reales.</p>
+                    </article>
+
+                    <section aria-labelledby="agent-identity-related-title">
+                        <h2 id="agent-identity-related-title">Lectura relacionada</h2>
+                        <div class="blog-related-grid">
+                            <article class="blog-related-card">
+                                <h3><a href="https://pklavc.com/blog/es/model-context-protocol-mcp/">MCP: la interfaz est�f�'�?�?T�f�?s�,¡ndar para herramientas de agentes de IA</a></h3>
+                                <p>C�f�'�?�?T�f�?s�,³mo las interfaces de herramientas cambian la forma en que los agentes interact�f�'�?�?T�f�?s�,ºan con sistemas reales.</p>
+                            </article>
+                            <article class="blog-related-card">
+                                <h3><a href="https://pklavc.com/blog/es/ai-code-governance-security/">Gobernanza y seguridad para c�f�'�?�?T�f�?s�,³digo generado por IA</a></h3>
+                                <p>Gates de validaci�f�'�?�?T�f�?s�,³n, trazas de auditor�f�'�?�?T�f�?s�,­a y protecciones de producci�f�'�?�?T�f�?s�,³n para salidas de agentes.</p>
+                            </article>
+                            <article class="blog-related-card">
+                                <h3><a href="https://pklavc.com/blog/es/oauth-token-management/">Gesti�f�'�?�?T�f�?s�,³n de tokens OAuth en workers backend</a></h3>
+                                <p>Patrones de ciclo de vida de credenciales para servicios backend y workers de integraci�f�'�?�?T�f�?s�,³n.</p>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+
+                <aside class="blog-article-grid">
+                    <section class="blog-sidebar-card">
+                        <h2>Ideas centrales</h2>
+                        <ul>
+                            <li>Los agentes necesitan su propia capa de identidad, no tokens administrativos compartidos.</li>
+                            <li>OAuth funciona mejor con tokens acotados, cortos y conscientes de la tarea.</li>
+                            <li>La aplicaci�f�'�?�?T�f�?s�,³n de pol�f�'�?�?T�f�?s�,­ticas debe vivir en un gateway, no solo en prompts.</li>
+                            <li>Los logs de auditor�f�'�?�?T�f�?s�,­a deben conectar intenci�f�'�?�?T�f�?s�,³n humana con ejecuci�f�'�?�?T�f�?s�,³n aut�f�'�?�?T�f�?s�,³noma.</li>
+                        </ul>
+                    </section>
+                    <section class="blog-sidebar-card">
+                        <h2>Plano de control</h2>
+                        <ul>
+                            <li>Registro de herramientas</li>
+                            <li>Tokens de acci�f�'�?�?T�f�?s�,³n acotados</li>
+                            <li>Aprobaciones basadas en riesgo</li>
+                            <li>Eventos de auditor�f�'�?�?T�f�?s�,­a estructurados</li>
+                            <li>Revocaci�f�'�?�?T�f�?s�,³n y expiraci�f�'�?�?T�f�?s�,³n</li>
+                        </ul>
+                    </section>
+                    <section class="blog-sidebar-card">
+                        <h2>Se�f�'�?�?T�f�?s�,±ales externas</h2>
+                        <ul>
+                            <li><a href="https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure" target="_blank" rel="noopener noreferrer">Iniciativa de NIST para est�f�'�?�?T�f�?s�,¡ndares de agentes de IA</a></li>
+                            <li><a href="https://www.nist.gov/publications/summary-analysis-responses-request-information-regarding-security-considerations-ai" target="_blank" rel="noopener noreferrer">Respuestas de NIST sobre seguridad de agentes</a></li>
+                            <li><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">AI Risk Management Framework de NIST</a></li>
+                        </ul>
+                    </section>
+                    <section class="blog-sidebar-card">
+                        <h2>Continuar explorando</h2>
+                        <ul>
+                            <li><a href="https://pklavc.com/blog/es/autonomous-coding-agents/">Agentes de codificaci�f�'�?�?T�f�?s�,³n aut�f�'�?�?T�f�?s�,³nomos</a></li>
+                            <li><a href="https://pklavc.com/blog/es/ai-native-engineering/">Ingenier�f�'�?�?T�f�?s�,­a nativa de IA</a></li>
+                            <li><a href="https://pklavc.com/blog/es/lavc-systems-architecture/">Arquitectura de Lavc Systems</a></li>
+                        </ul>
+                    </section>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer-minimal footer-split footer-projects">
+        <div class="footer-container">
+            <div class="footer-split-left">
+                <span class="footer-copyright-line">&copy; <span data-current-year></span> Patrick Araujo</span>
+                <span class="footer-legal-inline" aria-label="Enlaces legales"><a class="footer-legal-link" href="/manu/es/politica-de-privacidad/">Pol�f�'�?�?T�f�?s�,­tica de Privacidad</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="/manu/es/terminos-de-uso/">T�f�'�?�?T�f�?s�,©rminos de Uso</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="/manu/es/creditos/">Pol�f�'�?�?T�f�?s�,­tica Editorial</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="/manu/es/creditos/">Cr�f�'�?�?T�f�?s�,©ditos</a></span>
+            </div>
+            <span class="footer-split-spacer" aria-hidden="true"></span>
+            <div class="footer-split-right">
+                <nav class="footer-social-icons" aria-label="Enlaces sociales y de contacto">
+                    <a class="footer-social-icon-link" href="https://github.com/PkLavc" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><lottie-player src="/manu/about/images/lottie/github.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="https://www.linkedin.com/in/pklavc/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><lottie-player src="/manu/about/images/lottie/linkedin.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="https://www.instagram.com/pklavc/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><lottie-player src="/manu/blog/assets/lottie/instagram-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="https://www.youtube.com/@PkLavc" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><lottie-player src="/manu/blog/assets/lottie/youtube-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="mailto:contact@pklavc.com" aria-label="Correo electr�f�'�?�?T�f�?s�,³nico"><lottie-player src="/manu/about/images/lottie/mail.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="https://github.com/sponsors/PkLavc" target="_blank" rel="noopener noreferrer" aria-label="Apoyar en GitHub"><lottie-player src="/manu/blog/assets/lottie/sponsor-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                </nav>
+            </div>
+        </div>
+    <div id="pklavc-newsletter-footer-entry" class="pklavc-newsletter-footer-entry"><button class="pklavc-newsletter-footer-trigger" type="button" data-newsletter-open aria-haspopup="dialog" aria-controls="pklavc-newsletter-dialog">Newsletter</button></div>
+</footer>
+
+    <script>
+        (function() {
+            document.querySelectorAll('[data-current-year]').forEach(function(node) {
+                node.textContent = String(new Date().getFullYear());
+            });
+        }());
+    </script>
+    <script src="/manu/about/js/i18n.js" defer></script>
+    <script src="/manu/blog/assets/js/jquery.min.js?v=d482871a5e" defer></script>
+    <script src="/manu/blog/assets/js/index.js?v=aace661eb10e" defer></script>
+
+    <div class="visually-hidden">
+        <p>Art�f�'�?�?T�f�?s�,­culo sobre identidad y autorizaci�f�'�?�?T�f�?s�,³n para agentes de IA que cubre OAuth para agentes, identidad no humana, autorizaci�f�'�?�?T�f�?s�,³n de APIs, tokens acotados, gateways de pol�f�'�?�?T�f�?s�,­ticas, seguridad de herramientas MCP, logs de auditor�f�'�?�?T�f�?s�,­a, m�f�'�?�?T�f�?s�,­nimo privilegio, aprobaci�f�'�?�?T�f�?s�,³n humana y arquitectura backend para acciones aut�f�'�?�?T�f�?s�,³nomas seguras.</p>
+    </div>
+<script id="spotlight-navigation-script" src="/manu/about/js/spotlight-navigation.js?v=16fb92149af4" defer></script>
+<script id="pklavc-newsletter-script" src="/manu/blog/assets/js/newsletter.js?v=a1bab45aa7" defer></script>
+<script id="skylet-widget-script" src="/manu/blog/assets/js/skylet-widget.js?v=5b4ef16ead" defer></script>
+</body>
+</html>

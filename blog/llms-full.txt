@@ -1,0 +1,24 @@
+# PkLavc Engineering Blog: article directory
+
+Generated from the blog's canonical posts.json. Article links below are public canonical routes; source-tree paths are intentionally omitted.
+
+English articles: 4
+
+## English articles
+
+- [IBM Bob Offers Self-Hosted Deployment for AI Sovereignty and Governance](https://pklavc.com/blog/en/ibm-bob-self-hosted-ai-sovereignty-governance/) — 2026-10-01 | AI and Models | CONFIRMED. IBM has launched a self-hosted deployment option for its AI-powered software development and modernization tool, IBM Bob. This new offering empowers enterprises to maintain AI sovereignty and enhance governance by keeping sensitive code, data, and workflows within their own controlled infrastructure, addressing key concerns for secure and compliant AI adoption. Tags: AI Governance, AI Sovereignty, Enterprise AI, Hybrid Cloud, Cybersecurity, Software Engineering, IBM, Developer Tools.
+- [AI-Assisted Incident Response Runbooks](https://pklavc.com/blog/en/ai-assisted-incident-response-runbooks/) — 2026-06-18 | Incident Response | CONFIRMED. How to design AI-assisted incident response runbooks that preserve evidence, summarize telemetry, propose containment, open remediation pull requests, require approvals, and verify recovery. Tags: AI-assisted response, runbooks, cybersecurity.
+- [AI Agent Identity and Authorization: OAuth for Non-Human Workers](https://pklavc.com/blog/en/ai-agent-identity-authorization-oauth/) — 2026-06-01 | AI Security Architecture | CONFIRMED. How to design identity, OAuth scopes, policy gateways, audit logs, and least-privilege authorization for AI agents that act across APIs and internal tools. Tags: AI agents, OAuth, non-human identity, API security.
+- [Spec-Driven Development: Writing Specifications That Machines and Humans Can Execute](https://pklavc.com/blog/en/spec-driven-development/) — 2026-05-28 | AI Engineering | CONFIRMED. How spec-driven development bridges human intent and AI agent execution — structured specifications as the interface between engineers and autonomous coding tools. Tags: context engineering, AI specifications, agent execution.
+
+## Português do Brasil
+
+- [Runbooks de resposta a incidentes assistidos por IA](https://pklavc.com/blog/pt/ai-assisted-incident-response-runbooks/) — translation of [AI-Assisted Incident Response Runbooks](https://pklavc.com/blog/en/ai-assisted-incident-response-runbooks/).
+- [Identidade e autorização para agentes de IA: OAuth para workers não humanos](https://pklavc.com/blog/pt/ai-agent-identity-authorization-oauth/) — translation of [AI Agent Identity and Authorization: OAuth for Non-Human Workers](https://pklavc.com/blog/en/ai-agent-identity-authorization-oauth/).
+- [Spec-Driven Development: Writing Specifications That Machines and Humans Can Execute](https://pklavc.com/blog/pt/spec-driven-development/) — translation of [Spec-Driven Development: Writing Specifications That Machines and Humans Can Execute](https://pklavc.com/blog/en/spec-driven-development/).
+
+## Español
+
+- [Runbooks de respuesta a incidentes asistidos por IA](https://pklavc.com/blog/es/ai-assisted-incident-response-runbooks/) — translation of [AI-Assisted Incident Response Runbooks](https://pklavc.com/blog/en/ai-assisted-incident-response-runbooks/).
+- [Identidad y autorización para agentes de IA: OAuth para servicios no humanos](https://pklavc.com/blog/es/ai-agent-identity-authorization-oauth/) — translation of [AI Agent Identity and Authorization: OAuth for Non-Human Workers](https://pklavc.com/blog/en/ai-agent-identity-authorization-oauth/).
+- [Spec-Driven Development: Writing Specifications That Machines and Humans Can Execute](https://pklavc.com/blog/es/spec-driven-development/) — translation of [Spec-Driven Development: Writing Specifications That Machines and Humans Can Execute](https://pklavc.com/blog/en/spec-driven-development/).

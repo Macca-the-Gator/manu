@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html data-site-base="/manu/" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Patrick Araujo">
+    <title>Desarrollo basado en especificaciones: redacci�f�'�?�?T�f�?s�,³n de especificaciones que las m�f�'�?�?T�f�?s�,¡quinas y los humanos puedan ejecutar</title>
+    <meta name="description" content="C�f�'�?�?T�f�?s�,³mo el desarrollo basado en especificaciones une la intenci�f�'�?�?T�f�?s�,³n humana y la ejecuci�f�'�?�?T�f�?s�,³n del agente de IA: especificaciones estructuradas como interfaz entre ingenieros y herramientas de codificaci�f�'�?�?T�f�?s�,³n aut�f�'�?�?T�f�?s�,³nomas como Claude Code, Codex y Cursor.">
+    <meta name="keywords" content="desarrollo basado en especificaciones, especificaciones de IA, ejecuci�f�'�?�?T�f�?s�,³n de agentes, especificaciones estructuradas, ingenier�f�'�?�?T�f�?s�,­a de contexto, especificaciones Claude Code, tareas del Codex, reglas de cursor, especificaciones de ingenier�f�'�?�?T�f�?s�,­a, automatizaci�f�'�?�?T�f�?s�,³n">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pklavc.com/blog/es/spec-driven-development/">
+    <link rel="alternate" href="https://pklavc.com/blog/en/spec-driven-development/" hreflang="en">
+    <link rel="alternate" href="https://pklavc.com/blog/pt/spec-driven-development/" hreflang="pt-BR">
+    <link rel="alternate" href="https://pklavc.com/blog/es/spec-driven-development/" hreflang="es">
+    <link rel="alternate" href="https://pklavc.com/blog/en/spec-driven-development/" hreflang="x-default">
+
+
+
+<meta property="og:title" content="Desarrollo basado en especificaciones: redacci�f�'�?�?T�f�?s�,³n de especificaciones que las m�f�'�?�?T�f�?s�,¡quinas y los humanos puedan ejecutar">
+    <meta property="og:description" content="Especificaciones estructuradas como interfaz entre ingenieros y agentes de IA: c�f�'�?�?T�f�?s�,³mo escribir especificaciones que produzcan resultados de agente confiables y revisables.">
+    <meta property="og:url" content="https://pklavc.com/blog/es/spec-driven-development/">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-05-28">
+    <meta property="article:modified_time" content="2026-05-28">
+    <meta property="article:author" content="Patrick Araujo">
+    <meta property="article:section" content="AI Engineering">
+    <meta property="article:tag" content="desarrollo basado en especificaciones">
+    <meta property="article:tag" content="ingenier�f�'�?�?T�f�?s�,­a de contexto">
+    <meta property="article:tag" content="Especificaciones de IA">
+    <meta property="article:tag" content="ejecuci�f�'�?�?T�f�?s�,³n del agente">
+    <meta property="og:image" content="https://pklavc.com/blog/assets/manu/blog/images/brand/lavc.webp?v=5e84850f26">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:site_name" content="Patrick Araujo">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:image:alt" content="Retrato de marca del ingeniero backend y especialista en automatizaci�f�'�?�?T�f�?s�,³n Patrick Araujo">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Desarrollo basado en especificaciones: especificaciones para m�f�'�?�?T�f�?s�,¡quinas y humanos">
+    <meta name="twitter:description" content="C�f�'�?�?T�f�?s�,³mo las especificaciones estructuradas se convierten en la interfaz entre la intenci�f�'�?�?T�f�?s�,³n humana y la ejecuci�f�'�?�?T�f�?s�,³n del agente de IA en la ingenier�f�'�?�?T�f�?s�,­a moderna.">
+    <meta name="twitter:image" content="https://pklavc.com/blog/assets/manu/blog/images/brand/lavc.webp?v=5e84850f26">
+    <meta name="twitter:image:alt" content="Retrato de marca del ingeniero backend y especialista en automatizaci�f�'�?�?T�f�?s�,³n Patrick Araujo">
+    <meta name="twitter:site" content="@PkLavc">
+    <meta name="twitter:creator" content="@PkLavc">
+
+    <link rel="icon" type="image/svg+xml" href="/manu/blog/assets/favicon.svg?v=d15fe4e492">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Monoton&amp;family=Poppins:wght@500;600;700&amp;family=Raleway:wght@300&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Monoton&amp;family=Poppins:wght@500;600;700&amp;family=Raleway:wght@300&amp;display=swap"></noscript>
+    <link rel="stylesheet" href="/manu/blog/assets/css/global.css?v=1d91cf360c">
+    <link rel="stylesheet" href="/manu/blog/assets/css/blog.css?v=804d631dbb">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js" defer></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Spec-Driven Development: Writing Specifications That Machines and Humans Can Execute",
+                "description": "How spec-driven development bridges human intent and AI agent execution �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�, structured specifications as the interface between engineers and autonomous coding tools.",
+                "image": "https://pklavc.com/blog/assets/manu/blog/images/brand/lavc.webp?v=5e84850f26",
+                "datePublished": "2026-05-28",
+                "dateModified": "2026-05-28",
+                "author": {
+                    "@type": "Person",
+                    "name": "Patrick Araujo"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Patrick Araujo"
+                },
+                "mainEntityOfPage": "https://pklavc.com/blog/es/spec-driven-development/",
+                "url": "https://pklavc.com/blog/es/spec-driven-development/",
+                "keywords": [
+                    "spec-driven development",
+                    "ai specifications",
+                    "agent execution",
+                    "context engineering",
+                    "structured specs",
+                    "claude code",
+                    "codex",
+                    "cursor rules",
+                    "automation"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://pklavc.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://pklavc.com/blog/es/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Spec-Driven Development",
+                        "item": "https://pklavc.com/blog/es/spec-driven-development/"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    <link rel="search" type="application/opensearchdescription+xml" title="PkLavc" href="/manu/blog/opensearch.xml">
+<link id="spotlight-navigation-style" rel="stylesheet" href="/manu/assets/css/spotlight-navigation.81f7fc858602.css">
+<link id="pklavc-newsletter-style" rel="stylesheet" href="/manu/blog/assets/css/newsletter.css?v=bab247dec2">
+<link id="skylet-widget-style" rel="stylesheet" href="/manu/blog/assets/css/skylet-widget.css?v=e3ca269f9e">
+</head>
+<body class="blog-layout seo-layout">
+    <div id="breaker"></div>
+    <div id="breaker-two"></div>
+    <div id="all">
+        <div class="cursor"></div>
+
+
+        <main class="blog-shell" role="main">
+            <div class="blog-columns">
+                <div>
+                    <article class="blog-post-hero">
+                        <div class="blog-breadcrumb" aria-label="Miga de pan">
+                            <a href="/manu/blog/es/">Inicio</a>
+                            <span>/</span>
+                            <a href="/manu/blog/es/">Blog</a>
+                            <span>/</span>
+                            <span aria-current="page">Desarrollo basado en especificaciones</span>
+                        </div>
+                        <span class="blog-kicker">Ingenier�f�'�?�?T�f�?s�,­a de IA</span>
+                        <h1>Desarrollo basado en especificaciones: redacci�f�'�?�?T�f�?s�,³n de especificaciones que las m�f�'�?�?T�f�?s�,¡quinas y los humanos puedan ejecutar</h1>
+                        <p>Cuando los agentes de IA ejecutan c�f�'�?�?T�f�?s�,³digo, la calidad de su salida est�f�'�?�?T�f�?s�,¡ limitada por la calidad de su entrada. El desarrollo basado en especificaciones trata las especificaciones estructuradas como la interfaz principal entre la intenci�f�'�?�?T�f�?s�,³n humana y la ejecuci�f�'�?�?T�f�?s�,³n de la m�f�'�?�?T�f�?s�,¡quina, y cambia la forma en que los equipos de ingenier�f�'�?�?T�f�?s�,­a trabajan con herramientas aut�f�'�?�?T�f�?s�,³nomas.</p>
+                        <div class="blog-post-meta">
+                            <span>Publicado el 28 de mayo de 2026</span>
+                            <span>10 minutos de lectura</span>
+                            <span>Ingenier�f�'�?�?T�f�?s�,­a de IA</span>
+                        </div>
+                    </article>
+
+                    <article class="blog-article">
+                        <h2>Por qu�f�'�?�?T�f�?s�,© las especificaciones son m�f�'�?�?T�f�?s�,¡s importantes con los agentes de IA</h2>
+                        <p>En el desarrollo tradicional, un ticket vago a�f�'�?�?T�f�?s�,ºn puede producir un buen c�f�'�?�?T�f�?s�,³digo porque el desarrollador llena los vac�f�'�?�?T�f�?s�,­os con contexto, hace preguntas y toma decisiones. Los agentes de IA no pueden hacer esto de manera confiable. Ejecutan literalmente en contra de lo que se les da. Un mensaje vago produce un c�f�'�?�?T�f�?s�,³digo vago. Una especificaci�f�'�?�?T�f�?s�,³n precisa produce una implementaci�f�'�?�?T�f�?s�,³n precisa.</p>
+                        <p>El desarrollo basado en especificaciones invierte el trabajo: en lugar de dedicar tiempo a escribir c�f�'�?�?T�f�?s�,³digo y depurar, los ingenieros dedican tiempo a escribir especificaciones claras y revisar los resultados. La especificaci�f�'�?�?T�f�?s�,³n se convierte en el artefacto que captura la intenci�f�'�?�?T�f�?s�,³n, las limitaciones, los criterios de aceptaci�f�'�?�?T�f�?s�,³n y los l�f�'�?�?T�f�?s�,­mites arquitect�f�'�?�?T�f�?s�,³nicos.</p>
+
+                        <div class="blog-callout">
+                            Una especificaci�f�'�?�?T�f�?s�,³n no es documentaci�f�'�?�?T�f�?s�,³n posterior al hecho. Es el artefacto de ingenier�f�'�?�?T�f�?s�,­a el que impulsa la ejecuci�f�'�?�?T�f�?s�,³n, ya sea por parte de un desarrollador humano o de un agente aut�f�'�?�?T�f�?s�,³nomo.
+                        </div>
+
+                        <h2>C�f�'�?�?T�f�?s�,³mo se ve una especificaci�f�'�?�?T�f�?s�,³n ejecutable por m�f�'�?�?T�f�?s�,¡quina</h2>
+                        <p>Una especificaci�f�'�?�?T�f�?s�,³n �f�'�?�?T�f�?s�,ºtil para los agentes de IA incluye: el planteamiento del problema con l�f�'�?�?T�f�?s�,­mites claros, criterios de aceptaci�f�'�?�?T�f�?s�,³n que se pueden verificar mediante programaci�f�'�?�?T�f�?s�,³n, restricciones arquitect�f�'�?�?T�f�?s�,³nicas que la implementaci�f�'�?�?T�f�?s�,³n debe respetar, referencias a patrones existentes en el c�f�'�?�?T�f�?s�,³digo base y no objetivos expl�f�'�?�?T�f�?s�,­citos que eviten el desplazamiento del alcance.</p>
+                        <p>Esta no es una idea nueva: es lo que siempre parec�f�'�?�?T�f�?s�,­an las buenas especificaciones de ingenier�f�'�?�?T�f�?s�,­a. La diferencia es que con los agentes de IA, la especificaci�f�'�?�?T�f�?s�,³n no es solo una herramienta de comunicaci�f�'�?�?T�f�?s�,³n para humanos. Es la entrada literal la que determina lo que se construye. La ambig�f�'�?�?T�f�?s�,¼edad en la especificaci�f�'�?�?T�f�?s�,³n se convierte en ambig�f�'�?�?T�f�?s�,¼edad en el resultado.</p>
+
+                        <h2>Especificaciones como ingenier�f�'�?�?T�f�?s�,­a de contexto.</h2>
+                        <p>La ingenier�f�'�?�?T�f�?s�,­a de contexto (curar lo que ve un agente de IA) es fundamentalmente un problema de especificaci�f�'�?�?T�f�?s�,³n. Los archivos de reglas de cursor especifican convenciones de codificaci�f�'�?�?T�f�?s�,³n. Los archivos CLAUDE.md de Claude Code especifican el contexto del proyecto. Los pasos de configuraci�f�'�?�?T�f�?s�,³n del Codex especifican las expectativas ambientales. Todas estas son especificaciones, simplemente distribuidas en diferentes mecanismos.</p>
+                        <p>El desarrollo basado en especificaciones consolida esto en una pr�f�'�?�?T�f�?s�,¡ctica deliberada: antes de pedirle a un agente que implemente algo, escriba la especificaci�f�'�?�?T�f�?s�,³n que define el �f�'�?�?T�f�?s�,©xito. Incluya archivos, patrones, restricciones y criterios de verificaci�f�'�?�?T�f�?s�,³n relevantes. La especificaci�f�'�?�?T�f�?s�,³n es el contexto.</p>
+
+                        <h2>El bucle de verificaci�f�'�?�?T�f�?s�,³n de implementaci�f�'�?�?T�f�?s�,³n de especificaciones</h2>
+                        <p>Con agentes aut�f�'�?�?T�f�?s�,³nomos, el flujo de trabajo se convierte en: escribir especificaciones, delegar al agente, revisar el resultado seg�f�'�?�?T�f�?s�,ºn las especificaciones, iterar. Este bucle es m�f�'�?�?T�f�?s�,¡s r�f�'�?�?T�f�?s�,¡pido que escribir c�f�'�?�?T�f�?s�,³digo manualmente para tareas bien especificadas, pero m�f�'�?�?T�f�?s�,¡s lento para tareas donde la especificaci�f�'�?�?T�f�?s�,³n en s�f�'�?�?T�f�?s�,­ no est�f�'�?�?T�f�?s�,¡ clara.</p>
+                        <p>La idea clave es que la redacci�f�'�?�?T�f�?s�,³n de especificaciones es un trabajo de ingenier�f�'�?�?T�f�?s�,­a. Requiere comprender el sistema, anticipar casos extremos, definir l�f�'�?�?T�f�?s�,­mites y tomar decisiones arquitect�f�'�?�?T�f�?s�,³nicas. El agente maneja la traducci�f�'�?�?T�f�?s�,³n mec�f�'�?�?T�f�?s�,¡nica de la especificaci�f�'�?�?T�f�?s�,³n a la implementaci�f�'�?�?T�f�?s�,³n; el ingeniero maneja el problema m�f�'�?�?T�f�?s�,¡s dif�f�'�?�?T�f�?s�,­cil de definir qu�f�'�?�?T�f�?s�,© significa "correcto".</p>
+
+                        <h2>Especificaciones para diferentes herramientas de agentes</h2>
+                        <p>Diferentes herramientas consumen especificaciones de manera diferente. Claude Code funciona bien con especificaciones de rebajas en l�f�'�?�?T�f�?s�,­nea en la conversaci�f�'�?�?T�f�?s�,³n. Codex espera descripciones de tareas que definan el alcance y los criterios de aceptaci�f�'�?�?T�f�?s�,³n por adelantado. El modo agente de Cursor se beneficia de archivos de reglas que definen convenciones persistentes adem�f�'�?�?T�f�?s�,¡s de instrucciones por tarea en el chat.</p>
+                        <p>El patr�f�'�?�?T�f�?s�,³n com�f�'�?�?T�f�?s�,ºn es: las especificaciones globales (convenciones, arquitectura, patrones) se encuentran en archivos de configuraci�f�'�?�?T�f�?s�,³n que persisten en todas las tareas. Las especificaciones espec�f�'�?�?T�f�?s�,­ficas de la tarea (qu�f�'�?�?T�f�?s�,© construir ahora, qu�f�'�?�?T�f�?s�,© restricciones se aplican) se proporcionan por invocaci�f�'�?�?T�f�?s�,³n. Ambas capas son importantes para lograr resultados consistentes.</p>
+
+                        <h2>Cuando las especificaciones fallan</h2>
+                        <p>Las especificaciones fallan cuando son incompletas, contradictorias o desconectadas de la realidad base del c�f�'�?�?T�f�?s�,³digo. Un agente al que se le d�f�'�?�?T�f�?s�,© una especificaci�f�'�?�?T�f�?s�,³n que diga "seguir patrones existentes" pero no se le muestren esos patrones inventar�f�'�?�?T�f�?s�,¡ los suyos propios. Una especificaci�f�'�?�?T�f�?s�,³n que define el comportamiento pero no los puntos de integraci�f�'�?�?T�f�?s�,³n producir�f�'�?�?T�f�?s�,¡ un c�f�'�?�?T�f�?s�,³digo aislado que no se ajusta al sistema.</p>
+                        <p>La soluci�f�'�?�?T�f�?s�,³n no son m�f�'�?�?T�f�?s�,¡s palabras, sino m�f�'�?�?T�f�?s�,¡s precisi�f�'�?�?T�f�?s�,³n. Haga referencia a archivos espec�f�'�?�?T�f�?s�,­ficos, nombre funciones espec�f�'�?�?T�f�?s�,­ficas, se�f�'�?�?T�f�?s�,±ale pruebas espec�f�'�?�?T�f�?s�,­ficas. Las mejores especificaciones son breves, concretas y verificables. Le dicen al agente c�f�'�?�?T�f�?s�,³mo se ve el �f�'�?�?T�f�?s�,©xito en t�f�'�?�?T�f�?s�,©rminos que el agente puede comparar.</p>
+
+                        <h2>El desarrollo basado en especificaciones escala a los equipos</h2>
+                        <p>Cuando las especificaciones son la interfaz, la ingenier�f�'�?�?T�f�?s�,­a se vuelve m�f�'�?�?T�f�?s�,¡s paralelizable. Los ingenieros superiores redactan las especificaciones. Los agentes (e ingenieros junior) los implementan. La revisi�f�'�?�?T�f�?s�,³n se centra en si la implementaci�f�'�?�?T�f�?s�,³n coincide con la especificaci�f�'�?�?T�f�?s�,³n y si la especificaci�f�'�?�?T�f�?s�,³n era correcta. No se trata de reemplazar a los ingenieros, sino de separar el trabajo cognitivo del dise�f�'�?�?T�f�?s�,±o del trabajo mec�f�'�?�?T�f�?s�,¡nico de traducci�f�'�?�?T�f�?s�,³n.</p>
+                    </article>
+
+                    <section aria-labelledby="spec-related-title">
+                        <h2 id="spec-related-title">Lectura relacionada</h2>
+                        <div class="blog-related-grid">
+                            <article class="blog-related-card">
+                                <h3><a href="https://pklavc.com/blog/es/autonomous-coding-agents/">Agentes de codificaci�f�'�?�?T�f�?s�,³n aut�f�'�?�?T�f�?s�,³nomos: Claude Code, Codex y Cursor</a></h3>
+                                <p>C�f�'�?�?T�f�?s�,³mo los agentes aut�f�'�?�?T�f�?s�,³nomos consumen especificaciones y ejecutan planes de varios pasos.</p>
+                            </article>
+                            <article class="blog-related-card">
+                                <h3><a href="https://pklavc.com/blog/es/ai-native-engineering/">Ingenier�f�'�?�?T�f�?s�,­a nativa de IA: sistemas de construcci�f�'�?�?T�f�?s�,³n que asumen la participaci�f�'�?�?T�f�?s�,³n de la IA</a></h3>
+                                <p>Pr�f�'�?�?T�f�?s�,¡cticas de ingenier�f�'�?�?T�f�?s�,­a dise�f�'�?�?T�f�?s�,±adas para la colaboraci�f�'�?�?T�f�?s�,³n humano-agente desde el principio.</p>
+                            </article>
+                            <article class="blog-related-card">
+                                <h3><a href="https://pklavc.com/blog/es/model-context-protocol-mcp/">MCP �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�, Protocolo de contexto del modelo</a></h3>
+                                <p>C�f�'�?�?T�f�?s�,³mo MCP permite que las especificaciones hagan referencia a datos y herramientas en vivo en lugar de contexto est�f�'�?�?T�f�?s�,¡tico.</p>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+
+                <aside class="blog-article-grid">
+                    <section class="blog-sidebar-card">
+                        <h2>Conclusiones principales</h2>
+                        <ul>
+                            <li>Las especificaciones son la interfaz entre la intenci�f�'�?�?T�f�?s�,³n humana y la ejecuci�f�'�?�?T�f�?s�,³n del agente.</li>
+                            <li>La calidad de las especificaciones determina directamente la calidad de resultados del agente.</li>
+                            <li>La ingenier�f�'�?�?T�f�?s�,­a de contexto es una especificaci�f�'�?�?T�f�?s�,³n con otro nombre.</li>
+                            <li>El bucle spec-implement-verify reemplaza write-debug-refactor.</li>
+                        </ul>
+                    </section>
+                    <section class="blog-sidebar-card">
+                        <h2>Mecanismos de especificaciones</h2>
+                        <ul>
+                            <li>CLAUDE.md �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�, Claude Code contexto del proyecto</li>
+                            <li>Reglas del cursor: convenciones persistentes</li>
+                            <li>Pasos de configuraci�f�'�?�?T�f�?s�,³n del Codex: especificaciones del entorno</li>
+                            <li>Indicaciones de tareas: especificaciones por invocaci�f�'�?�?T�f�?s�,³n</li>
+                        </ul>
+                    </section>
+                    <section class="blog-sidebar-card">
+                        <h2>Continuar explorando</h2>
+                        <ul>
+                            <li><a href="https://pklavc.com/blog/es/autonomous-coding-agents/">Agentes de codificaci�f�'�?�?T�f�?s�,³n aut�f�'�?�?T�f�?s�,³nomos</a></li>
+                            <li><a href="https://pklavc.com/blog/es/vibe-coding-vs-real-engineering/">Codificaci�f�'�?�?T�f�?s�,³n Vibe vs Ingenier�f�'�?�?T�f�?s�,­a Real</a></li>
+                            <li><a href="https://pklavc.com/blog/es/multi-ai-workflows/">Flujos de trabajo de IA m�f�'�?�?T�f�?s�,ºltiple</a></li>
+                        </ul>
+                    </section>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer-minimal footer-split footer-projects">
+        <div class="footer-container">
+            <div class="footer-split-left">
+                <span class="footer-copyright-line">&copy; <span data-current-year></span> Patrick Araujo</span>
+                <span class="footer-legal-inline" aria-label="Enlaces legales"><a class="footer-legal-link" href="/manu/es/politica-de-privacidad/">Pol�f�'�?�?T�f�?s�,­tica de Privacidad</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="/manu/es/terminos-de-uso/">T�f�'�?�?T�f�?s�,©rminos de Uso</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="/manu/es/creditos/">Pol�f�'�?�?T�f�?s�,­tica Editorial</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="/manu/es/creditos/">Cr�f�'�?�?T�f�?s�,©ditos</a></span>
+            </div>
+            <span class="footer-split-spacer" aria-hidden="true"></span>
+            <div class="footer-split-right">
+                <nav class="footer-social-icons" aria-label="Enlaces sociales y de contacto">
+                    <a class="footer-social-icon-link" href="https://github.com/PkLavc" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><lottie-player src="/manu/about/images/lottie/github.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="https://www.linkedin.com/in/pklavc/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><lottie-player src="/manu/about/images/lottie/linkedin.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="https://www.instagram.com/pklavc/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><lottie-player src="/manu/blog/assets/lottie/instagram-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="https://www.youtube.com/@PkLavc" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><lottie-player src="/manu/blog/assets/lottie/youtube-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="mailto:contact@pklavc.com" aria-label="Correo electr�f�'�?�?T�f�?s�,³nico"><lottie-player src="/manu/about/images/lottie/mail.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="https://github.com/sponsors/PkLavc" target="_blank" rel="noopener noreferrer" aria-label="Apoyar en GitHub"><lottie-player src="/manu/blog/assets/lottie/sponsor-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                </nav>
+            </div>
+        </div>
+    <div id="pklavc-newsletter-footer-entry" class="pklavc-newsletter-footer-entry"><button class="pklavc-newsletter-footer-trigger" type="button" data-newsletter-open aria-haspopup="dialog" aria-controls="pklavc-newsletter-dialog">Newsletter</button></div>
+</footer>
+
+    <script>
+        (function() {
+            document.querySelectorAll('[data-current-year]').forEach(function(node) {
+                node.textContent = String(new Date().getFullYear());
+            });
+        }());
+    </script>
+        <script src="/manu/about/js/i18n.js" defer></script>
+    <script src="/manu/blog/assets/js/jquery.min.js?v=d482871a5e" defer></script>
+    <script src="/manu/blog/assets/js/index.js?v=aace661eb10e" defer></script>
+
+    <div class="visually-hidden">
+        <p>Art�f�'�?�?T�f�?s�,­culo de desarrollo basado en especificaciones que cubre especificaciones estructuradas para agentes de IA, ingenier�f�'�?�?T�f�?s�,­a de contexto, especificaciones ejecutables por m�f�'�?�?T�f�?s�,¡quina, Claude Code CLAUDE.md, reglas de cursor, definiciones de tareas del Codex, bucle de verificaci�f�'�?�?T�f�?s�,³n de implementaci�f�'�?�?T�f�?s�,³n de especificaciones y pr�f�'�?�?T�f�?s�,¡cticas de ingenier�f�'�?�?T�f�?s�,­a para herramientas de codificaci�f�'�?�?T�f�?s�,³n aut�f�'�?�?T�f�?s�,³nomas.</p>
+    </div>
+<script id="spotlight-navigation-script" src="/manu/about/js/spotlight-navigation.js?v=16fb92149af4" defer></script>
+<script id="pklavc-newsletter-script" src="/manu/blog/assets/js/newsletter.js?v=a1bab45aa7" defer></script>
+<script id="skylet-widget-script" src="/manu/blog/assets/js/skylet-widget.js?v=5b4ef16ead" defer></script>
+</body>
+</html>

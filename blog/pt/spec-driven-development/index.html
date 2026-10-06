@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html data-site-base="/manu/" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Patrick Araujo">
+    <title>Desenvolvimento orientado a especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes: escrevendo especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes que m�f�'�?�?T�f�?s�,¡quinas e humanos podem executar</title>
+    <meta name="description" content="Como o desenvolvimento orientado por especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes une a inten�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o humana e a execu�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o do agente de IA �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�, especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes estruturadas como a interface entre engenheiros e ferramentas de codifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o aut�f�'�?�?T�f�?s�,´nomas como Claude Code, Codex e Cursor.">
+    <meta name="keywords" content="desenvolvimento orientado a especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes, especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes de IA, execu�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de agente, especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes estruturadas, engenharia de contexto, especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes Claude Code, tarefas Codex, regras de cursor, especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes de engenharia, automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pklavc.com/blog/pt/spec-driven-development/">
+    <link rel="alternate" href="https://pklavc.com/blog/en/spec-driven-development/" hreflang="en">
+    <link rel="alternate" href="https://pklavc.com/blog/pt/spec-driven-development/" hreflang="pt-BR">
+    <link rel="alternate" href="https://pklavc.com/blog/es/spec-driven-development/" hreflang="es">
+    <link rel="alternate" href="https://pklavc.com/blog/en/spec-driven-development/" hreflang="x-default">
+
+
+
+<meta property="og:title" content="Desenvolvimento orientado a especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes: escrevendo especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes que m�f�'�?�?T�f�?s�,¡quinas e humanos podem executar">
+    <meta property="og:description" content="Especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes estruturadas como interface entre engenheiros e agentes de IA �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�, como escrever especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes que produzam resultados confi�f�'�?�?T�f�?s�,¡veis e revis�f�'�?�?T�f�?s�,¡veis do agente.">
+    <meta property="og:url" content="https://pklavc.com/blog/pt/spec-driven-development/">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-05-28">
+    <meta property="article:modified_time" content="2026-05-28">
+    <meta property="article:author" content="Patrick Araujo">
+    <meta property="article:section" content="AI Engineering">
+    <meta property="article:tag" content="desenvolvimento orientado por especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes">
+    <meta property="article:tag" content="engenharia de contexto">
+    <meta property="article:tag" content="Especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes de IA">
+    <meta property="article:tag" content="execu�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o do agente">
+    <meta property="og:image" content="https://pklavc.com/blog/assets/manu/blog/images/brand/lavc.webp?v=5e84850f26">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:site_name" content="Patrick Araujo">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:image:alt" content="Retrato da marca do engenheiro de backend e especialista em automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o Patrick Araujo">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Desenvolvimento Orientado a Especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes: Especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes para M�f�'�?�?T�f�?s�,¡quinas e Humanos">
+    <meta name="twitter:description" content="Como as especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes estruturadas se tornam a interface entre a inten�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o humana e a execu�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o do agente de IA na engenharia moderna.">
+    <meta name="twitter:image" content="https://pklavc.com/blog/assets/manu/blog/images/brand/lavc.webp?v=5e84850f26">
+    <meta name="twitter:image:alt" content="Retrato da marca do engenheiro de backend e especialista em automa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o Patrick Araujo">
+    <meta name="twitter:site" content="@PkLavc">
+    <meta name="twitter:creator" content="@PkLavc">
+
+    <link rel="icon" type="image/svg+xml" href="/manu/blog/assets/favicon.svg?v=d15fe4e492">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Monoton&amp;family=Poppins:wght@500;600;700&amp;family=Raleway:wght@300&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Monoton&amp;family=Poppins:wght@500;600;700&amp;family=Raleway:wght@300&amp;display=swap"></noscript>
+    <link rel="stylesheet" href="/manu/blog/assets/css/global.css?v=1d91cf360c">
+    <link rel="stylesheet" href="/manu/blog/assets/css/blog.css?v=804d631dbb">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js" defer></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Spec-Driven Development: Writing Specifications That Machines and Humans Can Execute",
+                "description": "How spec-driven development bridges human intent and AI agent execution �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�, structured specifications as the interface between engineers and autonomous coding tools.",
+                "image": "https://pklavc.com/blog/assets/manu/blog/images/brand/lavc.webp?v=5e84850f26",
+                "datePublished": "2026-05-28",
+                "dateModified": "2026-05-28",
+                "author": {
+                    "@type": "Person",
+                    "name": "Patrick Araujo"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Patrick Araujo"
+                },
+                "mainEntityOfPage": "https://pklavc.com/blog/pt/spec-driven-development/",
+                "url": "https://pklavc.com/blog/pt/spec-driven-development/",
+                "keywords": [
+                    "spec-driven development",
+                    "ai specifications",
+                    "agent execution",
+                    "context engineering",
+                    "structured specs",
+                    "claude code",
+                    "codex",
+                    "cursor rules",
+                    "automation"
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://pklavc.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://pklavc.com/blog/pt/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Spec-Driven Development",
+                        "item": "https://pklavc.com/blog/pt/spec-driven-development/"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    <link rel="search" type="application/opensearchdescription+xml" title="PkLavc" href="/manu/blog/opensearch.xml">
+<link id="spotlight-navigation-style" rel="stylesheet" href="/manu/assets/css/spotlight-navigation.81f7fc858602.css">
+<link id="pklavc-newsletter-style" rel="stylesheet" href="/manu/blog/assets/css/newsletter.css?v=bab247dec2">
+<link id="skylet-widget-style" rel="stylesheet" href="/manu/blog/assets/css/skylet-widget.css?v=e3ca269f9e">
+</head>
+<body class="blog-layout seo-layout">
+    <div id="breaker"></div>
+    <div id="breaker-two"></div>
+    <div id="all">
+        <div class="cursor"></div>
+
+
+        <main class="blog-shell" role="main">
+            <div class="blog-columns">
+                <div>
+                    <article class="blog-post-hero">
+                        <div class="blog-breadcrumb" aria-label="P�f�'�?�?T�f�?s�,£o ralado">
+                            <a href="/manu/blog/pt/">P�f�'�?�?T�f�?s�,¡gina inicial</a>
+                            <span>/</span>
+                            <a href="/manu/blog/pt/">Blogue</a>
+                            <span>/</span>
+                            <span aria-current="page">Desenvolvimento baseado em especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes</span>
+                        </div>
+                        <span class="blog-kicker">Engenharia de IA</span>
+                        <h1>Desenvolvimento orientado a especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes: escrevendo especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes que m�f�'�?�?T�f�?s�,¡quinas e humanos podem executar</h1>
+                        <p>Quando os agentes de IA executam c�f�'�?�?T�f�?s�,³digo, a qualidade de sua sa�f�'�?�?T�f�?s�,­da �f�'�?�?T�f�?s�,© limitada pela qualidade de sua entrada. O desenvolvimento orientado a especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes trata as especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes estruturadas como a interface principal entre a inten�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o humana e a execu�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o da m�f�'�?�?T�f�?s�,¡quina �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�.�?o e muda a forma como as equipes de engenharia trabalham com ferramentas aut�f�'�?�?T�f�?s�,´nomas.</p>
+                        <div class="blog-post-meta">
+                            <span>Publicado em 28 de maio de 2026</span>
+                            <span>10 minutos de leitura</span>
+                            <span>Engenharia de IA</span>
+                        </div>
+                    </article>
+
+                    <article class="blog-article">
+                        <h2>Por que as especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes s�f�'�?�?T�f�?s�,£o mais importantes para os agentes de IA</h2>
+                        <p>No desenvolvimento tradicional, um ticket vago ainda pode produzir um bom c�f�'�?�?T�f�?s�,³digo porque o desenvolvedor preenche lacunas com o contexto, faz perguntas e toma decis�f�'�?�?T�f�?s�,µes. Os agentes de IA n�f�'�?�?T�f�?s�,£o podem fazer isso de forma confi�f�'�?�?T�f�?s�,¡vel. Eles executam literalmente contra o que lhes �f�'�?�?T�f�?s�,© dado. Um prompt vago produz um c�f�'�?�?T�f�?s�,³digo vago. Uma especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o precisa produz uma implementa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o precisa.</p>
+                        <p>O desenvolvimento orientado a especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes inverte o trabalho: em vez de gastar tempo escrevendo c�f�'�?�?T�f�?s�,³digo e depurando, os engenheiros gastam tempo escrevendo especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes claras e revisando resultados. A especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o se torna o artefato que captura inten�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes, restri�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes, crit�f�'�?�?T�f�?s�,©rios de aceita�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o e limites arquitet�f�'�?�?T�f�?s�,´nicos.</p>
+
+                        <div class="blog-callout">
+                            Uma especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o n�f�'�?�?T�f�?s�,£o �f�'�?�?T�f�?s�,© documenta�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o ap�f�'�?�?T�f�?s�,³s o fato. �f�'�?�?T�f¢â�?s¬�,° o artefato de engenharia que impulsiona a execu�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�, seja por um desenvolvedor humano ou por um agente aut�f�'�?�?T�f�?s�,´nomo.
+                        </div>
+
+                        <h2>Qual �f�'�?�?T�f�?s�,© a apar�f�'�?�?T�f�?s�,ªncia de uma especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o execut�f�'�?�?T�f�?s�,¡vel por m�f�'�?�?T�f�?s�,¡quina</h2>
+                        <p>Uma especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o �f�'�?�?T�f�?s�,ºtil para agentes de IA inclui: a declara�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o do problema com limites claros, crit�f�'�?�?T�f�?s�,©rios de aceita�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o que podem ser verificados programaticamente, restri�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes arquiteturais que a implementa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o deve respeitar, refer�f�'�?�?T�f�?s�,ªncias a padr�f�'�?�?T�f�?s�,µes existentes na base de c�f�'�?�?T�f�?s�,³digo e n�f�'�?�?T�f�?s�,£o objetivos expl�f�'�?�?T�f�?s�,­citos que evitam o aumento do escopo.</p>
+                        <p>Esta n�f�'�?�?T�f�?s�,£o �f�'�?�?T�f�?s�,© uma ideia nova �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�.�?o �f�'�?�?T�f�?s�,© assim que sempre foram as boas especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes de engenharia. A diferen�f�'�?�?T�f�?s�,§a �f�'�?�?T�f�?s�,© que, com os agentes de IA, a especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o n�f�'�?�?T�f�?s�,£o �f�'�?�?T�f�?s�,© apenas uma ferramenta de comunica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o para humanos. �f�'�?�?T�f¢â�?s¬�,° a entrada literal que determina o que ser�f�'�?�?T�f�?s�,¡ constru�f�'�?�?T�f�?s�,­do. A ambig�f�'�?�?T�f�?s�,¼idade nas especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes torna-se ambiguidade na sa�f�'�?�?T�f�?s�,­da.</p>
+
+                        <h2>Especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes como engenharia de contexto</h2>
+                        <p>A engenharia de contexto �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�.�?o a curadoria do que um agente de IA v�f�'�?�?T�f�?s�,ª �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�.�?o �f�'�?�?T�f�?s�,© fundamentalmente um problema de especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o. Os arquivos de regras do cursor especificam conven�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes de codifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o. Os arquivos CLAUDE.md de Claude Code especificam o contexto do projeto. As etapas de configura�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o do Codex especificam as expectativas do ambiente. Todas essas s�f�'�?�?T�f�?s�,£o especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes, apenas distribu�f�'�?�?T�f�?s�,­das em diferentes mecanismos.</p>
+                        <p>O desenvolvimento orientado a especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes consolida isso em uma pr�f�'�?�?T�f�?s�,¡tica deliberada: antes de pedir a um agente para implementar algo, escreva a especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o que define o sucesso. Inclua arquivos, padr�f�'�?�?T�f�?s�,µes, restri�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes e crit�f�'�?�?T�f�?s�,©rios de verifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o relevantes. A especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o �f�'�?�?T�f�?s�,© o contexto.</p>
+
+                        <h2>O loop de verifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de implementa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o</h2>
+                        <p>Com agentes aut�f�'�?�?T�f�?s�,´nomos, o fluxo de trabalho se torna: escrever especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes, delegar ao agente, revisar a sa�f�'�?�?T�f�?s�,­da em rela�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o �f�'�?�?T�f�?s�, s especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes, iterar. Este loop �f�'�?�?T�f�?s�,© mais r�f�'�?�?T�f�?s�,¡pido do que escrever c�f�'�?�?T�f�?s�,³digo manualmente para tarefas bem especificadas, mas mais lento para tarefas onde a especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o em si n�f�'�?�?T�f�?s�,£o �f�'�?�?T�f�?s�,© clara.</p>
+                        <p>O principal insight �f�'�?�?T�f�?s�,© que escrever especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes �f�'�?�?T�f�?s�,© um trabalho de engenharia. Requer compreender o sistema, antecipar casos extremos, definir limites e tomar decis�f�'�?�?T�f�?s�,µes arquitet�f�'�?�?T�f�?s�,´nicas. O agente lida com a tradu�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o mec�f�'�?�?T�f�?s�,¢nica da especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o at�f�'�?�?T�f�?s�,© a implementa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�.�?o o engenheiro lida com o problema mais dif�f�'�?�?T�f�?s�,­cil de definir o que significa �f�'�,¢�f¢â�,�š�,¬�f�?�â�,��"correto�f�'�,¢�f¢â�,�š�,¬�f�?s�,.</p>
+
+                        <h2>Especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes para diferentes ferramentas de agente</h2>
+                        <p>Ferramentas diferentes consomem especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes de maneira diferente. Claude Code funciona bem com especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes de redu�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o in-line na conversa. O Codex espera descri�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes de tarefas que definam antecipadamente o escopo e os crit�f�'�?�?T�f�?s�,©rios de aceita�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o. O modo de agente do Cursor se beneficia de arquivos de regras que definem conven�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes persistentes, al�f�'�?�?T�f�?s�,©m de instru�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes por tarefa no chat.</p>
+                        <p>O padr�f�'�?�?T�f�?s�,£o comum �f�'�?�?T�f�?s�,©: especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes globais (conven�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes, arquitetura, padr�f�'�?�?T�f�?s�,µes) residem em arquivos de configura�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o que persistem entre tarefas. Especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes espec�f�'�?�?T�f�?s�,­ficas da tarefa (o que construir agora, quais restri�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes se aplicam) s�f�'�?�?T�f�?s�,£o fornecidas por invoca�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o. Ambas as camadas s�f�'�?�?T�f�?s�,£o importantes para uma sa�f�'�?�?T�f�?s�,­da consistente.</p>
+
+                        <h2>Quando as especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes falham</h2>
+                        <p>As especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes falham quando est�f�'�?�?T�f�?s�,£o incompletas, contradit�f�'�?�?T�f�?s�,³rias ou desconectadas da realidade da base de c�f�'�?�?T�f�?s�,³digo. Um agente que recebe uma especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o que diz �f�'�,¢�f¢â�,�š�,¬�f�?�â�,��"seguir os padr�f�'�?�?T�f�?s�,µes existentes�f�'�,¢�f¢â�,�š�,¬�f�?s�,, mas n�f�'�?�?T�f�?s�,£o mostra esses padr�f�'�?�?T�f�?s�,µes, inventar�f�'�?�?T�f�?s�,¡ os seus pr�f�'�?�?T�f�?s�,³prios. Uma especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o que define o comportamento, mas n�f�'�?�?T�f�?s�,£o os pontos de integra�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o, produzir�f�'�?�?T�f�?s�,¡ c�f�'�?�?T�f�?s�,³digo isolado que n�f�'�?�?T�f�?s�,£o se ajusta ao sistema.</p>
+                        <p>A solu�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o n�f�'�?�?T�f�?s�,£o s�f�'�?�?T�f�?s�,£o mais palavras �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�.�?o �f�'�?�?T�f�?s�,© mais precis�f�'�?�?T�f�?s�,£o. Fa�f�'�?�?T�f�?s�,§a refer�f�'�?�?T�f�?s�,ªncia a arquivos espec�f�'�?�?T�f�?s�,­ficos, nomeie fun�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes espec�f�'�?�?T�f�?s�,­ficas, aponte para testes espec�f�'�?�?T�f�?s�,­ficos. As melhores especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes s�f�'�?�?T�f�?s�,£o curtas, concretas e verific�f�'�?�?T�f�?s�,¡veis. Eles dizem ao agente como �f�'�?�?T�f�?s�,© o sucesso em termos que o agente pode verificar.</p>
+
+                        <h2>Desenvolvimento orientado por especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes dimensiona equipes</h2>
+                        <p>Quando as especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes s�f�'�?�?T�f�?s�,£o a interface, a engenharia se torna mais paraleliz�f�'�?�?T�f�?s�,¡vel. Engenheiros seniores escrevem especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes. Agentes (e engenheiros juniores) os implementam. A revis�f�'�?�?T�f�?s�,£o se concentra em saber se a implementa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o corresponde �f�'�?�?T�f�?s�,  especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o e se a especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o estava correta. N�f�'�?�?T�f�?s�,£o se trata de substituir engenheiros �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�.�?o trata-se de separar o trabalho cognitivo do design do trabalho mec�f�'�?�?T�f�?s�,¢nico da tradu�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o.</p>
+                    </article>
+
+                    <section aria-labelledby="spec-related-title">
+                        <h2 id="spec-related-title">Leitura relacionada</h2>
+                        <div class="blog-related-grid">
+                            <article class="blog-related-card">
+                                <h3><a href="https://pklavc.com/blog/pt/autonomous-coding-agents/">Agentes de codifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o aut�f�'�?�?T�f�?s�,´noma: Claude Code, Codex e Cursor</a></h3>
+                                <p>Como os agentes aut�f�'�?�?T�f�?s�,´nomos consomem especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes e executam planos de v�f�'�?�?T�f�?s�,¡rias etapas.</p>
+                            </article>
+                            <article class="blog-related-card">
+                                <h3><a href="https://pklavc.com/blog/pt/ai-native-engineering/">Engenharia nativa de IA: construindo sistemas que pressup�f�'�?�?T�f�?s�,µem a participa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o da IA</a></h3>
+                                <p>Pr�f�'�?�?T�f�?s�,¡ticas de engenharia projetadas para colabora�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o entre agentes humanos desde o in�f�'�?�?T�f�?s�,­cio.</p>
+                            </article>
+                            <article class="blog-related-card">
+                                <h3><a href="https://pklavc.com/blog/pt/model-context-protocol-mcp/">MCP �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�, Protocolo de Contexto do Modelo</a></h3>
+                                <p>Como MCP permite que as especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes fa�f�'�?�?T�f�?s�,§am refer�f�'�?�?T�f�?s�,ªncia a dados e ferramentas em tempo real em vez de contexto est�f�'�?�?T�f�?s�,¡tico.</p>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+
+                <aside class="blog-article-grid">
+                    <section class="blog-sidebar-card">
+                        <h2>Conclus�f�'�?�?T�f�?s�,µes principais</h2>
+                        <ul>
+                            <li>As especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes s�f�'�?�?T�f�?s�,£o a interface entre a inten�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o humana e a execu�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o do agente.</li>
+                            <li>A qualidade das especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes determina diretamente a qualidade de sa�f�'�?�?T�f�?s�,­da do agente.</li>
+                            <li>Engenharia de contexto �f�'�?�?T�f�?s�,© especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o com outro nome.</li>
+                            <li>O loop spec-implement-verify substitui write-debug-refactor.</li>
+                        </ul>
+                    </section>
+                    <section class="blog-sidebar-card">
+                        <h2>Mecanismos de especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o</h2>
+                        <ul>
+                            <li>CLAUDE.md �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�, Claude Code contexto do projeto</li>
+                            <li>Regras de cursor �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�, conven�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes persistentes</li>
+                            <li>Etapas de configura�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o do Codex �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�.�?o especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes do ambiente</li>
+                            <li>Prompts de tarefas �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�, especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes por invoca�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o</li>
+                        </ul>
+                    </section>
+                    <section class="blog-sidebar-card">
+                        <h2>Continue explorando</h2>
+                        <ul>
+                            <li><a href="https://pklavc.com/blog/pt/autonomous-coding-agents/">Agentes de codifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o aut�f�'�?�?T�f�?s�,´nomos</a></li>
+                            <li><a href="https://pklavc.com/blog/pt/vibe-coding-vs-real-engineering/">Codifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o Vibe vs Engenharia Real</a></li>
+                            <li><a href="https://pklavc.com/blog/pt/multi-ai-workflows/">Fluxos de trabalho multi-IA</a></li>
+                        </ul>
+                    </section>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer-minimal footer-split footer-projects">
+        <div class="footer-container">
+            <div class="footer-split-left">
+                <span class="footer-copyright-line">&copy; <span data-current-year></span> Patrick Araujo</span>
+                <span class="footer-legal-inline" aria-label="Links legais"><a class="footer-legal-link" href="/manu/pt/politica-de-privacidade/">Pol�f�'�?�?T�f�?s�,­tica de Privacidade</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="/manu/pt/termos-de-uso/">Termos de Uso</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="/manu/pt/creditos/">Pol�f�'�?�?T�f�?s�,­tica Editorial</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="/manu/pt/creditos/">Cr�f�'�?�?T�f�?s�,©ditos</a></span>
+            </div>
+            <span class="footer-split-spacer" aria-hidden="true"></span>
+            <div class="footer-split-right">
+                <nav class="footer-social-icons" aria-label="Links sociais e de contato">
+                    <a class="footer-social-icon-link" href="https://github.com/PkLavc" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><lottie-player src="/manu/about/images/lottie/github.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="https://www.linkedin.com/in/pklavc/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><lottie-player src="/manu/about/images/lottie/linkedin.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="https://www.instagram.com/pklavc/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><lottie-player src="/manu/blog/assets/lottie/instagram-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="https://www.youtube.com/@PkLavc" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><lottie-player src="/manu/blog/assets/lottie/youtube-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="mailto:contact@pklavc.com" aria-label="E-mail"><lottie-player src="/manu/about/images/lottie/mail.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                    <a class="footer-social-icon-link" href="https://github.com/sponsors/PkLavc" target="_blank" rel="noopener noreferrer" aria-label="Apoiar no GitHub"><lottie-player src="/manu/blog/assets/lottie/sponsor-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>
+                </nav>
+            </div>
+        </div>
+    <div id="pklavc-newsletter-footer-entry" class="pklavc-newsletter-footer-entry"><button class="pklavc-newsletter-footer-trigger" type="button" data-newsletter-open aria-haspopup="dialog" aria-controls="pklavc-newsletter-dialog">Newsletter</button></div>
+</footer>
+
+    <script>
+        (function() {
+            document.querySelectorAll('[data-current-year]').forEach(function(node) {
+                node.textContent = String(new Date().getFullYear());
+            });
+        }());
+    </script>
+        <script src="/manu/about/js/i18n.js" defer></script>
+    <script src="/manu/blog/assets/js/jquery.min.js?v=d482871a5e" defer></script>
+    <script src="/manu/blog/assets/js/index.js?v=aace661eb10e" defer></script>
+
+    <div class="visually-hidden">
+        <p>Artigo de desenvolvimento orientado a especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes cobrindo especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes estruturadas para agentes de IA, engenharia de contexto, especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes execut�f�'�?�?T�f�?s�,¡veis �f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�,¹�f�'�,¢�f¢â�,�š�,¬�f¢â�?s¬�,¹por m�f�'�?�?T�f�?s�,¡quina, Claude Code CLAUDE.md, regras de cursor, defini�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes de tarefas do Codex, loop de verifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de implementa�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o de especifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,µes e pr�f�'�?�?T�f�?s�,¡ticas de engenharia para ferramentas de codifica�f�'�?�?T�f�?s�,§�f�'�?�?T�f�?s�,£o aut�f�'�?�?T�f�?s�,´nomas.</p>
+    </div>
+<script id="spotlight-navigation-script" src="/manu/about/js/spotlight-navigation.js?v=16fb92149af4" defer></script>
+<script id="pklavc-newsletter-script" src="/manu/blog/assets/js/newsletter.js?v=a1bab45aa7" defer></script>
+<script id="skylet-widget-script" src="/manu/blog/assets/js/skylet-widget.js?v=5b4ef16ead" defer></script>
+</body>
+</html>

@@ -869,6 +869,73 @@ $(function(){
   }
 });
 
+function toggleCredits() {
+    var x = document.getElementById("credits-list");
+    var trigger = document.getElementById("credits-trigger-btn");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+        if (trigger) {
+            trigger.setAttribute("aria-expanded", "false");
+        }
+    } else {
+        x.style.display = "block";
+        if (trigger) {
+            trigger.setAttribute("aria-expanded", "true");
+        }
+    }
+}
+
+function getSharedUiLanguage() {
+  if (window.PkLavcI18n && typeof window.PkLavcI18n.getCurrentLanguage === 'function') {
+    return window.PkLavcI18n.getCurrentLanguage();
+  }
+
+  var path = window.location.pathname || '/';
+  if (/^\/pt(?:\/|$)/i.test(path)) return 'pt';
+  if (/^\/es(?:\/|$)/i.test(path)) return 'es';
+  return 'en';
+}
+
+function getCreditCopy() {
+  var copy = {
+    en: {
+      particles: 'Particles by',
+      icons: 'Animated icons by'
+    },
+    pt: {
+      particles: 'Partículas por',
+      icons: 'Ícones animados por'
+    },
+    es: {
+      particles: 'Partículas por',
+      icons: 'Iconos animados por'
+    }
+  };
+
+  return copy[getSharedUiLanguage()] || copy.en;
+}
+
+function setupCreditDetails() {
+  var creditButtons = document.querySelectorAll('[data-credit-detail]');
+  var copy = getCreditCopy();
+
+  creditButtons.forEach(function(button) {
+    button.addEventListener('click', function(event) {
+      event.preventDefault();
+
+      var type = button.getAttribute('data-credit-detail');
+
+      if (type === 'vfx') {
+        button.outerHTML = '<span class="credits-detail-text">' + copy.particles + ' <a href="https://21st.dev/" target="_blank" rel="noopener noreferrer">21st.dev</a></span>';
+      } else if (type === 'icons') {
+        button.outerHTML = '<span class="credits-detail-text">' + copy.icons + ' <a href="https://lordicon.com/" target="_blank" rel="noopener noreferrer">Lordicon</a></span>';
+      } else if (type === 'easter-egg') {
+        button.outerHTML = '<span class="credits-detail-text"><a href="https://www.callofduty.com/br/manu/blog/pt/2022/07/call-of-duty-vanguard-warzone-terminator-operator-bundles-titanium-trials" target="_blank" rel="noopener noreferrer">Skin</a></span>';
+      }
+    }, { once: true });
+  });
+}
+
 function prefersReducedMotion() {
   return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
@@ -985,8 +1052,10 @@ function setupAnimatedPageTitles() {
 }
 
 if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupCreditDetails, { once: true });
   document.addEventListener('DOMContentLoaded', setupAnimatedPageTitles, { once: true });
 } else {
+  setupCreditDetails();
   setupAnimatedPageTitles();
 }
 
@@ -1072,11 +1141,6 @@ function initSpaceReveals() {
   });
 }
 
-function isSkyletAssistantPage() {
-  var path = window.location.pathname || '/';
-  return /^\/(?:(?:pt|es)\/)?ia\/?$/i.test(path);
-}
-
 function loadLottiePlayerAssets(forceReload) {
   if (!document.querySelector('lottie-player')) {
     return;
@@ -1112,61 +1176,103 @@ function ensureLottiePlayerAssets() {
   }, 1800);
 }
 
+
 function loadSkyletWidgetAssets() {
-  if (isSkyletAssistantPage()) {
+  if (document.getElementById('skylet-widget-style') || document.getElementById('skylet-widget-script')) {
     return;
   }
 
-  if (!document.getElementById('skylet-widget-style')) {
-    var link = document.createElement('link');
-    link.id = 'skylet-widget-style';
-    link.rel = 'stylesheet';
-    link.href = '/manu/assets/css/skylet-widget.e3ca269f9e78.css';
-    document.head.appendChild(link);
-  }
+  var style = document.createElement('link');
+  style.id = 'skylet-widget-style';
+  style.rel = 'stylesheet';
+  style.href = '/manu/blog/css/skylet-widget.css?v=4d85970dfe';
+  document.head.appendChild(style);
 
-  if (!document.getElementById('skylet-widget-script')) {
-    var script = document.createElement('script');
-    script.id = 'skylet-widget-script';
-    script.src = '/manu/about/js/skylet-widget.js?v=20261002desktop6';
-    script.defer = true;
-    document.body.appendChild(script);
-  }
+  var script = document.createElement('script');
+  script.id = 'skylet-widget-script';
+  script.src = '/manu/blog/js/skylet-widget.js?v=20261001desktop3';
+  script.defer = true;
+  document.body.appendChild(script);
 }
 
-// Spotlight navigation is the sole site navigation.
-function loadSpotlightNavigationAssets() {
-  function loadScript() {
-    if (document.getElementById('spotlight-navigation-script')) {
-      return;
+function normalizeUnifiedFooter() {
+  var path = String(window.location.pathname || '/');
+  var locale = path.indexOf('/manu/blog/pt/') === 0 || path.indexOf('/pt/manu/blog/') === 0 ? 'pt' :
+    (path.indexOf('/manu/blog/es/') === 0 || path.indexOf('/es/manu/blog/') === 0 ? 'es' : 'en');
+  var copy = {
+    en: {
+      nav: 'Social and contact links',
+      privacy: 'Privacy Policy',
+      terms: 'Terms of Use',
+      editorial: 'Editorial Policy',
+      credits: 'Credits',
+      sponsor: 'Sponsor me',
+      privacyHref: '/manu/privacy-policy/',
+      termsHref: '/manu/terms-of-use/',
+      editorialHref: '/manu/credits/',
+      creditsHref: '/manu/credits/'
+    },
+    pt: {
+      nav: 'Links sociais e de contato',
+      privacy: 'Política de Privacidade',
+      terms: 'Termos de Uso',
+      editorial: 'Política Editorial',
+      credits: 'Créditos',
+      sponsor: 'Patrocine',
+      privacyHref: '/manu/pt/politica-de-privacidade/',
+      termsHref: '/manu/pt/termos-de-uso/',
+      editorialHref: '/manu/pt/creditos/',
+      creditsHref: '/manu/pt/creditos/'
+    },
+    es: {
+      nav: 'Enlaces sociales y de contacto',
+      privacy: 'Política de Privacidad',
+      terms: 'Términos de Uso',
+      editorial: 'Política Editorial',
+      credits: 'Créditos',
+      sponsor: 'Patrocíname',
+      privacyHref: '/manu/es/politica-de-privacidad/',
+      termsHref: '/manu/es/terminos-de-uso/',
+      editorialHref: '/manu/es/creditos/',
+      creditsHref: '/manu/es/creditos/'
     }
+  }[locale];
 
-    var script = document.createElement('script');
-    script.id = 'spotlight-navigation-script';
-    script.src = '/manu/about/js/spotlight-navigation.js?v=20261001j';
-    script.defer = true;
-    document.body.appendChild(script);
+  var footer = document.querySelector('footer.footer-minimal, footer');
+  if (!footer) {
+    footer = document.createElement('footer');
+    document.body.appendChild(footer);
   }
 
-  var existingStyle = document.getElementById('spotlight-navigation-style');
+  footer.classList.add('footer-minimal', 'footer-split', 'footer-projects');
+  footer.setAttribute('data-unified-footer', 'true');
+  footer.innerHTML =
+    '<div class="footer-container">' +
+      '<div class="footer-split-left">' +
+        '<span class="footer-copyright-line">&copy; <span data-current-year></span> Patrick Araujo</span>' +
+        '<span class="footer-legal-inline" aria-label="Legal links">' +
+          '<a class="footer-legal-link" href="' + copy.privacyHref + '">' + copy.privacy + '</a><span aria-hidden="true">/</span>' +
+          '<a class="footer-legal-link" href="' + copy.termsHref + '">' + copy.terms + '</a><span aria-hidden="true">/</span>' +
+          '<a class="footer-legal-link" href="' + copy.editorialHref + '">' + copy.editorial + '</a><span aria-hidden="true">/</span>' +
+          '<a class="footer-legal-link" href="' + copy.creditsHref + '">' + copy.credits + '</a>' +
+        '</span>' +
+      '</div>' +
+      '<span class="footer-split-spacer" aria-hidden="true"></span>' +
+      '<div class="footer-split-right">' +
+        '<nav class="footer-social-icons" aria-label="' + copy.nav + '">' +
+          '<a class="footer-social-icon-link" href="https://github.com/PkLavc" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><lottie-player src="/manu/about/images/lottie/github.json?v=50cdc84fd8" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>' +
+          '<a class="footer-social-icon-link" href="https://www.linkedin.com/in/pklavc/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><lottie-player src="/manu/about/images/lottie/linkedin.json?v=86d0c9e071" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>' +
+          '<a class="footer-social-icon-link" href="https://www.instagram.com/pklavc/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><lottie-player src="/manu/blog/assets/lottie/instagram-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>' +
+          '<a class="footer-social-icon-link" href="https://www.youtube.com/@PkLavc" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><lottie-player src="/manu/blog/assets/lottie/youtube-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>' +
+          '<a class="footer-social-icon-link" href="mailto:contact@pklavc.com" aria-label="Email"><lottie-player src="/manu/about/images/lottie/mail.json?v=895f6ab30e" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>' +
+          '<a class="footer-social-icon-link" href="https://github.com/sponsors/PkLavc" target="_blank" rel="noopener noreferrer" aria-label="' + copy.sponsor + '"><lottie-player src="/manu/blog/assets/lottie/sponsor-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>' +
+        '</nav>' +
+      '</div>' +
+    '</div>';
 
-  if (!existingStyle) {
-    var link = document.createElement('link');
-    link.id = 'spotlight-navigation-style';
-    link.rel = 'stylesheet';
-    link.href = '/manu/assets/css/spotlight-navigation.81f7fc858602.css';
-    link.addEventListener('load', loadScript, { once: true });
-    document.head.appendChild(link);
-    return;
-  }
-
-  loadScript();
-}
-
-
-function isStoreRoute() {
-  var path = String(window.location.pathname || '/').replace(/\/index\.html$/i, '/');
-  return /^\/(?:pt\/|es\/)?store(?:\/|$)/i.test(path) || /^\/store(?:\/(?:pt|es))?(?:\/|$)/i.test(path);
+  footer.querySelectorAll('[data-current-year]').forEach(function(node) {
+    node.textContent = String(new Date().getFullYear());
+  });
 }
 
 function syncIndexSocialFooterOffset() {
@@ -1204,18 +1310,33 @@ function initIndexFooterAwareSocialLinks() {
   }
 }
 
+function loadBlogRelatedPostNavigation() {
+  var path = window.location.pathname || '';
+  if (!path.startsWith('/manu/blog/') || path === '/manu/blog/' || path === '/manu/blog/index.html') return;
+  if (!document.querySelector('.blog-article-grid') || !document.querySelector('.blog-post-hero')) return;
+  if (document.querySelector('script[src*="/manu/blog/assets/js/blog-related-posts.js?v=24e3408e2b"]')) return;
+
+  var script = document.createElement('script');
+  script.src = '/manu/blog/assets/js/blog-related-posts.js?v=24e3408e2b';
+  script.defer = true;
+  script.setAttribute('data-blog-related-posts-loader', 'true');
+  document.body.appendChild(script);
+}
+
 if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', normalizeUnifiedFooter, { once: true });
   document.addEventListener('DOMContentLoaded', initSpaceReveals, { once: true });
   document.addEventListener('DOMContentLoaded', ensureLottiePlayerAssets, { once: true });
   document.addEventListener('DOMContentLoaded', loadSkyletWidgetAssets, { once: true });
-  document.addEventListener('DOMContentLoaded', loadSpotlightNavigationAssets, { once: true });
   document.addEventListener('DOMContentLoaded', initIndexFooterAwareSocialLinks, { once: true });
+  document.addEventListener('DOMContentLoaded', loadBlogRelatedPostNavigation, { once: true });
 } else {
+  normalizeUnifiedFooter();
   initSpaceReveals();
   ensureLottiePlayerAssets();
   loadSkyletWidgetAssets();
-  loadSpotlightNavigationAssets();
   initIndexFooterAwareSocialLinks();
+  loadBlogRelatedPostNavigation();
 }
 
 
@@ -1232,7 +1353,7 @@ if (document.readyState === 'loading') {
     var style = document.createElement('link');
     style.id = 'pklavc-ads-style';
     style.rel = 'stylesheet';
-    style.href = '/ads/ads.css?v=20261005amazon-white-logo1';
+    style.href = '/ads/ads.css?v=20261002prime3';
     document.head.appendChild(style);
   }
 
@@ -1240,7 +1361,7 @@ if (document.readyState === 'loading') {
     if (document.getElementById('pklavc-ads-runtime')) return;
     var runtime = document.createElement('script');
     runtime.id = 'pklavc-ads-runtime';
-    runtime.src = '/ads/ads.js?v=20261005amazon-white-logo1';
+    runtime.src = '/ads/ads.js?v=20261002prime3';
     runtime.async = true;
     document.head.appendChild(runtime);
   }
@@ -1258,7 +1379,7 @@ if (document.readyState === 'loading') {
 
   var config = document.createElement('script');
   config.id = 'pklavc-ads-config';
-  config.src = '/ads/config.js?v=20261005amazon-white-logo1';
+  config.src = '/ads/config.js?v=20261002prime2';
   config.async = true;
   config.addEventListener('load', loadRuntime, { once: true });
   document.head.appendChild(config);
