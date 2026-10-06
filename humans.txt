@@ -1,0 +1,10 @@
+Sylva
+Interactive front-end study.
+
+Source study:
+ThreeUI Living Green — https://threeui.com/hero/sylva/living-green
+Sylva reference — https://github.com/MengTo/sylva
+
+Runtime:
+Three.js r149 — MIT
+Lexend — SIL Open Font License

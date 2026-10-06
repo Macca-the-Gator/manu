@@ -1,0 +1,13 @@
+# Sylva
+
+> Interactive Three.js botanical landscape and visual-design study.
+
+## Languages
+- [English](https://macca-the-gator.github.io/manu/)
+- [Português do Brasil](https://macca-the-gator.github.io/manu/pt/)
+- [Español](https://macca-the-gator.github.io/manu/es/)
+
+## Policies
+- [Credits](https://macca-the-gator.github.io/manu/credits/)
+- [Privacy Policy](https://macca-the-gator.github.io/manu/privacy-policy/)
+- [Terms of Use](https://macca-the-gator.github.io/manu/terms-of-use/)
