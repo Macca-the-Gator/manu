@@ -1196,86 +1196,8 @@ function loadSkyletWidgetAssets() {
 }
 
 function normalizeUnifiedFooter() {
-  if (document.querySelector('footer[data-shared-footer=\"true\"]')) return;
-  var path = String(window.location.pathname || '/');
-  var locale = path.indexOf('/manu/blog/pt/') === 0 || path.indexOf('/pt/manu/blog/') === 0 ? 'pt' :
-    (path.indexOf('/manu/blog/es/') === 0 || path.indexOf('/es/manu/blog/') === 0 ? 'es' : 'en');
-  var copy = {
-    en: {
-      nav: 'Social and contact links',
-      privacy: 'Privacy Policy',
-      terms: 'Terms of Use',
-      editorial: 'Editorial Policy',
-      credits: 'Credits',
-      sponsor: 'Sponsor me',
-      privacyHref: '/manu/privacy-policy/',
-      termsHref: '/manu/terms-of-use/',
-      editorialHref: '/manu/credits/',
-      creditsHref: '/manu/credits/'
-    },
-    pt: {
-      nav: 'Links sociais e de contato',
-      privacy: 'Política de Privacidade',
-      terms: 'Termos de Uso',
-      editorial: 'Política Editorial',
-      credits: 'Créditos',
-      sponsor: 'Patrocine',
-      privacyHref: '/manu/pt/politica-de-privacidade/',
-      termsHref: '/manu/pt/termos-de-uso/',
-      editorialHref: '/manu/pt/creditos/',
-      creditsHref: '/manu/pt/creditos/'
-    },
-    es: {
-      nav: 'Enlaces sociales y de contacto',
-      privacy: 'Política de Privacidad',
-      terms: 'Términos de Uso',
-      editorial: 'Política Editorial',
-      credits: 'Créditos',
-      sponsor: 'Patrocíname',
-      privacyHref: '/manu/es/politica-de-privacidad/',
-      termsHref: '/manu/es/terminos-de-uso/',
-      editorialHref: '/manu/es/creditos/',
-      creditsHref: '/manu/es/creditos/'
-    }
-  }[locale];
-
-  var footer = document.querySelector('footer.footer-minimal, footer');
-  if (!footer) {
-    footer = document.createElement('footer');
-    document.body.appendChild(footer);
-  }
-
-  footer.classList.add('footer-minimal', 'footer-split', 'footer-projects');
-  footer.setAttribute('data-unified-footer', 'true');
-  footer.innerHTML =
-    '<div class="footer-container">' +
-      '<div class="footer-split-left">' +
-        '<span class="footer-copyright-line">&copy; <span data-current-year></span> Emanuele Vieira <span aria-hidden="true">|</span> <a class="footer-credit-link" href="https://pklavc.com/" target="_blank" rel="noopener noreferrer">Desenvolvido por PkLavc.com</a></span>' +
-        '<span class="footer-legal-inline" aria-label="Legal links">' +
-          '<a class="footer-legal-link" href="' + copy.privacyHref + '">' + copy.privacy + '</a><span aria-hidden="true">/</span>' +
-          '<a class="footer-legal-link" href="' + copy.termsHref + '">' + copy.terms + '</a><span aria-hidden="true">/</span>' +
-          '<a class="footer-legal-link" href="' + copy.editorialHref + '">' + copy.editorial + '</a><span aria-hidden="true">/</span>' +
-          '<a class="footer-legal-link" href="' + copy.creditsHref + '">' + copy.credits + '</a>' +
-        '</span>' +
-      '</div>' +
-      '<span class="footer-split-spacer" aria-hidden="true"></span>' +
-      '<div class="footer-split-right">' +
-        '<nav class="footer-social-icons" aria-label="' + copy.nav + '">' +
-          '<a class="footer-social-icon-link" href="https://github.com/PkLavc" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><lottie-player src="/manu/about/images/lottie/github.json?v=50cdc84fd8" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>' +
-          '<a class="footer-social-icon-link" href="https://www.linkedin.com/in/pklavc/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><lottie-player src="/manu/about/images/lottie/linkedin.json?v=86d0c9e071" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>' +
-          '<a class="footer-social-icon-link" href="https://www.instagram.com/pklavc/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><lottie-player src="/manu/blog/assets/lottie/instagram-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>' +
-          '<a class="footer-social-icon-link" href="https://www.youtube.com/@PkLavc" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><lottie-player src="/manu/blog/assets/lottie/youtube-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>' +
-          '<a class="footer-social-icon-link" href="mailto:contact@pklavc.com" aria-label="Email"><lottie-player src="/manu/about/images/lottie/mail.json?v=895f6ab30e" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>' +
-          '<a class="footer-social-icon-link" href="https://github.com/sponsors/PkLavc" target="_blank" rel="noopener noreferrer" aria-label="' + copy.sponsor + '"><lottie-player src="/manu/blog/assets/lottie/sponsor-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a>' +
-        '</nav>' +
-      '</div>' +
-    '</div>';
-
-  footer.querySelectorAll('[data-current-year]').forEach(function(node) {
-    node.textContent = String(new Date().getFullYear());
-  });
+  // Shared footer markup and behavior are provided by the root site assets.
 }
-
 function syncIndexSocialFooterOffset() {
   if (!document.body || !document.body.classList.contains('page-index')) {
     return;

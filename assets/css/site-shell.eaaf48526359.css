@@ -17,3 +17,18 @@
 
 
 .footer-shared .footer-credit-link{color:inherit!important;text-decoration:none!important}.footer-shared .footer-credit-link:hover{color:inherit!important;text-decoration:underline!important}.footer-shared .footer-copyright-line{flex-direction:row!important;align-items:center!important;flex-wrap:nowrap!important;white-space:nowrap!important}.footer-shared .footer-split-left{flex-direction:row!important;align-items:center!important;order:0!important}.footer-shared .footer-split-right{order:0!important}.store-merchant-notice{width:calc(100% - 48px);max-width:1100px;margin:14px auto;padding:10px 0;color:rgba(244,245,239,.62);font-size:12px;line-height:1.55;text-align:center}
+
+/* Shared footer: identity and legal links on the left, personal contact animations on the right. */
+.footer-shared .footer-container{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:24px!important;width:min(calc(100% - 48px),1480px)!important;max-width:1480px!important;margin-inline:auto!important}
+.footer-shared .footer-split-spacer{display:none!important}
+.footer-shared .footer-split-left{grid-column:1;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:3px!important;min-width:0;order:0!important}
+.footer-shared .footer-copyright-line{flex-wrap:nowrap!important;white-space:nowrap!important;line-height:1.4}
+.footer-shared .footer-legal-inline{display:flex;justify-content:flex-start!important;align-items:center;flex-wrap:nowrap!important;white-space:nowrap!important;gap:6px;font-size:12px;line-height:1.4}
+.footer-shared .footer-split-right{grid-column:2;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important;order:0!important}
+.footer-shared .footer-social-icon-link{display:grid;place-items:center;width:42px;height:42px;flex:none;border-radius:50%;color:inherit;opacity:.82;transition:opacity .18s ease,background-color .18s ease}
+.footer-shared .footer-social-icon-link:hover,.footer-shared .footer-social-icon-link:focus-visible{opacity:1;background:rgba(255,255,255,.07)}
+.footer-shared .footer-social-lottie{display:block!important;width:34px!important;height:34px!important}
+@media(max-width:620px){.footer-shared{padding-bottom:calc(88px + env(safe-area-inset-bottom))!important}.footer-shared .footer-container{grid-template-columns:minmax(0,1fr) auto!important;gap:10px!important;width:calc(100% - 28px)!important}.footer-shared .footer-split-left{gap:4px!important}.footer-shared .footer-copyright-line{font-size:clamp(9px,2.8vw,11px)!important;flex-wrap:wrap!important;white-space:normal!important;gap:4px!important}.footer-shared .footer-legal-inline{justify-content:flex-start!important;flex-wrap:wrap!important;white-space:normal!important;gap:4px!important;font-size:clamp(8px,2.3vw,10px)!important}.footer-shared .footer-split-right{gap:4px!important}.footer-shared .footer-social-icon-link{width:32px;height:32px}.footer-shared .footer-social-lottie{width:27px!important;height:27px!important}}
+
+@media(min-width:621px){.footer-shared.footer-split .footer-container{grid-template-columns:minmax(0,1fr) 360px minmax(0,1fr)!important}.footer-shared .footer-split-left{grid-column:1}.footer-shared .footer-split-spacer{display:block!important;grid-column:2;min-height:48px}.footer-shared .footer-split-right{grid-column:3}}
+@media(max-width:620px){.footer-shared.footer-split .footer-container{grid-template-columns:minmax(0,1fr) auto!important}.footer-shared .footer-split-spacer{display:none!important}.footer-shared .footer-split-left{grid-column:1}.footer-shared .footer-split-right{grid-column:2}}

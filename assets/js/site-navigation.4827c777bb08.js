@@ -18,8 +18,19 @@
     if (!copies) return;
     footer.className = 'footer-minimal footer-split footer-shared';
     footer.setAttribute('data-shared-footer', 'true');
-    footer.innerHTML = '<div class="footer-container"><div class="footer-split-left"><span class="footer-copyright-line">&copy; <span data-current-year></span> Emanuele Vieira <span aria-hidden="true">|</span> <a class="footer-credit-link" href="https://pklavc.com/" target="_blank" rel="noopener noreferrer">Desenvolvido por PkLavc.com</a></span></div><span class="footer-split-spacer" aria-hidden="true"></span><div class="footer-split-right"><span class="footer-legal-inline" aria-label="Legal links">' + copies.labels.map(function(label, index) { return '<a class="footer-legal-link" href="' + addSiteBase(copies.routes[index]) + '">' + label + '</a>'; }).join('<span aria-hidden="true">/</span>') + '</span></div></div>';
+    footer.innerHTML = '<div class="footer-container"><div class="footer-split-left"><span class="footer-copyright-line">&copy; <span data-current-year></span> Emanuele Vieira <span aria-hidden="true">|</span> <a class="footer-credit-link" href="https://pklavc.com/" target="_blank" rel="noopener noreferrer">Desenvolvido por PkLavc.com</a></span><nav class="footer-legal-inline" aria-label="' + (locale === 'pt' ? 'Links legais' : locale === 'es' ? 'Enlaces legales' : 'Legal links') + '">' + copies.labels.map(function(label, index) { return '<a class="footer-legal-link" href="' + addSiteBase(copies.routes[index]) + '">' + label + '</a>'; }).join('<span aria-hidden="true">/</span>') + '</nav></div><span class="footer-split-spacer" aria-hidden="true"></span><div class="footer-split-right" aria-label="' + (locale === 'pt' ? 'Contato' : locale === 'es' ? 'Contacto' : 'Contact') + '"><a class="footer-social-icon-link" href="https://www.linkedin.com/in/vieirasemanuele" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><lottie-player src="' + addSiteBase('/assets/images/lottie/linkedin.86d0c9e071f4.json') + '" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a><a class="footer-social-icon-link" href="mailto:emanuele@pklavc.com" aria-label="Email"><lottie-player src="' + addSiteBase('/assets/images/lottie/mail.895f6ab30ee6.json') + '" background="transparent" speed="1" loop autoplay class="footer-social-lottie" aria-hidden="true"></lottie-player></a></div></div>';
     footer.querySelectorAll('[data-current-year]').forEach(function(node) { node.textContent = String(new Date().getFullYear()); });
+    ensureFooterLottiePlayer();
+  }
+
+  function ensureFooterLottiePlayer() {
+    if (!document.querySelector('.footer-social-lottie') || (window.customElements && window.customElements.get('lottie-player'))) return;
+    if (document.querySelector('script[data-footer-lottie-loader], script[data-lottie-player-loader], script[src*="@lottiefiles/lottie-player"]')) return;
+    var script = document.createElement('script');
+    script.setAttribute('data-footer-lottie-loader', 'true');
+    script.src = 'https://cdn.jsdelivr.net/npm/@lottiefiles/lottie-player@2.0.12/dist/lottie-player.js';
+    script.async = true;
+    document.head.appendChild(script);
   }
   normalizeSharedFooter();
 
