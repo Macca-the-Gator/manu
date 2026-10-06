@@ -1,4 +1,4 @@
-Sylva
+Manu
 Interactive front-end study.
 
 Source study:

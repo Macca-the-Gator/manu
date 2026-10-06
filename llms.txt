@@ -1,6 +1,6 @@
-# Sylva
+# Manu
 
-> Interactive Three.js botanical landscape and visual-design study.
+> Personal interactive botanical site built around a living Three.js landscape.
 
 ## Languages
 - [English](https://macca-the-gator.github.io/manu/)

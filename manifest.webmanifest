@@ -1,12 +1,12 @@
 {
-  "name": "Sylva — Into the living world",
-  "short_name": "Sylva",
+  "name": "Manu",
+  "short_name": "Manu",
   "start_url": "/manu/",
   "scope": "/manu/",
   "display": "standalone",
   "background_color": "#4a4d44",
   "theme_color": "#4a4d44",
-  "description": "An interactive botanical landscape exploring restoration, native planting, and a deeper kind of stewardship.",
+  "description": "Manu — an interactive botanical experience with a living Three.js landscape.",
   "icons": [
     {
       "src": "/manu/assets/favicon.svg",
