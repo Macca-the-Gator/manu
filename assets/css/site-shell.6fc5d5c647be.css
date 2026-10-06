@@ -40,3 +40,15 @@
 
 /* Keep the contact animations bare; the Lottie artwork supplies its own shape. */
 .footer-shared .footer-social-icon-link,.footer-shared .footer-social-icon-link:hover,.footer-shared .footer-social-icon-link:focus-visible{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+
+/* Profile portrait sits in the opening between the root trunks. */
+.home-page .profile-portrait{position:absolute;z-index:2;left:calc(660 * var(--u));top:calc(300 * var(--u));width:calc(280 * var(--u));margin:0;pointer-events:none;opacity:.94;filter:drop-shadow(0 10px 16px rgba(16,42,42,.2))}
+.home-page .profile-portrait img{display:block;width:100%;height:auto}
+@media(max-width:900px){.home-page .profile-portrait{left:calc(205 * var(--u));top:calc(420 * var(--u));width:calc(350 * var(--u))}}
+
+/* On mobile, keep contact Lotties on the first footer row. */
+@media(max-width:900px){.footer-shared.footer-split .footer-container{grid-template-rows:auto auto auto!important}.footer-shared.footer-split .footer-split-right{grid-column:1 / -1!important;grid-row:1!important;justify-self:end!important;align-self:center!important}.footer-shared.footer-split .footer-copyright-line{grid-column:1 / -1!important;grid-row:2!important}.footer-shared.footer-split .footer-legal-inline{grid-column:1 / -1!important;grid-row:3!important}}
+
+@media(max-width:900px){.footer-shared.footer-split .footer-container{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto auto auto!important;grid-template-areas:'contacts' 'signature' 'legal'!important}.footer-shared.footer-split .footer-split-right{grid-area:contacts!important;grid-column:auto!important;grid-row:auto!important;justify-self:end!important}.footer-shared.footer-split .footer-copyright-line{grid-area:signature!important;grid-column:auto!important;grid-row:auto!important;justify-self:start!important;text-align:left!important}.footer-shared.footer-split .footer-legal-inline{grid-area:legal!important;grid-column:auto!important;grid-row:auto!important;justify-self:start!important;text-align:left!important}}
+
+@media(max-width:900px){.footer-shared.footer-split .footer-split-right{grid-area:contacts!important}.footer-shared.footer-split .footer-copyright-line{grid-area:signature!important}.footer-shared.footer-split .footer-legal-inline{grid-area:legal!important}}

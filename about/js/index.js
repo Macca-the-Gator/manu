@@ -1160,7 +1160,7 @@ function loadSpotlightNavigationAssets() {
     style = document.createElement('link');
     style.id = styleId;
     style.rel = 'stylesheet';
-    style.href = sitePath('assets/css/site-shell.68a6e82c059f.css');
+    style.href = sitePath('assets/css/site-shell.6fc5d5c647be.css');
     style.addEventListener('load', loadScript, { once: true });
     style.addEventListener('error', loadScript, { once: true });
     document.head.appendChild(style);
