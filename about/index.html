@@ -55,7 +55,7 @@
     <section class="about-intro" aria-labelledby="about-title">
       <h1 class="about-side-title" id="about-title">About Manu</h1>
       <div class="about-intro-copy"><p><strong>Manu</strong> is an invitation to look closer. Explore the body, one anatomical layer at a time.</p></div>
-      <div class="about-profile"><img src="../inner-green-assets/card-ethos.jpg" alt="Moss growing among stones" width="300" height="300"></div>
+      <div class="about-profile"><img src="./profile.svg" alt="Profile portrait" width="300" height="300"></div>
     </section>
     <section class="anatomy-scroll" aria-label="Anatomical body opening layer by layer as you scroll">
       <div class="anatomy-stage"><div class="anatomy-canvas" id="anatomy-canvas" aria-hidden="true"></div></div>
@@ -114,7 +114,6 @@
       const x = clamp((value - start) / (end - start));
       return x * x * (3 - 2 * x);
     };
-    const band = (value, a, b, c, d) => smooth(value, a, b) * (1 - smooth(value, c, d));
     let scrollTarget = 0;
     let scrollCurrent = 0;
     let ready = false;
@@ -197,11 +196,11 @@
       if (!ready) return;
       scrollCurrent += (scrollTarget - scrollCurrent) * 0.12;
       const p = scrollCurrent;
-      setOpacity('muscle', 1 - smooth(p, 0.17, 0.35));
-      const residualBone = 0.34 * smooth(p, 0.58, 0.72) * (1 - 0.6 * smooth(p, 0.8, 0.95));
-      setOpacity('skeleton', Math.max(band(p, 0.18, 0.36, 0.59, 0.74), residualBone));
-      setOpacity('vessels', smooth(p, 0.48, 0.67) * (1 - 0.6 * smooth(p, 0.8, 0.95)));
-      setOpacity('heart', smooth(p, 0.75, 0.92));
+      const reveal = smooth(p, 0.17, 0.38);
+      setOpacity('muscle', 1 - reveal);
+      setOpacity('skeleton', 0.25 * reveal * (1 - smooth(p, 0.7, 0.9)));
+      setOpacity('vessels', 0.48 * reveal * (1 - smooth(p, 0.5, 0.68)));
+      setOpacity('heart', reveal);
       figure.rotation.set(rotationX, rotationY, 0);
       renderer.render(scene, camera);
     }
