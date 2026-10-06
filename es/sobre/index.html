@@ -1186,9 +1186,9 @@
       const p = scrollCurrent;
       const reveal = smooth(p, 0.08, 0.18);
       setOpacity('muscle', 1 - reveal);
-      setOpacity('skeleton', 0.25 * reveal * (1 - smooth(p, 0.78, 0.95)));
+      setOpacity('skeleton', reveal);
       setOpacity('vessels', 0.48 * reveal * (1 - smooth(p, 0.48, 0.62)));
-      setOpacity('heart', reveal);
+      setOpacity('heart', reveal * (1 - smooth(p, 0.78, 0.95)));
       figure.rotation.set(rotationX, rotationY, 0);
       renderer.render(scene, camera);
     }
