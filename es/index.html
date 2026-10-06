@@ -660,86 +660,89 @@
     .hero{ height:auto; min-height:100svh; }
     .stage{
       position:relative; left:auto; top:auto; margin:0;
-      width:100%; height:calc(1420 * var(--u));
-      min-height:740px;
+      width:100%; height:calc(1360 * var(--u));
+      min-height:690px;
     }
     .hero::after{
       background:
-        radial-gradient(105% 48% at 52% 72%, rgba(255,229,166,.30) 0%, rgba(255,229,166,.12) 42%, rgba(255,229,166,0) 76%),
-        radial-gradient(85% 42% at 18% 18%, rgba(187,247,249,.16) 0%, rgba(187,247,249,0) 72%),
-        linear-gradient(180deg, rgba(219,252,252,.04) 0%, rgba(22,158,185,.08) 57%, rgba(245,220,169,.16) 100%);
+        radial-gradient(105% 48% at 52% 72%, rgba(255,229,166,.22) 0%, rgba(255,229,166,.08) 42%, rgba(255,229,166,0) 76%),
+        radial-gradient(85% 42% at 18% 18%, rgba(187,247,249,.14) 0%, rgba(187,247,249,0) 72%),
+        linear-gradient(180deg, rgba(219,252,252,.03) 0%, rgba(22,158,185,.05) 57%, rgba(245,220,169,.10) 100%);
     }
     .guides i:nth-child(3){ display:none; }
     .guides i:nth-child(1){ left:calc(253 * var(--u)) !important; }
     .guides i:nth-child(2){ left:calc(506 * var(--u)) !important; }
 
     .headline{
-      left:calc(42 * var(--u)); top:calc(64 * var(--u));
-      font-size:calc(88 * var(--u)); line-height:calc(92 * var(--u));
+      left:calc(42 * var(--u)); top:calc(54 * var(--u));
+      font-size:calc(84 * var(--u)); line-height:calc(88 * var(--u));
       text-shadow:0 calc(8 * var(--u)) calc(28 * var(--u)) rgba(3,68,91,.22);
     }
 
-    /* Mobile intentionally crops deep into the near root. The goal is a
-       tropical botanical detail, not the complete desktop silhouette. */
+    /* Mobile is a deliberate close crop: the near root lives mostly on the
+       right edge, like the reference, instead of exposing the whole arch. */
     .card{
-      border-radius:calc(32 * var(--u));
+      border-radius:calc(30 * var(--u));
       border:1px solid rgba(255,255,255,.24);
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.20), rgba(255,255,255,.08));
+      background:linear-gradient(145deg,rgba(255,255,255,.25),rgba(255,255,255,.10));
       box-shadow:
-        0 calc(20 * var(--u)) calc(48 * var(--u)) rgba(2,65,84,.18),
-        inset 0 1px 0 rgba(255,255,255,.20);
-      -webkit-backdrop-filter:blur(14px) saturate(1.12);
-      backdrop-filter:blur(14px) saturate(1.12);
+        0 calc(18 * var(--u)) calc(42 * var(--u)) rgba(2,65,84,.16),
+        inset 0 1px 0 rgba(255,255,255,.24);
+      -webkit-backdrop-filter:blur(15px) saturate(1.14);
+      backdrop-filter:blur(15px) saturate(1.14);
     }
     .card .label{
-      left:calc(28 * var(--u));
-      color:rgba(255,255,255,.68);
+      left:calc(22 * var(--u));
+      color:rgba(255,255,255,.72);
       text-shadow:0 2px 10px rgba(3,57,75,.22);
+      font-size:calc(18 * var(--u));
     }
     .card h2{
-      left:calc(28 * var(--u));
+      left:calc(22 * var(--u));
       color:#fff;
       text-shadow:0 3px 14px rgba(3,57,75,.28);
     }
+
+    /* Small upper-right Ethos tile. */
     .card--about{
-      left:calc(42 * var(--u)); top:calc(940 * var(--u));
-      width:calc(676 * var(--u)); height:calc(212 * var(--u));
-    }
-    .card--about .label{ top:calc(48 * var(--u)); }
-    .card--about h2{
-      top:calc(79 * var(--u)); width:calc(350 * var(--u));
-      font-size:calc(29 * var(--u)); line-height:calc(33 * var(--u));
+      left:calc(414 * var(--u)); top:calc(108 * var(--u));
+      width:calc(314 * var(--u)); height:calc(286 * var(--u));
     }
     .card--about figure{
-      left:auto; right:calc(16 * var(--u)); top:calc(16 * var(--u));
-      width:calc(238 * var(--u)); height:calc(180 * var(--u));
+      left:calc(12 * var(--u)); right:calc(12 * var(--u)); top:calc(12 * var(--u));
+      width:auto; height:calc(122 * var(--u));
       border-radius:calc(24 * var(--u));
       background:rgba(15,105,102,.18);
       border:1px solid rgba(255,255,255,.16);
     }
+    .card--about .label{ top:calc(151 * var(--u)); }
+    .card--about h2{
+      top:calc(181 * var(--u)); width:calc(246 * var(--u));
+      font-size:calc(28 * var(--u)); line-height:calc(31 * var(--u));
+    }
     .knob-float{ display:none; }
 
+    /* Field Note balances the composition on the lower-left. */
     .card--stove{
-      left:calc(42 * var(--u)); top:calc(1180 * var(--u));
-      width:calc(676 * var(--u)); height:calc(220 * var(--u));
+      left:calc(42 * var(--u)); top:calc(985 * var(--u));
+      width:calc(350 * var(--u)); height:calc(302 * var(--u));
     }
-    .card--stove .label{ top:calc(46 * var(--u)); }
+    .card--stove .label{ top:calc(25 * var(--u)); }
     .card--stove h2{
-      top:calc(76 * var(--u)); width:calc(350 * var(--u));
-      font-size:calc(29 * var(--u)); line-height:calc(33 * var(--u));
+      top:calc(55 * var(--u)); width:calc(290 * var(--u));
+      font-size:calc(28 * var(--u)); line-height:calc(31 * var(--u));
     }
     .card--stove figure{
-      left:auto; right:calc(16 * var(--u)); bottom:calc(16 * var(--u));
-      width:calc(238 * var(--u)); height:calc(154 * var(--u));
+      left:calc(12 * var(--u)); right:calc(12 * var(--u)); bottom:calc(12 * var(--u));
+      width:auto; height:calc(176 * var(--u));
       border-radius:calc(24 * var(--u));
       background:rgba(15,105,102,.18);
       border:1px solid rgba(255,255,255,.16);
     }
     .card .knob{
-      width:calc(58 * var(--u)); height:calc(58 * var(--u));
-      right:calc(27 * var(--u)); bottom:calc(27 * var(--u));
-      background:rgba(255,255,255,.82);
+      width:calc(54 * var(--u)); height:calc(54 * var(--u));
+      right:calc(25 * var(--u)); bottom:calc(25 * var(--u));
+      background:rgba(255,255,255,.84);
       box-shadow:0 calc(8 * var(--u)) calc(22 * var(--u)) rgba(3,57,75,.22);
     }
   }
@@ -905,9 +908,9 @@
      moss-arch.png's box, the far one is moss-ridge.png's, so every landmark
      lands exactly where the layout was drawn around it. */
   var ARCH   = { w: 1900, left: -180, top: 306, aspect: 2800 / 1377 };
-  var ARCH_N = { w: 1560, left: -540, top: 330, aspect: 2800 / 1377 };
+  var ARCH_N = { w: 1720, left: -410, top: 300, aspect: 2800 / 1377 };
   var FAR    = { w: 1150, left:  -40, top: 320, aspect: 1600 /  757, z: -260 };
-  var FAR_N  = { w: 1080, left: -260, top: 360, aspect: 1600 /  757, z: -260 };
+  var FAR_N  = { w: 1180, left: -330, top: 300, aspect: 1600 /  757, z: -260 };
 
   var renderer, scene, camera;
   var nearGroup, farGroup, motes, shadowMesh, glowMesh;
