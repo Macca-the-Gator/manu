@@ -304,11 +304,13 @@
  #about .about-container>.anatomy-profile-rail .anatomy-stage{position:sticky!important;top:0!important;width:100%!important;height:100svh!important;min-height:0!important;pointer-events:none!important}
  #about .about-container>.anatomy-profile-rail .anatomy-canvas,#about .about-container>.anatomy-profile-rail .anatomy-canvas canvas{pointer-events:none!important;cursor:default!important}
  #about .about-container>.about-content-wrapper{order:2!important;position:relative!important;z-index:2!important;width:100%!important;padding:0!important}
- #about .about-container>.about-content-wrapper .profile-intro{position:relative;z-index:2;padding:18px 16px;border:1px solid rgba(220,245,250,.12);border-radius:16px;background:rgba(15,18,20,.72);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
+ #about .about-container>.about-content-wrapper .profile-intro{position:relative;z-index:2;padding:0;border:0;border-radius:0;background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;text-shadow:0 1px 3px rgba(0,0,0,.72)}
  #about .about-container>.about-content-wrapper .profile-intro .bio-text{line-height:1.72}
  #about .about-container>.about-content-wrapper .profile-intro .bio-text strong{color:#00d1ff;font-weight:700}
 }
 </style>
+
+        <link id="spotlight-navigation-style" rel="stylesheet" href="../assets/css/site-shell.3d2eb00f68c3.css">
 </head>
     <body class="about-page">
         <!-- About Page Schema -->
@@ -1107,13 +1109,7 @@
         <script src="./js/about-effects.js" defer></script>
 
         <script id="skylet-widget-script" src="./js/skylet-widget.js?v=20261002desktop6" defer></script>
-<footer class="footer-minimal footer-split footer-about">
-    <div class="footer-container">
-        <div class="footer-split-left"><span class="footer-copyright-line">&copy; <span id="current-year"></span> Emanuele Vieira <span aria-hidden="true">|</span> <a class="footer-credit-link" href="https://pklavc.com/" target="_blank" rel="noopener noreferrer">Desenvolvido por PkLavc.com</a></span></div>
-        <span class="footer-split-spacer" aria-hidden="true"></span>
-        <div class="footer-split-right"><span class="footer-legal-inline" aria-label="Legal links"><a class="footer-legal-link" href="https://macca-the-gator.github.io/manu/privacy-policy/">Privacy Policy</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="https://macca-the-gator.github.io/manu/terms-of-use/">Terms of Use</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="https://macca-the-gator.github.io/manu/editorial-policy/">Editorial Policy</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="https://macca-the-gator.github.io/manu/credits/">Credits</a></span></div>
-    </div>
-</footer>
+<footer class="footer-minimal footer-split footer-shared"><div class="footer-container"><div class="footer-split-left"><span class="footer-copyright-line">&copy; <span data-current-year></span> Emanuele Vieira <span aria-hidden="true">|</span> <a class="footer-credit-link" href="https://pklavc.com/" target="_blank" rel="noopener noreferrer">Desenvolvido por PkLavc.com</a></span></div><span class="footer-split-spacer" aria-hidden="true"></span><div class="footer-split-right"><span class="footer-legal-inline" aria-label="Legal links"><a class="footer-legal-link" href="https://macca-the-gator.github.io/manu/privacy-policy/">Privacy Policy</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="https://macca-the-gator.github.io/manu/terms-of-use/">Terms of Use</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="https://macca-the-gator.github.io/manu/editorial-policy/">Editorial Policy</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="https://macca-the-gator.github.io/manu/credits/">Credits</a></span></div></div></footer>
 <div class="visually-hidden"><p>Nursing technician and nursing student interested in oncology, women’s health, and mental health.</p></div>
     <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
 <script type="module">
@@ -1328,5 +1324,7 @@
     loadModels().catch((error) => console.error('Anatomy models could not be loaded.', error));
   </script>
 
+
+<script id="spotlight-navigation-script" src="../assets/js/site-navigation.4234226f4c2f.js" defer></script>
 </body>
     </html>

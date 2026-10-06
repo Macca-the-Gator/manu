@@ -1196,6 +1196,7 @@ function loadSkyletWidgetAssets() {
 }
 
 function normalizeUnifiedFooter() {
+  if (document.querySelector('footer[data-shared-footer=\"true\"]')) return;
   var path = String(window.location.pathname || '/');
   var locale = path.indexOf('/manu/blog/pt/') === 0 || path.indexOf('/pt/manu/blog/') === 0 ? 'pt' :
     (path.indexOf('/manu/blog/es/') === 0 || path.indexOf('/es/manu/blog/') === 0 ? 'es' : 'en');
@@ -1249,7 +1250,7 @@ function normalizeUnifiedFooter() {
   footer.innerHTML =
     '<div class="footer-container">' +
       '<div class="footer-split-left">' +
-        '<span class="footer-copyright-line">&copy; <span data-current-year></span> Patrick Araujo</span>' +
+        '<span class="footer-copyright-line">&copy; <span data-current-year></span> Emanuele Vieira <span aria-hidden="true">|</span> <a class="footer-credit-link" href="https://pklavc.com/" target="_blank" rel="noopener noreferrer">Desenvolvido por PkLavc.com</a></span>' +
         '<span class="footer-legal-inline" aria-label="Legal links">' +
           '<a class="footer-legal-link" href="' + copy.privacyHref + '">' + copy.privacy + '</a><span aria-hidden="true">/</span>' +
           '<a class="footer-legal-link" href="' + copy.termsHref + '">' + copy.terms + '</a><span aria-hidden="true">/</span>' +

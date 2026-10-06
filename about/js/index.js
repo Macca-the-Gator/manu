@@ -1150,7 +1150,7 @@ function loadSpotlightNavigationAssets() {
     if (document.getElementById(scriptId)) return;
     var script = document.createElement('script');
     script.id = scriptId;
-    script.src = sitePath('assets/js/site-navigation.1e086602e865.js');
+    script.src = sitePath('assets/js/site-navigation.4234226f4c2f.js');
     script.defer = true;
     document.body.appendChild(script);
   }
@@ -1160,7 +1160,7 @@ function loadSpotlightNavigationAssets() {
     style = document.createElement('link');
     style.id = styleId;
     style.rel = 'stylesheet';
-    style.href = sitePath('assets/css/site-shell.25c93593b039.css');
+    style.href = sitePath('assets/css/site-shell.3d2eb00f68c3.css');
     style.addEventListener('load', loadScript, { once: true });
     style.addEventListener('error', loadScript, { once: true });
     document.head.appendChild(style);

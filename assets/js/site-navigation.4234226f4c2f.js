@@ -6,6 +6,23 @@
   });
 
 
+  function normalizeSharedFooter() {
+    var footer = document.querySelector('footer');
+    if (!footer) return;
+    var locale = getLocale();
+    var copies = {
+      en: { labels: ['Privacy Policy', 'Terms of Use', 'Editorial Policy', 'Credits'], routes: ['/privacy-policy/', '/terms-of-use/', '/editorial-policy/', '/credits/'] },
+      pt: { labels: ['Pol\u00edtica de Privacidade', 'Termos de Uso', 'Pol\u00edtica Editorial', 'Cr\u00e9ditos'], routes: ['/pt/politica-de-privacidade/', '/pt/termos-de-uso/', '/pt/politica-editorial/', '/pt/creditos/'] },
+      es: { labels: ['Pol\u00edtica de Privacidad', 'T\u00e9rminos de Uso', 'Pol\u00edtica Editorial', 'Cr\u00e9ditos'], routes: ['/es/politica-de-privacidad/', '/es/terminos-de-uso/', '/es/politica-editorial/', '/es/creditos/'] }
+    }[locale] || null;
+    if (!copies) return;
+    footer.className = 'footer-minimal footer-split footer-shared';
+    footer.setAttribute('data-shared-footer', 'true');
+    footer.innerHTML = '<div class="footer-container"><div class="footer-split-left"><span class="footer-copyright-line">&copy; <span data-current-year></span> Emanuele Vieira <span aria-hidden="true">|</span> <a class="footer-credit-link" href="https://pklavc.com/" target="_blank" rel="noopener noreferrer">Desenvolvido por PkLavc.com</a></span></div><span class="footer-split-spacer" aria-hidden="true"></span><div class="footer-split-right"><span class="footer-legal-inline" aria-label="Legal links">' + copies.labels.map(function(label, index) { return '<a class="footer-legal-link" href="' + addSiteBase(copies.routes[index]) + '">' + label + '</a>'; }).join('<span aria-hidden="true">/</span>') + '</span></div></div>';
+    footer.querySelectorAll('[data-current-year]').forEach(function(node) { node.textContent = String(new Date().getFullYear()); });
+  }
+  normalizeSharedFooter();
+
   function normalizeLegalFooters() {
     var locale = getLocale();
     var copies = {
@@ -81,8 +98,13 @@
   };
 
   function getSiteBase() {
-    if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return '/';
     if (document.documentElement.hasAttribute('data-site-base-local')) return '/';
+    if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) {
+      var localPath = window.location.pathname || '/';
+      var localAboutIndex = Math.max(localPath.lastIndexOf('/about/'), localPath.lastIndexOf('/sobre/'));
+      if (localAboutIndex >= 0) return normalizePath(localPath.slice(0, localAboutIndex + 1) || '/');
+      return '/';
+    }
     var base = document.documentElement.getAttribute('data-site-base');
     if (base) return normalizePath(base);
 
