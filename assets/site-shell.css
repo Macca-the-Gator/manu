@@ -20,3 +20,53 @@
 .home-page .sylva-switcher-item:hover,
 .home-page .sylva-switcher-item:focus-visible,
 .home-page .sylva-switcher-item.is-presented{color:#dffbff}
+
+/* Home footer: one compact glass strip laid over the hero so the live trunk
+   remains visible behind it instead of ending in a separate dark block. */
+body.home-page{position:relative}
+body.home-page.sylva-switcher-enabled .footer-minimal{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:30;
+  min-height:34px;
+  padding:7px 0 calc(7px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,rgba(4,83,104,.08),rgba(3,58,76,.18));
+  border-top:1px solid rgba(225,252,252,.14);
+  -webkit-backdrop-filter:blur(8px) saturate(1.06);
+  backdrop-filter:blur(8px) saturate(1.06);
+  box-shadow:none;
+}
+body.home-page .footer-minimal .footer-container{width:min(calc(100% - 28px),1480px)}
+body.home-page .footer-split-left,
+body.home-page .footer-split-right{
+  font-size:10.5px;
+  line-height:1.15;
+}
+body.home-page .footer-split-spacer{min-height:0}
+body.home-page .footer-legal-inline{gap:5px;flex-wrap:nowrap}
+
+@media(max-width:620px){
+  body.home-page.sylva-switcher-enabled .footer-minimal{
+    min-height:36px;
+    padding:6px 8px calc(6px + env(safe-area-inset-bottom));
+  }
+  body.home-page .footer-minimal .footer-container{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    gap:7px;
+  }
+  body.home-page .footer-split-left,
+  body.home-page .footer-split-right{
+    font-size:8.5px;
+    line-height:1.1;
+    white-space:nowrap;
+  }
+  body.home-page .footer-split-right{justify-content:flex-end}
+  body.home-page .footer-legal-inline{gap:3px;flex-wrap:nowrap}
+  body.home-page .sylva-switcher-shell{bottom:36px}
+}
