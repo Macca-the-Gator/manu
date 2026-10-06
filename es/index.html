@@ -79,7 +79,10 @@
   .stage{
     position:absolute; left:50%; top:50%;
     margin-left:calc(-800 * var(--u));
-    margin-top:calc(-440 * var(--u));
+    /* Pull the desktop composition upward so the first viewport starts on
+       the actual hero instead of spending ~190px on empty sky. Mobile has
+       its own stage rule below and is intentionally unaffected. */
+    margin-top:calc(-590 * var(--u));
     width:calc(1600 * var(--u));
     height:calc(880 * var(--u));
   }
