@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="PkLavc" />
+        <meta name="author" content="Emanuele Vieira" />
 
     <!-- Geo Tags -->
     <meta name="geo.region" content="BR-MG">
@@ -11,26 +11,19 @@
     <meta name="geo.position" content="-19.9167;-43.9345">
     <meta name="ICBM" content="-19.9167, -43.9345">
 
-    <meta name="description" content="About Patrick Araujo, a Backend Software Engineer focused on applied AI, software architecture, backend systems, automation, data, and scalable internal platforms.">
+    <meta name="description" content="Nursing technician and nursing student, with an interest in scientific work in oncology, women’s health, and mental health.">
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="About Patrick Araujo | Backend Software Engineer">
-    <meta property="og:description" content="Backend Software Engineer building applied AI systems, RAG, agents, backend architecture, automation, data pipelines, observability, and internal products with Python, FastAPI, Node.js, TypeScript, and SQL.">
+    <meta property="og:title" content="About Emanuele Vieira | Nursing Technician">
+    <meta property="og:description" content="Nursing technician and nursing student, with an interest in scientific work in oncology, women’s health, and mental health.">
     <meta property="og:url" content="https://macca-the-gator.github.io/manu/about/">
     <meta property="og:type" content="profile">
-    <meta property="og:image" content="https://pklavc.com/images/brand/lavc.webp?v=5e84850f26">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Patrick Araujo">
+    <meta property="og:site_name" content="Emanuele Vieira">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About Patrick Araujo | Backend Software Engineer">
-    <meta name="twitter:description" content="Backend Software Engineer with experience across applied AI, software architecture, automation, reliability, internal systems, and scalable backend platforms.">
-    <meta name="twitter:image" content="https://pklavc.com/images/brand/lavc.webp?v=5e84850f26">
-    <meta name="twitter:image:alt" content="Brand portrait of backend engineer and automation specialist Patrick Araujo">
-    <meta name="twitter:site" content="@PkLavc">
-    <meta name="twitter:creator" content="@PkLavc">
+    <meta name="twitter:title" content="About Emanuele Vieira | Nursing Technician">
+    <meta name="twitter:description" content="Nursing technician and nursing student, with an interest in scientific work in oncology, women’s health, and mental health.">
     <link rel="canonical" href="https://macca-the-gator.github.io/manu/about/">
     <link rel="alternate" href="https://pklavc.com/about/" hreflang="en">
     <link rel="alternate" href="https://pklavc.com/pt/sobre/" hreflang="pt-BR">
@@ -40,9 +33,7 @@
 
 
 <meta name="robots" content="index, follow">
-    <meta property="og:image:alt" content="Brand portrait of backend engineer and automation specialist Patrick Araujo">
-    <meta name="twitter:image:alt" content="Brand portrait of backend engineer and automation specialist Patrick Araujo">
-        <title>About Patrick Araujo | Backend Software Engineer</title>
+    <title>About Emanuele Vieira | Nursing Technician</title>
     <link rel="icon" type="image/svg+xml" href="https://pklavc.com/favicon.svg?v=d15fe4e492">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -253,175 +244,84 @@
   #about .about-container{display:grid;grid-template-columns:100px minmax(0,1fr) minmax(320px,360px);align-items:start;gap:32px;max-width:1400px;padding:100px 20px}
   #about .about-side-title{grid-column:1;grid-row:1}
   #about .about-content-wrapper{grid-column:2;grid-row:1;display:block;grid-template-columns:minmax(0,1fr);min-width:0}
-  #about .about-container>.about-profile-img.anatomy-profile-rail{grid-column:3;grid-row:1;position:sticky;top:14px;align-self:start;justify-self:stretch;display:flex;flex-direction:column;justify-content:flex-start;gap:4px;width:100%;height:calc(100vh - 28px);min-width:0;flex:none;z-index:2}
+  #about .about-container>.about-profile-img.anatomy-profile-rail{grid-column:3;grid-row:1;position:relative;top:auto;align-self:start;justify-self:stretch;display:flex;flex-direction:column;justify-content:flex-start;gap:4px;width:100%;height:auto;min-width:0;flex:none;z-index:2}
   .anatomy-profile-rail .about-profile-singularity{width:100%;height:300px;flex:0 0 300px}
   .anatomy-profile-rail .img-border{width:280px;height:280px;max-width:100%}
-  .anatomy-profile-rail .anatomy-scroll{position:relative;flex:1 1 auto;min-height:300px;height:auto;overflow:hidden;background:#101114;border:1px solid rgba(0,209,255,.15);border-radius:12px}
-  .anatomy-profile-rail .anatomy-stage{position:relative;inset:auto;width:100%;height:100%;min-height:0;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse 70% 60% at 50% 45%,#171a1b 0%,#101114 78%)}
-  .anatomy-profile-rail .anatomy-stage:before{content:"";position:absolute;inset:0;background:url("./images/anatomy/plate-thorax.webp") center 38%/cover no-repeat;opacity:.16;filter:grayscale(.4) brightness(.65);pointer-events:none}
-  .anatomy-profile-rail .anatomy-stage:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,17,20,.14),transparent 30%,transparent 70%,rgba(16,17,20,.14));pointer-events:none}
+  .anatomy-profile-rail .anatomy-scroll{position:relative;flex:1 1 auto;min-height:300px;height:auto;overflow:visible;background:transparent;border:0;border-radius:0}
+  #about{overflow:visible}
+  .anatomy-profile-rail .anatomy-stage{position:sticky;top:0;inset:auto;width:100%;height:calc(100vh - 28px);min-height:0;overflow:hidden;isolation:isolate;background:transparent}
   .anatomy-profile-rail .anatomy-canvas{position:absolute;inset:0;cursor:grab;touch-action:pan-y}
   .anatomy-profile-rail .anatomy-canvas:active{cursor:grabbing}
   .anatomy-profile-rail .anatomy-canvas canvas{display:block;width:100%;height:100%}
   @media(max-width:980px){#about .about-container{grid-template-columns:80px minmax(0,1fr) minmax(290px,330px);gap:20px}}
-  @media(max-width:768px){#about .about-container{display:flex;flex-direction:column;align-items:stretch;gap:18px;padding:60px 20px}.about-side-title{position:static!important;transform:none!important;min-height:0!important;height:auto!important;order:0}.about-profile-img.anatomy-profile-rail{position:relative;top:auto;order:1;width:100%;height:auto;min-width:0;flex:none;gap:6px;margin:0;align-self:stretch;justify-content:flex-start} .anatomy-profile-rail .about-profile-singularity{height:230px;flex-basis:230px}.anatomy-profile-rail .img-border{width:220px;height:220px}.anatomy-profile-rail .black-hole-effect{width:390px;height:178px}.anatomy-profile-rail .anatomy-scroll{height:400vh;min-height:0;max-height:none;flex:none;overflow:visible;border:0;border-radius:0}.anatomy-profile-rail .anatomy-stage{position:sticky;top:0;height:100vh;height:100svh;min-height:0}.about-content-wrapper{order:2;width:100%;padding:0;display:block}.about-content-wrapper .about-intro-copy{display:grid}.about-content-wrapper .skills-section,.about-content-wrapper .brands-section{width:100%}}
+  @media(max-width:768px){#about .about-container{display:flex;flex-direction:column;align-items:stretch;gap:18px;padding:60px 20px}.about-side-title{position:static!important;transform:none!important;min-height:0!important;height:auto!important;order:0}#about .about-container>.about-profile-img.anatomy-profile-rail{position:relative;top:auto;order:1;width:100%;height:auto;min-width:0;flex:none;gap:6px;margin:0;align-self:stretch;justify-content:flex-start} .anatomy-profile-rail .about-profile-singularity{height:230px;flex-basis:230px}.anatomy-profile-rail .img-border{width:220px;height:220px}.anatomy-profile-rail .black-hole-effect{width:390px;height:178px}.anatomy-profile-rail .anatomy-scroll{height:400vh;min-height:0;max-height:none;flex:none;overflow:visible;border:0;border-radius:0}.anatomy-profile-rail .anatomy-stage{position:sticky;top:0;height:100vh;height:100svh;min-height:0}.about-content-wrapper{order:2;width:100%;padding:0;display:block}.about-content-wrapper .about-intro-copy{display:grid}.about-content-wrapper .skills-section,.about-content-wrapper .brands-section{width:100%}}
 </style>
+<style id="emanuele-about-profile">
+ .about-container{padding-top:18px!important;align-items:start!important}
+ .about-content-wrapper{display:flex!important;flex-direction:column;gap:30px;grid-column:2;grid-row:1;min-width:0}
+ .about-side-title{min-height:0!important}
+ .profile-intro h2{font-size:clamp(2rem,4vw,3rem);line-height:1.08;margin:.2em 0;color:#f5f5f5}
+ .profile-kicker{color:#00d1ff;font-weight:700;letter-spacing:.09em;font-size:.82rem}
+ .profile-location{color:#aeb7c1;margin-top:8px}
+ .cv-section{border-top:1px solid #273039;padding-top:16px}.cv-section h2{font-size:1.45rem;margin:0 0 14px;color:#f2f2f2}
+ .cv-entry{padding:10px 0}.cv-entry h3{font-size:1.08rem;margin:0;color:#00d1ff}.cv-entry p{margin:3px 0;color:#d6dce2}.cv-entry p span{display:block;color:#9ca7b1;font-size:.92rem}.profile-skills{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none}.profile-skills li{border:1px solid #34414b;border-radius:999px;padding:5px 12px;color:#dbe3e9}
+ #about .about-container>.about-profile-img.anatomy-profile-rail{grid-column:3;grid-row:1;position:relative;top:auto;display:flex;flex-direction:column;gap:8px;width:100%;height:auto;align-self:start}
+ .anatomy-profile-rail .about-profile-singularity{width:100%;height:auto;flex:none;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 0 8px}
+ .anatomy-profile-rail .img-border{width:min(280px,82%);height:auto;aspect-ratio:1;border:2px solid #00d1ff;border-radius:50%;display:grid;place-items:center;background:transparent;box-shadow:none;overflow:hidden}
+ .profile-monogram span{font-size:clamp(4rem,8vw,7rem);font-weight:700;letter-spacing:-.08em;color:#00d1ff}
+ .profile-card-name{margin:0;color:#e8edf1;font-size:1rem;font-weight:600}
+ .anatomy-profile-rail .anatomy-scroll{height:300vh;min-height:100vh;flex:none;overflow:visible;background:transparent;border:0;border-radius:0}
+ .anatomy-profile-rail .anatomy-stage{position:sticky;top:0;height:100vh;height:100svh;min-height:0;background:transparent}
+ .anatomy-profile-rail .anatomy-canvas,.anatomy-profile-rail .anatomy-canvas canvas{background:transparent!important}
+ @media(max-width:768px){.about-container{padding:18px 20px 50px!important;gap:14px!important}#about .about-container>.about-profile-img.anatomy-profile-rail{order:1;width:100%;margin:0}.anatomy-profile-rail .about-profile-singularity{height:auto;flex-basis:auto}.anatomy-profile-rail .img-border{width:190px;height:auto}.anatomy-profile-rail .anatomy-scroll{height:300vh;min-height:0;max-height:none}.anatomy-profile-rail .anatomy-stage{height:100vh;height:100svh}.about-content-wrapper{order:2;width:100%;padding:0}.about-side-title{order:0}}
+ </style>
 </head>
     <body class="about-page">
         <!-- About Page Schema -->
         <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@graph": [
-                {
-                    "@type": "WebSite",
-                    "@id": "https://pklavc.com/#website",
-                    "url": "https://pklavc.com/",
-                    "name": "Patrick Araujo",
-                    "alternateName": "Patrick Araujo Portfolio"
-                },
-                {
-                    "@type": "AboutPage",
-                    "@id": "https://pklavc.com/about/#about",
-                    "url": "https://pklavc.com/about/",
-                    "name": "About Patrick Araujo | Backend Software Engineer",
-                    "description": "Backend Software Engineer focused on applied AI, software architecture, automation, data pipelines, reliability, and scalable backend systems.",
-                    "mainEntity": {
-                        "@id": "https://pklavc.com/about/#person"
-                    }
-                },
-                {
-                    "@type": "Person",
-                    "@id": "https://pklavc.com/about/#person",
-                    "name": "Patrick Araujo",
-                    "url": "https://pklavc.com/about/",
-                    "image": "https://pklavc.com/images/brand/profile.svg?v=8be4a58fa8",
-                    "jobTitle": "Backend Software Engineer | Applied AI, Software Architecture & Internal Systems",
-                    "homeLocation": {
-                        "@type": "Place",
-                        "name": "Belo Horizonte, Minas Gerais, Brazil"
-                    },
-                    "areaServed": [
-                        "United States",
-                        "Europe",
-                        "Latin America",
-                        "Brazil"
-                    ],
-                    "sameAs": [
-                        "https://github.com/PkLavc",
-                        "https://www.linkedin.com/in/pklavc/",
-                        "https://www.youtube.com/@PkLavc",
-                        "https://www.instagram.com/pklavc/",
-                        "mailto:contact@pklavc.com"
-                    ],
-                    "worksFor": [
-                        {
-                            "@type": "Organization",
-                            "name": "Loja do Sapo"
-                        },
-                        {
-                            "@type": "Organization",
-                            "name": "iCaiu"
-                        },
-                        {
-                            "@type": "Organization",
-                            "name": "Freelance and Contract Clients"
-                        }
-                    ],
-                    "knowsAbout": [
-                        "Python",
-                        "FastAPI",
-                        "Node.js",
-                        "TypeScript",
-                        "SQL",
-                        "JavaScript",
-                        "PostgreSQL",
-                        "REST APIs",
-                        "AWS",
-                        "Google Cloud",
-                        "Zoho",
-                        "Zoho Creator",
-                        "Deluge",
-                        "Applied AI",
-                        "RAG",
-                        "LLM Integrations",
-                        "Cloudflare Workers",
-                        "Workflow Automation",
-                        "Executive Dashboards",
-                        "LATAM Operations",
-                        "GitHub Actions",
-                        "ETL Pipelines",
-                        "Backend Systems"
-                    ],
-                    "hasOccupation": [
-                        {
-                            "@type": "Occupation",
-                            "name": "Backend Software Engineer - Applied AI & Systems Architecture"
-                        },
-                        {
-                            "@type": "Occupation",
-                            "name": "Solutions Engineer - Systems Integration, Data & Cloud"
-                        },
-                        {
-                            "@type": "Occupation",
-                            "name": "Zoho Creator, Automation & Web Dashboards Developer - International Contractor"
-                        },
-                        {
-                            "@type": "Occupation",
-                            "name": "Software Developer - Data, Workflows & Automation"
-                        },
-                        {
-                            "@type": "Occupation",
-                            "name": "Operations, Automation & Technical Support Specialist"
-                        }
-                    ],
-                    "hasCredential": [
-                        { "@type": "EducationalOccupationalCredential", "name": "Google Cybersecurity Professional Certificate(v.2)", "credentialCategory": "Certificate", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Google Data Analytics Professional Certificate(v.3)", "credentialCategory": "Certificate", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Google Data Analytics Capstone: Complete a Case Study", "credentialCategory": "Certificate", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Google Data Analytics", "credentialCategory": "Certificate", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Introduction to Data Analysis Using Python", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Share Data Through the Art of Visualization", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Analyze Data to Answer Questions", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Process Data from Dirty to Clean", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Prepare Data for Exploration", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Ask Questions to Make Data-Driven Decisions", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Accelerate Your Job Search with AI", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Google Cybersecurity", "credentialCategory": "Certificate", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Put It to Work: Prepare for Cybersecurity Jobs", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "ImersÃ£o Front-End com IA", "credentialCategory": "Course" },
-                        { "@type": "EducationalOccupationalCredential", "name": "InÃ­cio do projeto: Como comeÃ§ar um projeto bem-sucedido", "credentialCategory": "Course" },
-                        { "@type": "EducationalOccupationalCredential", "name": "Automate Cybersecurity Tasks with Python", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Sound the Alarm: Detection and Response", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Google AI Essentials", "credentialCategory": "Certificate", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Stay Ahead of the AI Curve", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Use AI Responsibly", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Discover the Art of Prompting", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Maximize Productivity With AI Tools", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Introduction to AI", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Fundamentos do gerenciamento de projetos", "credentialCategory": "Course" },
-                        { "@type": "EducationalOccupationalCredential", "name": "Google AI Essentials V1 - Badge", "credentialCategory": "Badge", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Google Prompting Essentials - Badge", "credentialCategory": "Badge", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Google Prompting Essentials", "credentialCategory": "Certificate", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Use AI as a Creative or Expert Partner", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Speed Up Data Analysis and Presentation Building", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Design Prompts for Everyday Work Tasks", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "AWS Cloud Quest: Cloud Practitioner - Training Badge", "credentialCategory": "Badge", "recognizedBy": { "@type": "Organization", "name": "AWS" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Start Writing Prompts like a Pro", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Assets, Threats, and Vulnerabilities", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Foundations: Data, Data, Everywhere", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Datadog Foundation", "credentialCategory": "Certificate", "recognizedBy": { "@type": "Organization", "name": "Datadog" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Tools of the Trade: Linux and SQL", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Foundations of Cybersecurity", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Play It Safe: Manage Security Risks", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Connect and Protect: Networks and Network Security", "credentialCategory": "Course", "recognizedBy": { "@type": "Organization", "name": "Google" } },
-                        { "@type": "EducationalOccupationalCredential", "name": "Atividade - Plugin 24.1", "credentialCategory": "Course" }
-                    ],
-                    "description": "Builds applied AI platforms, backend systems, ETL pipelines, automation, and internal tools with measurable operational impact, including ~40% faster processing and 35-40% faster API responses."
-                }
-            ]
-        }
-        </script>
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Emanuele Vieira | Nursing Technician",
+  "description": "Nursing technician and nursing student interested in oncology, women’s health, and mental health.",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Emanuele Vieira",
+    "jobTitle": "Nursing Technician",
+    "homeLocation": {
+      "@type": "Place",
+      "name": "Belo Horizonte, Minas Gerais, Brazil"
+    },
+    "email": "emanuelevsc1@gmail.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/vieirasemanuele"
+    ],
+    "worksFor": [
+      {
+        "@type": "Organization",
+        "name": "Prefeitura de Belo Horizonte"
+      },
+      {
+        "@type": "Organization",
+        "name": "GastroCenter"
+      },
+      {
+        "@type": "Organization",
+        "name": "MG CINTO"
+      }
+    ],
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Centro Universitário Newton Paiva"
+    },
+    "knowsAbout": [
+      "Exames clínicos",
+      "Enfermagem cirúrgica",
+      "Formação em Enfermagem"
+    ]
+  }
+}
+</script>
         <div id="all">
             <div class="cursor"></div>
 
@@ -429,462 +329,27 @@
            <div id="about" aria-label="About section">
         <div class="about-container">
         <div class="about-side-title">
-            <h1 class="identity-shift-heading" aria-label="About Me">About <span class="color identity-shift-word" data-identity-cycle="Me|Patrick|PkLavc">Me</span></h1>
+            <h1 class="identity-shift-heading">About me</h1>
         </div>
 
-        <div class="about-content-wrapper" aria-label="About content">
-    <div class="about-intro-copy">
-    <p class="bio-text">
-        <strong><span class="color">Backend Software Engineer</span></strong> focused on <span class="highlight">applied AI</span>, <span class="highlight">software architecture</span>, internal systems, automation, and data. I build platforms with <span class="highlight">Python</span>, <span class="highlight">FastAPI</span>, <span class="highlight">Node.js</span>, <span class="highlight">TypeScript</span>, <span class="highlight">SQL</span>, and cloud infrastructure to turn real operations into reliable, observable, and evolvable software.
-    </p>
+        <div class="about-content-wrapper" aria-label="About me">
+  <div class="profile-intro"><p class="profile-kicker">NURSING TECHNICIAN · NURSING STUDENT</p><h2>Emanuele Vieira</h2><p class="bio-text">Nursing technician and nursing student, with an interest in scientific work in oncology, women’s health, and mental health.</p><p class="profile-location">Belo Horizonte, Minas Gerais, Brasil</p></div>
+  <section class="cv-section"><h2>Professional experience</h2><article class="cv-entry"><h3>Nursing Technician</h3><p><strong>Prefeitura de Belo Horizonte</strong><span>Apr 2025 – Present</span></p></article>
+<article class="cv-entry"><h3>Nursing Technician</h3><p><strong>GastroCenter</strong><span>May 2023 – Oct 2024</span></p></article>
+<article class="cv-entry"><h3>Purchasing Assistant</h3><p><strong>MG CINTO</strong><span>Oct 2022 – Feb 2023</span></p></article></section>
+  <section class="cv-section"><h2>Education</h2><article class="cv-entry"><h3>Centro Universitário Newton Paiva</h3><p>Nursing · 2025–2030</p></article></section>
+  <section class="cv-section"><h2>Skills</h2><ul class="profile-skills"><li>Clinical examinations</li><li>Surgical nursing</li><li>Nursing education</li></ul></section>
+  <section class="cv-section"><h2>Contact</h2><p><a href="mailto:emanuelevsc1@gmail.com">emanuelevsc1@gmail.com</a></p><p><a href="https://www.linkedin.com/in/vieirasemanuele" target="_blank" rel="noopener noreferrer">LinkedIn</a></p></section>
+ </div>
 
-    <p class="bio-text">
-        My work combines <span class="highlight">multi-agent RAG platforms</span>, <span class="highlight">AI assistants</span>, product backends, automation, data pipelines, and internal systems. I design AI solutions as part of the software itself: with retrievable context, controlled tools, memory, fallback behavior, permissions, logs, and traceability.
-    </p>
-
-    <p class="bio-text">
-        I also work with <span class="highlight">backend architecture</span>, queues, caching, tests, CI/CD, observability, data security, and integrations when they belong to a larger system. The goal is to reduce manual work, clarify operational flows, and keep systems easy to evolve in real usage.
-    </p>
-    </div>
-
-
-<div class="skills-section professional-experience-section">
-    <h2><lottie-player src="./images/lottie/trust.json?v=85aaf58fc5" background="transparent" speed="1" class="section-heading-icon" loop autoplay title="Trusted by enterprise clients badge graphic"></lottie-player><span>Professional Experience & Enterprise Environments</span></h2>
-    <div class="brands-section" aria-label="Enterprise operations and integration environments">
-    <div class="slider">
-        <div class="slide-track">
-            <div class="slide"><img src="./images/companies/logo-loja-do-sapo.svg?v=f1ac44a70a" alt="Loja do Sapo" width="4997" height="3465" loading="lazy" decoding="async" /></div>
-            <div class="slide"><img src="./images/companies/logo-icaiu.svg?v=3aea375792" alt="Icaiu" width="360" height="118" loading="lazy" decoding="async" /></div>
-            <div class="slide"><img src="./images/companies/logo-wr.svg?v=49ee8561ad" alt="WR" width="868" height="570" loading="lazy" decoding="async" /></div>
-            <div class="slide"><img src="./images/companies/logo-nacucchio.svg?v=d8a4f7b120" alt="Federico Nacucchio y Asociados" width="139" height="139" loading="lazy" decoding="async" /></div>
-            <div class="slide"><img src="./images/companies/logo-loja-do-sapo.svg?v=f1ac44a70a" alt="Loja do Sapo" width="4997" height="3465" loading="lazy" decoding="async" /></div>
-            <div class="slide"><img src="./images/companies/logo-icaiu.svg?v=3aea375792" alt="Icaiu" width="360" height="118" loading="lazy" decoding="async" /></div>
-            <div class="slide"><img src="./images/companies/logo-wr.svg?v=49ee8561ad" alt="WR" width="868" height="570" loading="lazy" decoding="async" /></div>
-            <div class="slide"><img src="./images/companies/logo-nacucchio.svg?v=d8a4f7b120" alt="Federico Nacucchio y Asociados" width="139" height="139" loading="lazy" decoding="async" /></div>
-            <div class="slide"><img src="./images/companies/logo-loja-do-sapo.svg?v=f1ac44a70a" alt="Loja do Sapo" width="4997" height="3465" loading="lazy" decoding="async" /></div>
-            <div class="slide"><img src="./images/companies/logo-icaiu.svg?v=3aea375792" alt="Icaiu" width="360" height="118" loading="lazy" decoding="async" /></div>
-            <div class="slide"><img src="./images/companies/logo-wr.svg?v=49ee8561ad" alt="WR" width="868" height="570" loading="lazy" decoding="async" /></div>
-            <div class="slide"><img src="./images/companies/logo-nacucchio.svg?v=d8a4f7b120" alt="Federico Nacucchio y Asociados" width="139" height="139" loading="lazy" decoding="async" /></div>
-            <div class="slide"><img src="./images/companies/logo-loja-do-sapo.svg?v=f1ac44a70a" alt="" width="4997" height="3465" loading="lazy" decoding="async" aria-hidden="true" /></div>
-            <div class="slide"><img src="./images/companies/logo-icaiu.svg?v=3aea375792" alt="" width="360" height="118" loading="lazy" decoding="async" aria-hidden="true" /></div>
-            <div class="slide"><img src="./images/companies/logo-wr.svg?v=49ee8561ad" alt="" width="868" height="570" loading="lazy" decoding="async" aria-hidden="true" /></div>
-            <div class="slide"><img src="./images/companies/logo-nacucchio.svg?v=d8a4f7b120" alt="" width="139" height="139" loading="lazy" decoding="async" aria-hidden="true" /></div>
-            <div class="slide"><img src="./images/companies/logo-loja-do-sapo.svg?v=f1ac44a70a" alt="" width="4997" height="3465" loading="lazy" decoding="async" aria-hidden="true" /></div>
-            <div class="slide"><img src="./images/companies/logo-icaiu.svg?v=3aea375792" alt="" width="360" height="118" loading="lazy" decoding="async" aria-hidden="true" /></div>
-            <div class="slide"><img src="./images/companies/logo-wr.svg?v=49ee8561ad" alt="" width="868" height="570" loading="lazy" decoding="async" aria-hidden="true" /></div>
-            <div class="slide"><img src="./images/companies/logo-nacucchio.svg?v=d8a4f7b120" alt="" width="139" height="139" loading="lazy" decoding="async" aria-hidden="true" /></div>
-            <div class="slide"><img src="./images/companies/logo-loja-do-sapo.svg?v=f1ac44a70a" alt="" width="4997" height="3465" loading="lazy" decoding="async" aria-hidden="true" /></div>
-            <div class="slide"><img src="./images/companies/logo-icaiu.svg?v=3aea375792" alt="" width="360" height="118" loading="lazy" decoding="async" aria-hidden="true" /></div>
-            <div class="slide"><img src="./images/companies/logo-wr.svg?v=49ee8561ad" alt="" width="868" height="570" loading="lazy" decoding="async" aria-hidden="true" /></div>
-            <div class="slide"><img src="./images/companies/logo-nacucchio.svg?v=d8a4f7b120" alt="" width="139" height="139" loading="lazy" decoding="async" aria-hidden="true" /></div>
-        </div>
-    </div>
-    </div>
-    <div class="experience-content">
-        <article class="experience-company freelance-work">
-            <header class="experience-company-header">
-                <div>
-                    <h3>Freelance & Contract Work</h3>
-                </div>
-                <span class="experience-company-count">1 LATAM contract</span>
-            </header>
-            <div class="experience-role-list">
-                <div class="experience-role">
-                    <button class="experience-role-toggle has-client-logo" type="button" aria-expanded="false" aria-controls="experience-latam-contract">
-                        <img class="freelance-client-logo" src="./images/companies/logo-nacucchio.svg?v=d8a4f7b120" alt="Federico Nacucchio y Asociados" width="139" height="139" loading="lazy" decoding="async" />
-                        <span class="experience-role-heading"><b>Zoho Creator, Automation & Web Dashboards Developer</b><small>Federico Nacucchio y Asociados Â· Argentina<br>May 2026 - June 2026</small></span>
-                        <span class="experience-role-action" aria-hidden="true"></span>
-                    </button>
-                    <div id="experience-latam-contract" class="experience-role-panel" hidden>
-                        <ul class="experience-description">
-                            <li>Developed Zoho Creator solutions, Deluge scripts, HTML, CSS, JavaScript, custom components, dashboards, reports, forms, permissions, and mobile layouts for LATAM legal and administrative workflows.</li>
-                            <li>Built internal pages with embedded HTML components to improve KPI visualization, demand tracking, data organization, and decision-making support.</li>
-                            <li>Implemented Deluge automations connecting forms, reports, tasks, file records, scheduled sending routines, and email-based operational reports.</li>
-                            <li>Contributed to early planning for an external system to centralize dashboards, data collection, submissions, automated reports, and integrations outside the main Zoho environment.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <article class="experience-company">
-            <header class="experience-company-header">
-                <img src="./images/companies/logo-loja-do-sapo.svg?v=f1ac44a70a" alt="Loja do Sapo" width="4997" height="3465" loading="lazy" decoding="async" />
-                <div>
-                    <h3>Loja do Sapo</h3>
-                    <p>Backend platforms, applied AI, automations, integrations, dashboards, and operational systems.</p>
-                </div>
-                <span class="experience-company-count">2 consolidated roles</span>
-            </header>
-            <div class="experience-role-list">
-                <div class="experience-role">
-                    <button class="experience-role-toggle" type="button" aria-expanded="false" aria-controls="experience-loja-engineer">
-                        <span class="experience-role-heading"><b>Backend Software Engineer â€” Applied AI & Architecture</b><small>September 2025 - Present</small></span>
-                        <span class="experience-role-action" aria-hidden="true"></span>
-                    </button>
-                    <div id="experience-loja-engineer" class="experience-role-panel" hidden>
-                        <ul class="experience-description">
-                            <li>Develop backend platforms, internal systems, applied AI solutions, corporate automations, ETL pipelines, dashboards, and integrations for operational, financial, and administrative workflows.</li>
-                            <li>Designed an AI-powered operational platform with FastAPI, React, task Kanban, multi-agent orchestration, RAG, vector memory, execution queues, logs, traceability, and real-time observability.</li>
-                            <li>Developed an internal AI assistant for contextual search, support, and automated responses using Cloudflare Worker, TypeScript, D1, KV, caching, sessions, manual RAG, intent recognition, and LLM provider fallback.</li>
-                            <li>Built REST integrations across 6+ business systems and improved API response times by ~35-40%, data processing time by ~40%, and manual reporting effort by ~3 hours/day per analyst.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="experience-role">
-                    <button class="experience-role-toggle" type="button" aria-expanded="false" aria-controls="experience-loja-developer">
-                        <span class="experience-role-heading"><b>Software Developer (Data & Workflows)</b><small>October 2024 - August 2025</small></span>
-                        <span class="experience-role-action" aria-hidden="true"></span>
-                    </button>
-                    <div id="experience-loja-developer" class="experience-role-panel" hidden>
-                        <ul class="experience-description">
-                            <li>Developed automations, workflows, business rules, validations, and operational reports using Python, Deluge, JavaScript, Zoho Creator, Zoho Analytics, Google Sheets, Looker Studio, REST APIs, SQL, and internal integrations.</li>
-                            <li>Implemented 20+ automated workflows to reduce repetitive tasks, standardize administrative processes, validate operational data, and improve report consistency.</li>
-                            <li>Built extraction, processing, and data organization routines for dashboards, indicators, monitoring panels, and management reports.</li>
-                            <li>Replaced manual controls with traceable automations, validations, recurring updates, and more reliable data flows.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <article class="experience-company">
-            <header class="experience-company-header">
-                <img src="./images/companies/logo-icaiu.svg?v=3aea375792" alt="iCaiu" width="360" height="118" loading="lazy" decoding="async" />
-                <div>
-                    <h3>iCaiu</h3>
-                    <p>Systems integration, data pipelines, cloud, BI, backend automation, and solution architecture.</p>
-                </div>
-                <span class="experience-company-count">1 current role</span>
-            </header>
-            <div class="experience-role-list">
-                <div class="experience-role">
-                    <button class="experience-role-toggle" type="button" aria-expanded="false" aria-controls="experience-icaiu-solutions">
-                        <span class="experience-role-heading"><b>Solutions Engineer â€” Systems Integration, Data & Cloud</b><small>March 2025 - Present</small></span>
-                        <span class="experience-role-action" aria-hidden="true"></span>
-                    </button>
-                    <div id="experience-icaiu-solutions" class="experience-role-panel" hidden>
-                        <ul class="experience-description">
-                            <li>Work on systems integration, REST APIs, data pipelines, ETL, backend automation, cloud, databases, BI, data governance, and solution architecture for traceable operational workflows.</li>
-                            <li>Designed integration architecture across CRM, ERP, telephony, financial, inventory, customer service, and operations, separating raw ingestion from analytical layers for auditing, reprocessing, and business rule evolution.</li>
-                            <li>Built backend pipelines and integration workers executed locally or through GitHub Actions to collect, normalize, transform, persist, and synchronize operational data.</li>
-                            <li>Persisted data in Supabase PostgreSQL using raw tables, idempotent external IDs, reproducible collection windows, sanitized logs, cron scheduling, workflow_dispatch, and SQL reporting layers.</li>
-                            <li>Worked on serverless backend and full-stack solutions for inventory control, authentication, permissions, operational CRUD, movement history, maintenance, UI customization, automated deployment, and CI/CD.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <article class="experience-company">
-            <header class="experience-company-header">
-                <img src="./images/companies/logo-wr.svg?v=49ee8561ad" alt="WR Auto Pecas" width="868" height="570" loading="lazy" decoding="async" />
-                <div>
-                    <h3>WR Auto PeÃ§as</h3>
-                    <p>Technical operations, process automation, inventory control, internal tooling, and systems support.</p>
-                </div>
-                <span class="experience-company-count">1 role</span>
-            </header>
-            <div class="experience-role-list">
-                <div class="experience-role">
-                    <button class="experience-role-toggle" type="button" aria-expanded="false" aria-controls="experience-wr-operations">
-                        <span class="experience-role-heading"><b>Operations, Automation & Technical Support Specialist</b><small>November 2015 - February 2026</small></span>
-                        <span class="experience-role-action" aria-hidden="true"></span>
-                    </button>
-                    <div id="experience-wr-operations" class="experience-role-panel" hidden>
-                        <ul class="experience-description">
-                            <li>Worked in technical operations, process automation, systems support, inventory control, data organization, and internal tool development for administrative, tax, logistics, and customer service routines.</li>
-                            <li>Developed 25+ internal tools using Python, JavaScript, HTML, CSS, and automated spreadsheets for operational control, data analysis, inventory, deliveries, tax documents, and process organization.</li>
-                            <li>Saved an estimated 30-35 hours per week by replacing repetitive manual controls with internal systems, scripts, validations, and more reliable data flows.</li>
-                            <li>Maintained the company website, internal web tools, local servers, cloud backups, technical support routines, tax systems administration, and daily operational information.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-    </div>
-    <button class="experience-carousel-return" type="button" hidden aria-label="Return to first experience card">
-        <span>Return</span>
-        <span aria-hidden="true">&#x21BD;</span>
-    </button>
-</div>
-
-
-<div class="skills-section operating-model-section">
-    <h2><lottie-player src="./images/lottie/Globe.json?v=3e19ffd5b8" background="transparent" speed="1" class="section-heading-icon" loop autoplay title="Engineering operating model icon"></lottie-player> Engineering Operating Model</h2>
-    <div class="education-content space-reveal">
-        <div class="education-reveal-layer space-reveal-layer" aria-hidden="true">
-            <div class="education-reveal-scene space-reveal-scene">
-                <div class="education-reveal-horizon space-reveal-horizon"></div>
-                <div class="education-reveal-copy space-reveal-copy">
-                    <span>Signal layer</span>
-                    <strong>Systems stay readable when their signals stay visible.</strong>
-                </div>
-            </div>
-        </div>
-        <div class="education-item">
-            <div class="education-header">
-                <div class="education-title-date">
-                    <div class="education-title">
-                        <b>System boundaries</b>
-                    </div>
-                    <div class="education-date">
-                        <i>Clear contracts between UI, backend, agents, workers, and storage</i>
-                    </div>
-                </div>
-            </div>
-            <div class="education-institution">
-                I keep each responsibility in its own layer so business rules, models, tools, data, and integrations can evolve without invisible coupling.
-            </div>
-        </div>
-        <div class="education-item">
-            <div class="education-header">
-                <div class="education-title-date">
-                    <div class="education-title">
-                        <b>Replayable execution</b>
-                    </div>
-                    <div class="education-date">
-                        <i>Inputs, states, traces, normalized models, and audit trails</i>
-                    </div>
-                </div>
-            </div>
-            <div class="education-institution">
-                AI, automation, and data workflows need to be rerunnable: failures should be inspectable, correctable, and replayable without losing original context.
-            </div>
-        </div>
-        <div class="education-item">
-            <div class="education-header">
-                <div class="education-title-date">
-                    <div class="education-title">
-                        <b>Operational Feedback</b>
-                    </div>
-                    <div class="education-date">
-                        <i>Signals before surprises</i>
-                    </div>
-                </div>
-            </div>
-            <div class="education-institution">
-                Dashboards, logs, real-time events, scheduled checks, and failure summaries help expose drift before it turns into hidden risk.
-            </div>
-        </div>
-        <div class="education-item">
-            <div class="education-header">
-                <div class="education-title-date">
-                    <div class="education-title">
-                        <b>AI-Assisted Delivery</b>
-                    </div>
-                    <div class="education-date">
-                        <i>Agent speed with engineering review</i>
-                    </div>
-                </div>
-            </div>
-            <div class="education-institution">
-                I use AI agents to accelerate exploration, scaffolding, and validation while keeping architecture, security, and production behavior under human review.
-            </div>
-        </div>
-    </div>
-</div>
-
-                        <div class="skills-section core-skills-section">
-    <h2><lottie-player src="./images/lottie/Da_Vinci.json?v=5aa1ea8644" background="transparent" speed="1" class="section-heading-icon" loop autoplay title="Key skills badge for software architecture and data engineering"></lottie-player> Languages, Technologies & Stack</h2>
-    <div class="skills-grid" aria-label="Languages, technologies, and stack grouped by operating area">
-        <div class="skill-cluster">
-            <b>Languages & Core Stack</b>
-            <span class="skill-pill"><span class="skill-icon skill-icon-python" aria-hidden="true"></span><em>Python</em></span>
-            <span class="skill-pill"><span class="skill-icon skill-icon-js" aria-hidden="true"></span><em>JS</em></span>
-            <span class="skill-pill"><span class="skill-icon skill-icon-js" aria-hidden="true"></span><em>JavaScript</em></span>
-            <span class="skill-pill"><span class="skill-icon skill-icon-js" aria-hidden="true"></span><em>TypeScript</em></span>
-            <span class="skill-pill"><em>FastAPI</em></span>
-            <span class="skill-pill"><span class="skill-icon skill-icon-aws" aria-hidden="true"></span><em>AWS</em></span>
-            <span class="skill-pill"><em>Deluge</em></span>
-            <span class="skill-pill"><span class="skill-icon skill-icon-html5" aria-hidden="true"></span><em>HTML5</em></span>
-            <span class="skill-pill"><span class="skill-icon skill-icon-css3" aria-hidden="true"></span><em>CSS3</em></span>
-            <span class="skill-pill"><span class="skill-icon skill-icon-docker" aria-hidden="true"></span><em>Docker</em></span>
-            <span class="skill-pill"><span class="skill-icon skill-icon-sql" aria-hidden="true"></span><em>SQL</em></span>
-        </div>
-        <div class="skill-cluster skill-cluster-secondary">
-            <b>Academic & Certification Exposure</b>
-            <span class="skill-pill"><span class="skill-icon skill-icon-java" aria-hidden="true"></span><em>Java</em></span>
-            <span class="skill-pill"><span class="skill-icon skill-icon-php" aria-hidden="true"></span><em>PHP</em></span>
-            <span class="skill-pill"><span class="skill-icon skill-icon-react" aria-hidden="true"></span><em>React</em></span>
-            <span class="skill-pill"><span class="skill-icon skill-icon-c" aria-hidden="true"></span><em>C</em></span>
-            <span class="skill-pill"><span class="skill-icon skill-icon-cpp" aria-hidden="true"></span><em>C++</em></span>
-            <span class="skill-pill"><span class="skill-icon skill-icon-csharp" aria-hidden="true"></span><em>C#</em></span>
-        </div>
-        <div class="skill-cluster">
-            <b>Data & Cloud</b>
-            <span class="skill-pill"><em>PostgreSQL</em></span>
-            <span class="skill-pill"><em>Supabase</em></span>
-            <span class="skill-pill"><em>Google Cloud</em></span>
-            <span class="skill-pill"><em>Cloudflare Workers</em></span>
-            <span class="skill-pill"><em>ETL Pipelines</em></span>
-            <span class="skill-pill"><em>Data Modeling</em></span>
-        </div>
-        <div class="skill-cluster">
-            <b>Integrations</b>
-            <span class="skill-pill"><span class="skill-icon skill-icon-rest" aria-hidden="true"></span><em>REST APIs</em></span>
-            <span class="skill-pill"><span class="skill-icon skill-icon-github" aria-hidden="true"></span><em>GitHub Actions</em></span>
-            <span class="skill-pill"><em>Zoho</em></span>
-            <span class="skill-pill"><em>Systems Integration</em></span>
-            <span class="skill-pill"><em>Process Automation</em></span>
-        </div>
-        <div class="skill-cluster">
-            <b>Architecture</b>
-            <span class="skill-pill"><em>Backend Architecture</em></span>
-            <span class="skill-pill"><em>Applied AI</em></span>
-            <span class="skill-pill"><em>RAG</em></span>
-            <span class="skill-pill"><em>LLM Integrations</em></span>
-            <span class="skill-pill"><em>Async Processing</em></span>
-            <span class="skill-pill"><em>Caching</em></span>
-            <span class="skill-pill"><em>System Design</em></span>
-            <span class="skill-pill"><em>Operational Dashboards</em></span>
-            <span class="skill-pill"><em>Rules Engines</em></span>
-            <span class="skill-pill"><em>Integration Governance</em></span>
-        </div>
-    </div>
-</div>
-
-                        <!-- strategic-about-carousel:start -->
-<section class="skills-section about-project-carousel-section" aria-labelledby="about-project-carousel-title">
-    <div class="about-project-carousel-heading">
-        <h2 id="about-project-carousel-title">Explore project paths</h2>
-        <p>Open curated entry points for AI systems, LLM/RAG, backend architecture, system integration, and Python automation.</p>
-    </div>
-    <div class="about-project-carousel" aria-label="Explore project paths">
-        <div class="about-project-carousel-track">
-        <a class="about-project-carousel-card" href="https://pklavc.com/projects/ai-engineer/" data-carousel-card="1">
-            <span>Python | FastAPI | LLMs</span>
-            <strong>AI Engineer</strong>
-            <small>Applied AI projects covering LLMs, agents, RAG, vector memory, AI automation, internal assistants, and backend systems that support AI in production-oriented contexts.</small>
-            <em>Open path</em>
-        </a>
-        <a class="about-project-carousel-card" href="https://pklavc.com/projects/backend-python/" data-carousel-card="2">
-            <span>Python | FastAPI | REST APIs</span>
-            <strong>Backend Python</strong>
-            <small>Curated backend Python projects focused on FastAPI, REST APIs, PostgreSQL, SQL, automation, integrations, cloud deployment, GitHub Actions, internal systems, and reliability.</small>
-            <em>Open path</em>
-        </a>
-        <a class="about-project-carousel-card" href="https://pklavc.com/projects/llm-rag/" data-carousel-card="3">
-            <span>RAG | LLMs | Ollama</span>
-            <strong>LLM / RAG Engineer</strong>
-            <small>Projects focused on RAG, local and cloud LLM usage, Ollama, LangGraph, ChromaDB, prompt boundaries, context retrieval, vector memory, and contextual search.</small>
-            <em>Open path</em>
-        </a>
-        <a class="about-project-carousel-card" href="https://pklavc.com/projects/api-integrations/" data-carousel-card="4">
-            <span>REST APIs | Webhooks | ETL</span>
-            <strong>API Integration Engineer</strong>
-            <small>Integration projects focused on APIs, webhooks, ETL, GitHub Actions, Zoho, Hablla, Zenvia, SIGE, Omie, Google Sheets, Supabase, SQL, idempotency, and operational data.</small>
-            <em>Open path</em>
-        </a>
-        <a class="about-project-carousel-card" href="https://pklavc.com/projects/python-automation/" data-carousel-card="5">
-            <span>Python | Automation | Scheduled jobs</span>
-            <strong>Python Automation</strong>
-            <small>Automation projects focused on internal routines, process automation, pipelines, scheduled jobs, operational backend work, and reliability-oriented execution.</small>
-            <em>Open path</em>
-        </a>
-        <a aria-hidden="true" tabindex="-1" class="about-project-carousel-card is-carousel-clone" href="https://pklavc.com/projects/ai-engineer/" data-carousel-card="1">
-            <span>Python | FastAPI | LLMs</span>
-            <strong>AI Engineer</strong>
-            <small>Applied AI projects covering LLMs, agents, RAG, vector memory, AI automation, internal assistants, and backend systems that support AI in production-oriented contexts.</small>
-            <em>Open path</em>
-        </a>
-        <a aria-hidden="true" tabindex="-1" class="about-project-carousel-card is-carousel-clone" href="https://pklavc.com/projects/backend-python/" data-carousel-card="2">
-            <span>Python | FastAPI | REST APIs</span>
-            <strong>Backend Python</strong>
-            <small>Curated backend Python projects focused on FastAPI, REST APIs, PostgreSQL, SQL, automation, integrations, cloud deployment, GitHub Actions, internal systems, and reliability.</small>
-            <em>Open path</em>
-        </a>
-        <a aria-hidden="true" tabindex="-1" class="about-project-carousel-card is-carousel-clone" href="https://pklavc.com/projects/llm-rag/" data-carousel-card="3">
-            <span>RAG | LLMs | Ollama</span>
-            <strong>LLM / RAG Engineer</strong>
-            <small>Projects focused on RAG, local and cloud LLM usage, Ollama, LangGraph, ChromaDB, prompt boundaries, context retrieval, vector memory, and contextual search.</small>
-            <em>Open path</em>
-        </a>
-        <a aria-hidden="true" tabindex="-1" class="about-project-carousel-card is-carousel-clone" href="https://pklavc.com/projects/api-integrations/" data-carousel-card="4">
-            <span>REST APIs | Webhooks | ETL</span>
-            <strong>API Integration Engineer</strong>
-            <small>Integration projects focused on APIs, webhooks, ETL, GitHub Actions, Zoho, Hablla, Zenvia, SIGE, Omie, Google Sheets, Supabase, SQL, idempotency, and operational data.</small>
-            <em>Open path</em>
-        </a>
-        <a aria-hidden="true" tabindex="-1" class="about-project-carousel-card is-carousel-clone" href="https://pklavc.com/projects/python-automation/" data-carousel-card="5">
-            <span>Python | Automation | Scheduled jobs</span>
-            <strong>Python Automation</strong>
-            <small>Automation projects focused on internal routines, process automation, pipelines, scheduled jobs, operational backend work, and reliability-oriented execution.</small>
-            <em>Open path</em>
-        </a>
-        </div>
-    </div>
-</section>
-<!-- strategic-about-carousel:end -->
-<section class="skills-section global-reach-section" aria-labelledby="global-reach-title">
-    <div class="global-reach-copy">
-        <span class="global-reach-kicker">Visitor map</span>
-        <h2 id="global-reach-title">Global reach</h2>
-        <p>See the anonymous, aggregated map of where this portfolio has been visited from.</p>
-        <a class="global-reach-link" href="https://pklavc.com/visitors/">Open map</a>
-    </div>
-    <a class="global-reach-visual" href="https://pklavc.com/visitors/" aria-label="Open anonymous visitor map">
-        <span class="about-globe-frame" data-interactive-globe data-about-globe aria-hidden="true"></span>
-    </a>
-</section>
-<div class="skills-section contact-inquiries-section">
-                            <h2><lottie-player src="./images/lottie/link.json?v=55e76ec37d" background="transparent" speed="1" class="section-heading-icon" loop autoplay title="Professional contact icon for inquiries"></lottie-player> Contact & Professional Inquiries</h2>
-                            <div class="contact-grid">
-                                <div class="contact-item">
-                                    <a href="https://github.com/PkLavc" target="_blank" rel="noopener noreferrer"><lottie-player src="./images/lottie/github.json?v=50cdc84fd8" background="transparent" speed="1" class="contact-item-icon" loop autoplay title="Patrick Araujo - GitHub Portfolio and Open Source Projects"></lottie-player></a>
-                                    <span class="contact-value" data-href="https://github.com/PkLavc">PkLavc</span>
-                                    <button class="copy-btn" type="button" data-copy="https://github.com/PkLavc" title="Copy to clipboard" aria-label="Copy GitHub profile URL to clipboard">
-                                        <lottie-player src="./images/lottie/copy.json?v=a7cf92b17b" background="transparent" speed="0.55" class="copy-btn-icon" loop autoplay aria-hidden="true"></lottie-player><span>Copy</span>
-                                    </button>
-                                </div>
-                                <div class="contact-item">
-                                    <a href="https://www.linkedin.com/in/pklavc/" target="_blank" rel="noopener noreferrer"><lottie-player src="./images/lottie/linkedin.json?v=86d0c9e071" background="transparent" speed="1" class="contact-item-icon" loop autoplay title="Patrick Araujo - Professional LinkedIn Profile"></lottie-player></a>
-                                    <span class="contact-value" data-href="https://www.linkedin.com/in/pklavc/">pklavc</span>
-                                    <button class="copy-btn" type="button" data-copy="https://www.linkedin.com/in/pklavc/" title="Copy to clipboard" aria-label="Copy LinkedIn profile URL to clipboard">
-                                        <lottie-player src="./images/lottie/copy.json?v=a7cf92b17b" background="transparent" speed="0.55" class="copy-btn-icon" loop autoplay aria-hidden="true"></lottie-player><span>Copy</span>
-                                    </button>
-                                </div>
-                                <div class="contact-item">
-                                    <a href="https://www.instagram.com/pklavc/" target="_blank" rel="noopener noreferrer"><lottie-player src="./images/lottie/instagram-pklavc-blue-20261002.json" background="transparent" speed="1" class="contact-item-icon" loop autoplay title="Patrick Araujo - Instagram Profile"></lottie-player></a>
-                                    <span class="contact-value" data-href="https://www.instagram.com/pklavc/">@pklavc</span>
-                                    <button class="copy-btn" type="button" data-copy="https://www.instagram.com/pklavc/" title="Copy to clipboard" aria-label="Copy Instagram profile URL to clipboard">
-                                        <lottie-player src="./images/lottie/copy.json?v=a7cf92b17b" background="transparent" speed="0.55" class="copy-btn-icon" loop autoplay aria-hidden="true"></lottie-player><span>Copy</span>
-                                    </button>
-                                </div>
-                                <div class="contact-item">
-                                    <a href="https://www.youtube.com/@PkLavc" target="_blank" rel="noopener noreferrer"><lottie-player src="./images/lottie/youtube-pklavc-blue-20261002.json" background="transparent" speed="1" class="contact-item-icon" loop autoplay title="Patrick Araujo - YouTube Channel"></lottie-player></a>
-                                    <span class="contact-value" data-href="https://www.youtube.com/@PkLavc">@PkLavc</span>
-                                    <button class="copy-btn" type="button" data-copy="https://www.youtube.com/@PkLavc" title="Copy to clipboard" aria-label="Copy YouTube channel URL to clipboard">
-                                        <lottie-player src="./images/lottie/copy.json?v=a7cf92b17b" background="transparent" speed="0.55" class="copy-btn-icon" loop autoplay aria-hidden="true"></lottie-player><span>Copy</span>
-                                    </button>
-                                </div>
-                                <div class="contact-item">
-                                    <a href="mailto:contact@pklavc.com" target="_blank" rel="noopener noreferrer"><lottie-player src="./images/lottie/mail.json?v=895f6ab30e" background="transparent" speed="1" class="contact-item-icon" loop autoplay title="Contact Patrick Araujo via Email"></lottie-player></a>
-                                    <span class="contact-value" data-href="mailto:contact@pklavc.com">contact@pklavc.com</span>
-                                    <button class="copy-btn" type="button" data-copy="contact@pklavc.com" title="Copy to clipboard" aria-label="Copy email address to clipboard">
-                                        <lottie-player src="./images/lottie/copy.json?v=a7cf92b17b" background="transparent" speed="0.55" class="copy-btn-icon" loop autoplay aria-hidden="true"></lottie-player><span>Copy</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="about-sponsor-row">
-                            <a class="about-sponsor-link" href="https://github.com/sponsors/PkLavc" target="_blank" rel="noopener noreferrer"><lottie-player src="./images/lottie/sponsor-pklavc-blue-20261002.json" background="transparent" speed="1" loop autoplay class="about-sponsor-icon" aria-hidden="true"></lottie-player><span>Sponsor me</span></a>
-                        </div>
-                    </div>
-
-                </div>
-    <aside class="about-profile-img anatomy-profile-rail" aria-label="Profile and interactive anatomy">
-        <div class="about-profile-singularity" tabindex="0" aria-label="Interactive profile portrait">
-            <canvas class="black-hole-effect" data-black-hole-canvas aria-hidden="true"></canvas>
-            <div class="img-border">
-                <img src="./images/brand/profile.svg?v=8be4a58fa8" alt="Patrick Araujo profile portrait" width="250" height="250" loading="eager" fetchpriority="high" decoding="async">
-            </div>
-        </div>
+                <aside class="about-profile-img anatomy-profile-rail" aria-label="Profile and interactive anatomy">
+        <div class="about-profile-singularity"><div class="img-border profile-monogram" aria-label="Emanuele Vieira"><span>EV</span></div><p class="profile-card-name">Emanuele Vieira</p></div>
         <section class="anatomy-scroll" aria-label="Interactive 3D anatomy, drag to rotate and scroll to reveal layers">
             <div class="anatomy-stage"><div class="anatomy-canvas" id="anatomy-canvas" aria-hidden="true"></div></div>
         </section>
     </aside>
+        </div>
+
             </div>
         </div>
         </main>
@@ -1602,18 +1067,16 @@
         <script src="./js/index.js?v=20261005amazon-white-logo1" defer></script>
         <script src="./js/interactive-globe.js" defer></script>
         <script src="./js/about-effects.js" defer></script>
-        <script type="module" src="./js/black-hole.js?v=20260922b"></script>
+
         <script id="skylet-widget-script" src="./js/skylet-widget.js?v=20261002desktop6" defer></script>
 <footer class="footer-minimal footer-split footer-about">
     <div class="footer-container">
-        <div class="footer-split-left"><span class="footer-copyright-line">&copy; <span id="current-year"></span> Patrick Araujo</span></div>
+        <div class="footer-split-left"><span class="footer-copyright-line">&copy; <span id="current-year"></span> Emanuele Vieira</span></div>
         <span class="footer-split-spacer" aria-hidden="true"></span>
         <div class="footer-split-right"><span class="footer-legal-inline" aria-label="Legal links"><a class="footer-legal-link" href="https://pklavc.com/privacy-policy/">Privacy Policy</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="https://pklavc.com/terms-of-use/">Terms of Use</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="https://pklavc.com/editorial-policy/">Editorial Policy</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="https://pklavc.com/credits/">Credits</a></span></div>
     </div>
 </footer>
-<div class="visually-hidden">
-    <p>Backend Software Engineer focused on applied AI, software architecture, automation, backend systems, Python, Node.js, SQL, ETL pipelines, reliability, and scalable operational platforms.</p>
-</div>
+<div class="visually-hidden"><p>Nursing technician and nursing student interested in oncology, women’s health, and mental health.</p></div>
     <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
 <script type="module">
     import * as THREE from 'three';
@@ -1621,7 +1084,7 @@
     import { MeshoptDecoder } from './vendor/meshopt_decoder.module.js';
 
     const section = document.querySelector('.anatomy-scroll');
-    const pageTrack = document.querySelector('.about-container');
+
     const host = document.querySelector('#anatomy-canvas');
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
@@ -1675,17 +1138,15 @@
       if (!width || !height) return;
       renderer.setSize(width, height, false);
       camera.aspect = width / height;
-      const distance = width < 700 ? 12.5 : 15.5;
-      camera.position.set(0, 0.9, distance);
-      camera.lookAt(0, 0.9, 0);
+      const distance = Math.max(width < 700 ? 18.5 : 18.5, 5 / Math.tan(38 * Math.PI / 360) * 1.23);
+      camera.position.set(0, -0.3, distance);
+      camera.lookAt(0, -0.3, 0);
       camera.updateProjectionMatrix();
     }
 
     function onScroll() {
-      const mobile = window.matchMedia('(max-width: 768px)').matches;
-      const track = mobile ? section : pageTrack;
-      const rect = track.getBoundingClientRect();
-      const length = Math.max(1, track.offsetHeight - window.innerHeight);
+      const rect = section.getBoundingClientRect();
+      const length = Math.max(1, section.offsetHeight - window.innerHeight);
       scrollTarget = clamp(-rect.top / length);
     }
 
@@ -1748,6 +1209,10 @@
       if (!ready) return;
       scrollCurrent += (scrollTarget - scrollCurrent) * 0.12;
       const p = scrollCurrent;
+      const zoom = smooth(p, 0.03, 0.32);
+      const distance = 18.5 - zoom * 3.4;
+      camera.position.set(0, -0.3, distance);
+      camera.lookAt(0, -0.3, 0);
       const reveal = smooth(p, 0.08, 0.18);
       setOpacity('muscle', 1 - reveal);
       setOpacity('skeleton', 0.25 * reveal * (1 - smooth(p, 0.78, 0.95)));
