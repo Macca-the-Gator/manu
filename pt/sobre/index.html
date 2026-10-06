@@ -1101,7 +1101,7 @@
       if (!width || !height) return;
       renderer.setSize(width, height, false);
       camera.aspect = width / height;
-      const distance = Math.max(width < 700 ? 18.5 : 18.5, 5 / Math.tan(38 * Math.PI / 360) * 1.23);
+      const distance = Math.max(15.1, 5 / Math.tan(38 * Math.PI / 360) * 1.23);
       camera.position.set(0, -0.3, distance);
       camera.lookAt(0, -0.3, 0);
       camera.updateProjectionMatrix();
@@ -1172,10 +1172,6 @@
       if (!ready) return;
       scrollCurrent += (scrollTarget - scrollCurrent) * 0.12;
       const p = scrollCurrent;
-      const zoom = smooth(p, 0.03, 0.32);
-      const distance = 18.5 - zoom * 3.4;
-      camera.position.set(0, -0.3, distance);
-      camera.lookAt(0, -0.3, 0);
       const reveal = smooth(p, 0.08, 0.18);
       setOpacity('muscle', 1 - reveal);
       setOpacity('skeleton', 0.25 * reveal * (1 - smooth(p, 0.78, 0.95)));
