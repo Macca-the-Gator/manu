@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>About Manu</title>
-  <meta name="description" content="About Manu — a study of the body through its layers.">
+  <meta name="description" content="An anatomical body revealed layer by layer as you scroll.">
   <meta name="author" content="Manu">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="theme-color" content="#30352f">
+  <meta name="theme-color" content="#242923">
   <link rel="canonical" href="https://macca-the-gator.github.io/manu/about/">
   <link rel="alternate" href="https://macca-the-gator.github.io/manu/about/" hreflang="en">
   <link rel="alternate" href="https://macca-the-gator.github.io/manu/pt/sobre/" hreflang="pt-BR">
@@ -17,222 +17,258 @@
   <meta property="og:site_name" content="Manu">
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="About Manu">
-  <meta property="og:description" content="About Manu — a study of the body through its layers.">
+  <meta property="og:description" content="An anatomical body revealed layer by layer as you scroll.">
   <meta property="og:url" content="https://macca-the-gator.github.io/manu/about/">
   <meta property="og:image" content="https://macca-the-gator.github.io/manu/inner-green-assets/card-ethos.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="About Manu">
-  <meta name="twitter:description" content="About Manu — a study of the body through its layers.">
+  <meta name="twitter:description" content="An anatomical body revealed layer by layer as you scroll.">
   <meta name="twitter:image" content="https://macca-the-gator.github.io/manu/inner-green-assets/card-ethos.jpg">
   <link rel="icon" href="https://macca-the-gator.github.io/manu/assets/favicon.svg">
-  <link rel="stylesheet" href="https://macca-the-gator.github.io/manu/assets/site-shell.css">
   <style>
-    .about-page{margin:0;background:#30352f;color:#eef1e7;overflow-x:hidden;font-family:Lexend,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-    .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-    .dissection{position:relative;height:650vh;background:radial-gradient(55% 40% at 50% 43%,rgba(164,205,185,.09),transparent 75%),linear-gradient(180deg,#333831,#292e29)}
-    .dissection__stage{position:sticky;top:0;height:100svh;min-height:600px;overflow:hidden;isolation:isolate;display:grid;grid-template-columns:minmax(260px,1fr) minmax(320px,1.15fr) minmax(260px,1fr);align-items:center;padding:clamp(28px,6vw,100px);box-sizing:border-box}
-    .dissection__stage:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,transparent 24.9%,rgba(255,255,255,.025) 25%,transparent 25.1%,transparent 74.9%,rgba(255,255,255,.025) 75%,transparent 75.1%),linear-gradient(180deg,transparent 49.9%,rgba(255,255,255,.02) 50%,transparent 50.1%)}
-    .dissection__copy{grid-column:1;grid-row:1;align-self:start;max-width:410px;z-index:2;padding-top:clamp(15px,5vh,60px)}
-    .dissection__eyebrow{margin:0 0 20px;color:#b3c1a0;font-size:.69rem;letter-spacing:.19em;text-transform:uppercase}
-    .dissection__title{max-width:390px;margin:0;color:#f0eee2;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.5rem,5.4vw,5.4rem);font-weight:400;line-height:.98;letter-spacing:-.045em}
-    .dissection__model{grid-column:2;grid-row:1;position:relative;width:100%;height:100svh;pointer-events:none}
-    .dissection__canvas{display:block;width:100%;height:100%;outline:0}
-    .dissection__canvas canvas{display:block;width:100%;height:100%}
-    .dissection__loading{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:rgba(235,239,224,.65);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
-    .dissection__loading[hidden]{display:none}
-    .dissection__steps{grid-column:3;grid-row:1;justify-self:end;align-self:center;width:min(100%,360px);margin:4vh 0 0;padding:0;list-style:none;z-index:2}
-    .dissection__step{padding:17px 0 18px 19px;border-left:1px solid rgba(220,229,207,.16);opacity:.43;transition:opacity .35s,border-color .35s,transform .35s}
-    .dissection__step[aria-current="step"]{border-color:#d4d5b4;opacity:1;transform:translateX(-5px)}
-    .dissection__step-label{display:block;margin-bottom:9px;color:#d8d6c6;font-size:.67rem;letter-spacing:.13em;text-transform:uppercase}
-    .dissection__step p{margin:0;color:#b9beb0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(.95rem,1.2vw,1.13rem);line-height:1.55}
-    .dissection__progress{position:absolute;left:clamp(28px,6vw,100px);bottom:clamp(28px,6vh,64px);z-index:2;color:#abb5a4;font-size:.7rem;letter-spacing:.15em}
-    .dissection__scan{position:absolute;z-index:1;left:30%;right:30%;top:var(--scan,10%);height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(146,229,213,.8),#dceabb,rgba(146,229,213,.8),transparent);box-shadow:0 0 14px rgba(139,226,209,.65);opacity:.65}
-    .dissection__scan:after{content:"";position:absolute;inset:-20px 0;background:linear-gradient(180deg,transparent,rgba(130,218,200,.06),transparent);filter:blur(9px)}
-    .about-page .footer-minimal{margin-top:0}
-    @media(max-width:850px){.dissection{height:580vh}.dissection__stage{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr) auto;padding:25px 24px 32px}.dissection__copy{grid-column:1;grid-row:1;padding-top:3vh;max-width:70%;}.dissection__title{font-size:clamp(2.35rem,9vw,4rem)}.dissection__model{grid-column:1;grid-row:2;height:100%;min-height:250px}.dissection__steps{grid-column:1;grid-row:3;justify-self:start;align-self:end;width:min(100%,570px);margin:0 0 6vh 0}.dissection__step{padding:10px 0 11px 14px}.dissection__step-label{margin-bottom:4px}.dissection__step p{max-width:440px;font-size:.94rem}.dissection__progress{left:24px;bottom:20px}.dissection__scan{left:15%;right:15%}}
-    @media(max-width:520px){.dissection{height:550vh}.dissection__stage{min-height:590px;padding-inline:20px}.dissection__copy{max-width:95%;padding-top:2vh}.dissection__eyebrow{margin-bottom:11px}.dissection__steps{margin-bottom:7vh;min-height:85px}.dissection__step{display:none;padding-block:8px}.dissection__step[aria-current="step"]{display:block}.dissection__step p{font-size:.86rem;line-height:1.4}.dissection__progress{left:20px;bottom:16px}.dissection__scan{display:none}}
-    @media(prefers-reduced-motion:reduce){.dissection__step{transition:none}}
+    *{box-sizing:border-box}
+    html{background:#242923}
+    body{margin:0;overflow-x:hidden}
+    .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .anatomy-scroll{height:500vh;position:relative;background:#242923}
+    .anatomy-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse 65% 56% at 50% 46%,#343b32 0%,#242923 76%)}
+    .anatomy-stage:before{content:"";position:absolute;inset:0;background:url("./plate-thorax.webp") center 38%/cover no-repeat;opacity:.16;filter:grayscale(.4) brightness(.65);pointer-events:none}
+    .anatomy-stage:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,24,20,.13),transparent 30%,transparent 70%,rgba(20,24,20,.13));pointer-events:none}
+    .anatomy-canvas{position:absolute;inset:0}
+    .anatomy-canvas canvas{display:block;width:100%;height:100%}
+    @media(max-width:700px){.anatomy-scroll{height:460vh}.anatomy-stage:before{background-size:auto 100%;opacity:.13}}
   </style>
 </head>
-<body class="about-page">
+<body>
   <main>
     <h1 class="visually-hidden">About Manu</h1>
-    <section class="dissection" aria-labelledby="dissection-title">
-      <div class="dissection__stage">
-        <header class="dissection__copy">
-          <p class="dissection__eyebrow">The dissection</p>
-          <h2 class="dissection__title" id="dissection-title">Scroll, and the body opens.</h2>
-        </header>
-        <div class="dissection__model" aria-hidden="true">
-          <div class="dissection__canvas" id="anatomy-canvas"></div>
-          <span class="dissection__loading" id="model-loading">Loading anatomy</span>
-        </div>
-        <ol class="dissection__steps" aria-label="Anatomical layers">
-          <li class="dissection__step" data-step="0" aria-current="step"><span class="dissection__step-label">01 &nbsp;The surface</span><p>A whole body, scanned and standing. Everything else is underneath this.</p></li>
-          <li class="dissection__step" data-step="1"><span class="dissection__step-label">02 &nbsp;The muscle</span><p>The first layer off. Every belly and tendon of the superficial musculature, where it attaches and what it pulls.</p></li>
-          <li class="dissection__step" data-step="2"><span class="dissection__step-label">03 &nbsp;The frame</span><p>Two hundred and six bones holding the shape the rest hangs on.</p></li>
-          <li class="dissection__step" data-step="3"><span class="dissection__step-label">04 &nbsp;The supply</span><p>Arteries out, veins back, the portal system between — the whole tree, trunks included.</p></li>
-          <li class="dissection__step" data-step="4"><span class="dissection__step-label">05 &nbsp;The organ</span><p>And there it is, in its own chest, where an exam question will always put it.</p></li>
-        </ol>
-        <span class="dissection__progress" id="dissection-progress" aria-hidden="true">01 / 05</span>
-        <span class="dissection__scan" aria-hidden="true"></span>
-      </div>
+    <section class="anatomy-scroll" aria-label="Anatomical body opening layer by layer as you scroll">
+      <div class="anatomy-stage"><div class="anatomy-canvas" id="anatomy-canvas" aria-hidden="true"></div></div>
     </section>
   </main>
-  <footer class="footer-minimal footer-split"><div class="footer-container"><div class="footer-split-left"><span class="footer-copyright-line">&copy; <span data-current-year></span> Manu</span></div><span class="footer-split-spacer" aria-hidden="true"></span><div class="footer-split-right"><span class="footer-legal-inline"><a class="footer-legal-link" href="https://macca-the-gator.github.io/manu/privacy-policy/">Privacy Policy</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="https://macca-the-gator.github.io/manu/terms-of-use/">Terms of Use</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="https://macca-the-gator.github.io/manu/credits/">Credits</a></span></div></div></footer>
-  <script src="https://macca-the-gator.github.io/manu/assets/site-shell.js" defer></script>
   <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
   <script type="module">
     import * as THREE from 'three';
     import { GLTFLoader } from './vendor/GLTFLoader.js';
     import { MeshoptDecoder } from './vendor/meshopt_decoder.module.js';
 
-    (() => {
-      const section = document.querySelector('.dissection');
-      const host = document.querySelector('#anatomy-canvas');
-      const steps = [...document.querySelectorAll('.dissection__step')];
-      const progress = document.querySelector('#dissection-progress');
-      const loading = document.querySelector('#model-loading');
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(30, 1, 0.01, 1000);
-      camera.position.set(0, 0, 8.4);
-      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.7));
-      renderer.outputColorSpace = THREE.SRGBColorSpace;
-      renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = 1.15;
-      host.appendChild(renderer.domElement);
+    const section = document.querySelector('.anatomy-scroll');
+    const host = document.querySelector('#anatomy-canvas');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 0.4;
+    renderer.setClearColor(0, 0);
+    host.appendChild(renderer.domElement);
 
-      scene.add(new THREE.HemisphereLight(0xe8f0dc, 0x242a24, 2.1));
-      const key = new THREE.DirectionalLight(0xffe8cb, 3.2);
-      key.position.set(2.8, 3.8, 4.5);
-      scene.add(key);
-      const rim = new THREE.DirectionalLight(0x9dd9d0, 2.6);
-      rim.position.set(-3, 1.5, -2.5);
-      scene.add(rim);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.32));
+    scene.add(new THREE.HemisphereLight(0xfff5e6, 0x393631, 0.5));
+    for (const [color, intensity, position] of [
+      [0xfff7e2, 2.6, [6, 9, 9]],
+      [0xdde5df, 0.7, [-6, 2, 7]],
+      [0xffcbb8, 1.7, [-5, 5, -8]]
+    ]) {
+      const light = new THREE.DirectionalLight(color, intensity);
+      light.position.set(...position);
+      scene.add(light);
+    }
 
-      const figure = new THREE.Group();
-      const pivot = new THREE.Group();
-      figure.add(pivot);
-      scene.add(figure);
-      let modelGroups = [];
-      let layerMaterials = [];
-      let active = 0;
-      let targetScroll = 0;
-      let smoothScroll = 0;
-      let resizeObserver;
-      const loader = new GLTFLoader();
-      loader.setMeshoptDecoder(MeshoptDecoder);
-      const models = [
-        { file: 'skin-shell.glb', name: 'Surface', tint: null },
-        { file: 'muscles.glb', name: 'Muscle', tint: 0xd99579 },
-        { file: 'skeleton.glb', name: 'Skeleton', tint: 0xd7ccb0 },
-        { file: 'vessels.glb', name: 'Vessels', tint: null },
-        { file: 'heart.glb', name: 'Heart', tint: null }
-      ];
+    const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
+    const layers = {};
+    const layerMaterials = {};
+    const muscleColors = {
+      Tendon: ['#c4b596', 0.62, 1],
+      Ligament: ['#bdad8b', 0.66, 1],
+      Cartilage: ['#b9c4c0', 0.38, 1],
+      Fascia: ['#b2a687', 0.72, 0.3],
+      Bursa: ['#a3b3b0', 0.36, 0.26],
+      'Articular capsule': ['#ac9f88', 0.62, 0.34]
+    };
+    const shellMaterial = new THREE.ShaderMaterial({
+      transparent: true,
+      depthWrite: false,
+      side: THREE.FrontSide,
+      uniforms: { opacity: { value: 0.72 } },
+      vertexShader: `varying vec3 normalWorld; varying vec3 viewWorld;
+        void main(){vec4 world=modelMatrix*vec4(position,1.0);normalWorld=normalize(mat3(modelMatrix)*normal);
+        viewWorld=normalize(cameraPosition-world.xyz);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`,
+      fragmentShader: `uniform float opacity; varying vec3 normalWorld; varying vec3 viewWorld;
+        void main(){float edge=pow(1.0-abs(dot(normalize(normalWorld),normalize(viewWorld))),2.4);
+        vec3 tint=vec3(0.54,0.65,0.73)+edge*0.35;
+        gl_FragColor=vec4(tint,(0.1+edge*0.9)*opacity);}`
+    });
 
-      function resize() {
-        const rect = host.getBoundingClientRect();
-        if (!rect.width || !rect.height) return;
-        renderer.setSize(rect.width, rect.height, false);
-        camera.aspect = rect.width / rect.height;
-        camera.position.z = rect.width < 600 ? 9 : 8.4;
-        camera.updateProjectionMatrix();
-      }
-      function normalize(root, index) {
-        root.updateMatrixWorld(true);
-        const bounds = new THREE.Box3().setFromObject(root);
-        const size = bounds.getSize(new THREE.Vector3());
-        const center = bounds.getCenter(new THREE.Vector3());
-        const height = Math.max(size.y, size.x, size.z, 0.001);
-        const scale = (index === 4 ? 1.3 : 3.55) / height;
-        root.scale.setScalar(scale);
-        root.position.set(-center.x * scale, -center.y * scale + (index === 4 ? 0.65 : 0), -center.z * scale);
-        root.rotation.y = index === 4 ? 0.12 : 0;
-        const materials = new Set();
-        root.traverse((object) => {
-          if (!object.isMesh) return;
-          object.frustumCulled = false;
-          if (object.material) {
-            const meshMaterials = Array.isArray(object.material) ? object.material : [object.material];
-            for (const material of meshMaterials) {
-              materials.add(material);
-              material.side = THREE.DoubleSide;
-              if (models[index].tint && material.color) {
-                material.color.lerp(new THREE.Color(models[index].tint), 0.18);
-                material.needsUpdate = true;
-              }
-            }
-          }
-        });
-        layerMaterials[index] = [...materials];
-      }
-      function updateStep(value) {
-        const next = Math.min(4, Math.max(0, Math.floor(value * 5)));
-        if (next === active && steps[next].getAttribute('aria-current') === 'step') return;
-        active = next;
-        steps.forEach((step, index) => {
-          if (index === active) step.setAttribute('aria-current', 'step');
-          else step.removeAttribute('aria-current');
-        });
-        progress.textContent = `0${active + 1} / 05`;
-      }
-      function onScroll() {
-        const rect = section.getBoundingClientRect();
-        const max = Math.max(1, section.offsetHeight - window.innerHeight);
-        targetScroll = Math.max(0, Math.min(1, -rect.top / max));
-        updateStep(targetScroll);
-        section.style.setProperty('--scan', `${8 + targetScroll * 84}%`);
-      }
-      function animate() {
-        requestAnimationFrame(animate);
-        smoothScroll += (targetScroll - smoothScroll) * 0.14;
-        const position = smoothScroll * (models.length - 1);
-        modelGroups.forEach((group, index) => {
-          const distance = Math.abs(position - index);
-          const opacity = Math.max(0, 1 - distance * 1.35);
-          for (const material of layerMaterials[index]) {
-            material.transparent = opacity < 0.995;
-            material.opacity = opacity;
-            material.depthWrite = opacity > 0.72;
-          }
-          group.visible = opacity > 0.015;
-        });
-        figure.rotation.y = Math.sin(smoothScroll * Math.PI * 2) * 0.035;
-        pivot.rotation.y += (0 - pivot.rotation.y) * 0.02;
-        renderer.render(scene, camera);
-      }
+    const cameraPoints = [
+      [0, 0.2, 17.6], [3.4, 1.6, 8], [-4.6, 1.9, 8.6], [3, 2, 6.4], [0.78, 2.3, 3.05]
+    ];
+    const targetPoints = [
+      [0, -0.2, 0], [0, 1.4, 0], [0, 1.6, 0], [0, 1.9, 0], [0.13, 2.14, 0.06]
+    ];
+    const clamp = (value) => Math.max(0, Math.min(1, value));
+    const smooth = (value, start, end) => {
+      const x = clamp((value - start) / (end - start));
+      return x * x * (3 - 2 * x);
+    };
+    const band = (value, a, b, c, d) => smooth(value, a, b) * (1 - smooth(value, c, d));
+    let scrollTarget = 0;
+    let scrollCurrent = 0;
+    let ready = false;
 
-      Promise.allSettled(models.map((item, index) => loader.loadAsync(`models/${item.file}`).then((gltf) => {
-        const root = gltf.scene;
-        normalize(root, index);
-        root.visible = index === 0;
-        modelGroups[index] = root;
-        figure.add(root);
-      }))).then((results) => {
-        results.forEach((result, index) => {
-          if (result.status === 'rejected') console.error(`Unable to load ${models[index].file}.`, result.reason);
-        });
-        if (!modelGroups.some(Boolean)) throw new Error('No anatomy models could be loaded.');
-        modelGroups = modelGroups.map((group) => group || new THREE.Group());
-        layerMaterials = models.map((_, index) => layerMaterials[index] || []);
-        loading.hidden = true;
-        resize();
-        onScroll();
-        animate();
-      }).catch((error) => {
-        console.error('Unable to load the anatomy models.', error);
-        loading.textContent = 'Anatomy model unavailable';
-        renderer.domElement.hidden = true;
+    function resize() {
+      const { width, height } = host.getBoundingClientRect();
+      if (!width || !height) return;
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    }
+
+    function onScroll() {
+      const top = section.getBoundingClientRect().top;
+      const length = Math.max(1, section.offsetHeight - window.innerHeight);
+      scrollTarget = clamp(-top / length);
+    }
+
+    function styleLayer(root, kind) {
+      const materials = [];
+      let piece = 0;
+      root.traverse((mesh) => {
+        if (!mesh.isMesh) return;
+        mesh.frustumCulled = false;
+        if (kind === 'skin') {
+          mesh.material = shellMaterial;
+          mesh.renderOrder = 4;
+          return;
+        }
+        const source = Array.isArray(mesh.material) ? mesh.material[0] : mesh.material;
+        const material = source.clone();
+        if (kind === 'muscle') {
+          const style = muscleColors[source.name] || ['#8f2f28', 0.44, 1];
+          material.color.set(style[0]);
+          if (!muscleColors[source.name]) material.color.offsetHSL(0, 0, ((piece * 47) % 13 - 6) * 0.004);
+          material.roughness = style[1];
+          material.userData.baseOpacity = style[2];
+          material.side = style[2] < 1 ? THREE.DoubleSide : THREE.FrontSide;
+          material.emissive.copy(material.color);
+          material.emissiveIntensity = muscleColors[source.name] ? 0 : 0.04;
+        } else if (kind === 'skeleton') {
+          material.color.set('#a08a5f');
+          material.roughness = Math.max(material.roughness || 0, 0.55);
+          material.emissive.copy(material.color);
+          material.emissiveIntensity = 0.08;
+        } else if (kind === 'vessels') {
+          material.roughness = Math.max(material.roughness || 0, 0.55);
+          material.emissive.copy(material.color);
+          material.emissiveIntensity = 0.16;
+        } else if (kind === 'heart') {
+          material.roughness = Math.max(material.roughness || 0, 0.5);
+          material.emissive.set('#ee7c6a');
+          material.emissiveIntensity = 0.05;
+        }
+        material.metalness = 0;
+        material.transmission = 0;
+        material.anisotropy = 0;
+        material.userData.baseOpacity ??= 1;
+        mesh.material = material;
+        materials.push(material);
+        piece++;
       });
+      layerMaterials[kind] = materials;
+    }
 
-      resizeObserver = new ResizeObserver(resize);
-      resizeObserver.observe(host);
-      window.addEventListener('resize', resize, { passive: true });
-      window.addEventListener('scroll', onScroll, { passive: true });
-      updateStep(0.001);
-      onScroll();
-    })();
+    function setOpacity(kind, amount) {
+      const root = layers[kind];
+      if (!root) return;
+      root.visible = amount > 0.01;
+      for (const material of layerMaterials[kind]) {
+        const opacity = amount * material.userData.baseOpacity;
+        material.opacity = opacity;
+        material.transparent = opacity < 0.995;
+        material.depthWrite = opacity >= 0.995;
+      }
+    }
+
+    function path(points, progress) {
+      const step = clamp(progress) * (points.length - 1);
+      const index = Math.min(Math.floor(step), points.length - 2);
+      const eased = smooth(step - index, 0, 1);
+      return new THREE.Vector3(...points[index]).lerp(new THREE.Vector3(...points[index + 1]), eased);
+    }
+
+    function frame() {
+      requestAnimationFrame(frame);
+      if (!ready) return;
+      scrollCurrent += (scrollTarget - scrollCurrent) * 0.12;
+      const p = scrollCurrent;
+      const shellOpacity = 0.72 * (1 - smooth(p, 0.12, 0.26));
+      shellMaterial.uniforms.opacity.value = shellOpacity;
+      layers.skin.visible = shellOpacity > 0.01;
+      setOpacity('muscle', band(p, 0.18, 0.28, 0.34, 0.42));
+      const residualBone = 0.36 * smooth(p, 0.56, 0.66) * (1 - 0.62 * smooth(p, 0.8, 0.94));
+      setOpacity('skeleton', Math.max(band(p, 0.32, 0.42, 0.56, 0.66), residualBone));
+      setOpacity('vessels', smooth(p, 0.5, 0.62) * (1 - 0.6 * smooth(p, 0.8, 0.94)));
+      setOpacity('heart', smooth(p, 0.72, 0.8));
+      const cameraProgress = clamp((p - 0.1) / 0.8);
+      const target = path(targetPoints, cameraProgress);
+      const position = path(cameraPoints, cameraProgress);
+      if (camera.aspect < 0.8) position.sub(target).multiplyScalar(1.15).add(target);
+      camera.position.copy(position);
+      camera.lookAt(target);
+      renderer.render(scene, camera);
+    }
+
+    async function loadModels() {
+      const files = ['skin-shell', 'muscles', 'skeleton', 'vessels', 'heart'];
+      const results = await Promise.all(files.map((kind) => loader.loadAsync(`./models/${kind}.glb`)));
+      const skin = results[0].scene;
+      skin.updateMatrixWorld(true);
+      const bounds = new THREE.Box3().setFromObject(skin);
+      const size = bounds.getSize(new THREE.Vector3());
+      const scale = 10 / size.y;
+      const offset = new THREE.Vector3(
+        -(bounds.min.x + size.x / 2) * scale,
+        -5.3 - bounds.min.y * scale,
+        -(bounds.min.z + size.z / 2) * scale
+      );
+      for (let index = 0; index < 4; index++) {
+        const kind = files[index];
+        const root = results[index].scene;
+        if (kind === 'vessels') {
+          const vesselScale = 10 / 1719.5;
+          root.scale.setScalar(vesselScale);
+          root.position.set(-(-334.1 + 666.9 / 2) * vesselScale, 78.1 * vesselScale - 5.3, -(-45.2 + 292 / 2) * vesselScale);
+        } else {
+          root.scale.setScalar(scale);
+          root.position.copy(offset);
+        }
+        const layerName = kind === 'skin-shell' ? 'skin' : kind === 'muscles' ? 'muscle' : kind;
+        styleLayer(root, layerName);
+        layers[layerName] = root;
+        scene.add(root);
+      }
+      const heart = results[4].scene;
+      const heartBounds = new THREE.Box3().setFromObject(heart);
+      const heartSize = heartBounds.getSize(new THREE.Vector3());
+      const heartCenter = heartBounds.getCenter(new THREE.Vector3());
+      const heartScale = (231.8 * 10 / 1719.5) / Math.max(heartSize.x, heartSize.y, heartSize.z);
+      heart.scale.setScalar(heartScale);
+      heart.position.set(-heartCenter.x * heartScale + 0.137, -heartCenter.y * heartScale + 2.154, -heartCenter.z * heartScale + 0.09);
+      styleLayer(heart, 'heart');
+      layers.heart = heart;
+      scene.add(heart);
+      ready = true;
+      host.dataset.ready = 'true';
+    }
+
+    resize();
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', resize, { passive: true });
+    new ResizeObserver(resize).observe(host);
+    frame();
+    loadModels().catch((error) => console.error('Anatomy models could not be loaded.', error));
   </script>
 </body>
 </html>
