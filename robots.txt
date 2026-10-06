@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://macca-the-gator.github.io/manu/sitemap.xml
+Sitemap: https://lost-eros.github.io/manu/sitemap.xml
