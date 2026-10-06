@@ -131,8 +131,28 @@
     return normalized;
   }
 
+  function getBasePath() {
+    var base = document.documentElement.getAttribute('data-site-base') || '/';
+    return normalizePath(base);
+  }
+
+  function stripBasePath(path) {
+    var normalized = normalizePath(path);
+    var base = getBasePath();
+    if (base === '/') return normalized;
+    if (normalized === base) return '/';
+    return normalized.indexOf(base) === 0 ? '/' + normalized.slice(base.length) : normalized;
+  }
+
+  function addBasePath(path) {
+    var normalized = normalizePath(path);
+    var base = getBasePath();
+    if (base === '/') return normalized;
+    return base + normalized.replace(/^\/+/, '');
+  }
+
   function splitPath(path) {
-    return normalizePath(path)
+    return stripBasePath(path)
       .replace(/^\/+|\/+$/g, '')
       .split('/')
       .filter(Boolean);
@@ -188,23 +208,23 @@
     var segments = splitPath(route);
 
     if (segments[0] === 'blog' && (locale === 'pt' || locale === 'es')) {
-      return '/blog/' + locale + (segments.length > 1 ? '/' + segments.slice(1).join('/') : '') + '/';
+      return addBasePath('/blog/' + locale + (segments.length > 1 ? '/' + segments.slice(1).join('/') : '') + '/');
     }
     if (segments[0] === 'store') {
-      return locale === 'en' ? '/store/' : '/store/' + locale + '/';
+      return addBasePath(locale === 'en' ? '/store/' : '/store/' + locale + '/');
     }
 
     // Skylet uses the same final /ia slug in every localized route.
     if (route === '/ia/') {
-      return locale === 'en' ? '/ia/' : '/' + locale + '/ia/';
+      return addBasePath(locale === 'en' ? '/ia/' : '/' + locale + '/ia/');
     }
 
     if (locale === 'en') {
-      return route;
+      return addBasePath(route);
     }
 
     if (!segments.length) {
-      return '/' + locale + '/';
+      return addBasePath('/' + locale + '/');
     }
 
     var section = segments[0];
@@ -214,18 +234,18 @@
       segments[1] = SLUG_TO_LOCALIZED[locale][section][segments[1]] || segments[1];
     }
 
-    return '/' + locale + '/' + segments.join('/') + '/';
+    return addBasePath('/' + locale + '/' + segments.join('/') + '/');
   }
 
   function getLanguageFallback(englishRoute, locale) {
     var route = getEnglishRoute(englishRoute);
     if (route === '/blog/' || route.indexOf('/blog/') === 0) {
-      return locale === 'en' ? '/blog/' : '/blog/' + locale + '/';
+      return addBasePath(locale === 'en' ? '/blog/' : '/blog/' + locale + '/');
     }
     if (route === '/store/' || route.indexOf('/store/') === 0) {
-      return locale === 'en' ? '/store/' : '/store/' + locale + '/';
+      return addBasePath(locale === 'en' ? '/store/' : '/store/' + locale + '/');
     }
-    return locale === 'en' ? '/' : '/' + locale + '/';
+    return addBasePath(locale === 'en' ? '/' : '/' + locale + '/');
   }
 
   function pageExists(path) {
