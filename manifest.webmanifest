@@ -1,0 +1,17 @@
+{
+  "name": "Sylva — Into the living world",
+  "short_name": "Sylva",
+  "start_url": "/manu/",
+  "scope": "/manu/",
+  "display": "standalone",
+  "background_color": "#4a4d44",
+  "theme_color": "#4a4d44",
+  "description": "An interactive botanical landscape exploring restoration, native planting, and a deeper kind of stewardship.",
+  "icons": [
+    {
+      "src": "/manu/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
