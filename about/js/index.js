@@ -1123,7 +1123,7 @@ function loadSpotlightNavigationAssets() {
     if (document.getElementById(scriptId)) return;
     var script = document.createElement('script');
     script.id = scriptId;
-    script.src = sitePath('assets/js/site-navigation.4827c777bb08.js');
+    script.src = sitePath('assets/js/site-navigation.6abe33646604.js');
     script.defer = true;
     document.body.appendChild(script);
   }

@@ -242,63 +242,63 @@
 }
 
 .skill-icon-python {
-    --skill-icon-url: url("/manu/about/images/techstack/python-icon.svg?v=7e7266b29c");
+    --skill-icon-url: url("../../about/images/techstack/python-icon.svg?v=7e7266b29c");
 }
 
 .skill-icon-js {
-    --skill-icon-url: url("/manu/about/images/techstack/js-icon.svg?v=fb8c820909");
+    --skill-icon-url: url("../../about/images/techstack/js-icon.svg?v=fb8c820909");
 }
 
 .skill-icon-aws {
-    --skill-icon-url: url("/manu/about/images/techstack/aws-icon.svg?v=86c4203d82");
+    --skill-icon-url: url("../../about/images/techstack/aws-icon.svg?v=86c4203d82");
 }
 
 .skill-icon-html5 {
-    --skill-icon-url: url("/manu/about/images/techstack/html5-icon.svg?v=dfd65fdd7e");
+    --skill-icon-url: url("../../about/images/techstack/html5-icon.svg?v=dfd65fdd7e");
 }
 
 .skill-icon-css3 {
-    --skill-icon-url: url("/manu/about/images/techstack/css3-icon.svg?v=9a97b95e32");
+    --skill-icon-url: url("../../about/images/techstack/css3-icon.svg?v=9a97b95e32");
 }
 
 .skill-icon-docker {
-    --skill-icon-url: url("/manu/about/images/techstack/docker-icon.svg?v=fe4ce38462");
+    --skill-icon-url: url("../../about/images/techstack/docker-icon.svg?v=fe4ce38462");
 }
 
 .skill-icon-sql {
-    --skill-icon-url: url("/manu/about/images/techstack/mysql-icon.svg?v=ef168c99f5");
+    --skill-icon-url: url("../../about/images/techstack/mysql-icon.svg?v=ef168c99f5");
 }
 
 .skill-icon-rest {
-    --skill-icon-url: url("/manu/about/images/techstack/restapi-icon.svg?v=18e66675ff");
+    --skill-icon-url: url("../../about/images/techstack/restapi-icon.svg?v=18e66675ff");
 }
 
 .skill-icon-github {
-    --skill-icon-url: url("/manu/about/images/techstack/github-icon.svg?v=7b8e3a8d79");
+    --skill-icon-url: url("../../about/images/techstack/github-icon.svg?v=7b8e3a8d79");
 }
 
 .skill-icon-java {
-    --skill-icon-url: url("/manu/about/images/techstack/java-icon.svg?v=3f7d9ff23e");
+    --skill-icon-url: url("../../about/images/techstack/java-icon.svg?v=3f7d9ff23e");
 }
 
 .skill-icon-php {
-    --skill-icon-url: url("/manu/about/images/techstack/php-icon.svg?v=cd1beaa0dd");
+    --skill-icon-url: url("../../about/images/techstack/php-icon.svg?v=cd1beaa0dd");
 }
 
 .skill-icon-react {
-    --skill-icon-url: url("/manu/about/images/techstack/react-icon.svg?v=ef70909a97");
+    --skill-icon-url: url("../../about/images/techstack/react-icon.svg?v=ef70909a97");
 }
 
 .skill-icon-c {
-    --skill-icon-url: url("/manu/about/images/techstack/c-icon.svg?v=fde4284070");
+    --skill-icon-url: url("../../about/images/techstack/c-icon.svg?v=fde4284070");
 }
 
 .skill-icon-cpp {
-    --skill-icon-url: url("/manu/about/images/techstack/cpp-icon.svg?v=0c10b6a4d2");
+    --skill-icon-url: url("../../about/images/techstack/cpp-icon.svg?v=0c10b6a4d2");
 }
 
 .skill-icon-csharp {
-    --skill-icon-url: url("/manu/about/images/techstack/csharp-icon.svg?v=3e8102b629");
+    --skill-icon-url: url("../../about/images/techstack/csharp-icon.svg?v=3e8102b629");
 }
 .about-profile-img {
     flex: 0 0 280px;

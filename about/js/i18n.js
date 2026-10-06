@@ -1,4 +1,5 @@
 ﻿(function() {
+  var siteRoot = new URL('../../', document.currentScript.src);
   var STORAGE_KEY = 'pklavc.preferredLanguage';
   var SUPPORTED_LOCALES = ['en', 'pt', 'es'];
   var LOCALE_PREFIXES = { pt: true, es: true };
@@ -132,8 +133,7 @@
   }
 
   function getBasePath() {
-    var base = document.documentElement.getAttribute('data-site-base') || '/';
-    return normalizePath(base);
+    return normalizePath(siteRoot.pathname);
   }
 
   function stripBasePath(path) {
@@ -146,9 +146,9 @@
 
   function addBasePath(path) {
     var normalized = normalizePath(path);
-    var base = getBasePath();
-    if (base === '/') return normalized;
-    return base + normalized.replace(/^\/+/, '');
+    if (siteRoot.protocol === 'file:' && normalized.endsWith('/')) normalized += 'index.html';
+    var url = new URL(normalized.replace(/^\/+/, ''), siteRoot);
+    return siteRoot.protocol === 'file:' ? url.href : url.pathname;
   }
 
   function splitPath(path) {
@@ -248,6 +248,7 @@
   }
 
   function pageExists(path) {
+    if (siteRoot.protocol === 'file:') return Promise.resolve(true);
     var normalized = normalizePath(path);
     if (!routeExistenceChecks[normalized]) {
       routeExistenceChecks[normalized] = Promise.resolve()
@@ -375,8 +376,6 @@
       }
     });
   }
-
-  redirectToPreferredLanguage();
 
   window.PkLavcI18n = {
     getCurrentLanguage: function() {

@@ -542,19 +542,19 @@ body.seo-layout .footer-minimal {
 }
 
 .footer-social-icon-github {
-    --footer-social-icon: url("/manu/about/assets/icons/footer/github.svg");
+    --footer-social-icon: url("../../about/assets/icons/footer/github.svg");
 }
 
 .footer-social-icon-linkedin {
-    --footer-social-icon: url("/manu/about/assets/icons/footer/linkedin.svg");
+    --footer-social-icon: url("../../about/assets/icons/footer/linkedin.svg");
 }
 
 .footer-social-icon-mail {
-    --footer-social-icon: url("/manu/about/assets/icons/footer/mail.svg");
+    --footer-social-icon: url("../../about/assets/icons/footer/mail.svg");
 }
 
 .footer-social-icon-heart {
-    --footer-social-icon: url("/manu/about/assets/icons/footer/heart.svg");
+    --footer-social-icon: url("../../about/assets/icons/footer/heart.svg");
 }
 
 .footer-social-lottie {

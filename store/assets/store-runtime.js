@@ -1,10 +1,10 @@
 (function () {
   'use strict';
 
-  // Static shell; product inventory is sourced exclusively from /manu/store/products.json.
+  var storeRoot = new URL('../', document.currentScript.src);
 
-  var locale = /^\/store\/pt\/?/.test(location.pathname) ? 'pt' :
-    /^\/store\/es\/?/.test(location.pathname) ? 'es' : 'en';
+  var locale = /\/store\/pt(?:\/|$)/.test(location.pathname) ? 'pt' :
+    /\/store\/es(?:\/|$)/.test(location.pathname) ? 'es' : 'en';
 
   var labels = {
     en: {
@@ -571,7 +571,7 @@
   async function loadProducts() {
     if (loading) loading.hidden = false;
     try {
-      var response = await fetch('/manu/store/products.json', {
+      var response = await fetch(new URL('products.json', storeRoot), {
         cache: 'no-store',
         headers: { 'Accept': 'application/json' }
       });

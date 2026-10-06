@@ -1,3 +1,4 @@
+var blogScriptsRoot = new URL('./', document.currentScript.src);
 var viewportHeightFrame = 0;
 var lastViewportHeight = 0;
 
@@ -1217,12 +1218,12 @@ function initIndexFooterAwareSocialLinks() {
 
 function loadBlogRelatedPostNavigation() {
   var path = window.location.pathname || '';
-  if (!path.startsWith('/manu/blog/') || path === '/manu/blog/' || path === '/manu/blog/index.html') return;
+  if (!/\/blog\//.test(path) || /\/blog\/(?:en\/|pt\/|es\/)?(?:index\.html)?$/.test(path)) return;
   if (!document.querySelector('.blog-article-grid') || !document.querySelector('.blog-post-hero')) return;
-  if (document.querySelector('script[src*="/manu/blog/assets/js/blog-related-posts.js?v=24e3408e2b"]')) return;
+  if (document.querySelector('script[data-blog-related-posts-loader]')) return;
 
   var script = document.createElement('script');
-  script.src = '/manu/blog/assets/js/blog-related-posts.js?v=24e3408e2b';
+  script.src = new URL('blog-related-posts.js?v=24e3408e2b', blogScriptsRoot).href;
   script.defer = true;
   script.setAttribute('data-blog-related-posts-loader', 'true');
   document.body.appendChild(script);

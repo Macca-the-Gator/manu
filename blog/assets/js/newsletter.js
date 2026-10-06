@@ -1,5 +1,6 @@
 (function () {
   'use strict';
+  var siteRoot = new URL('../../../', document.currentScript.src);
 
   var ENDPOINT = 'https://newsletter-api.pklavc.com/subscribe';
   var STORAGE_KEY = 'pklavc.newsletter.state.v1';
@@ -14,7 +15,7 @@
       locale: 'en', title: 'Get the weekly digest',
       description: 'A concise summary of the latest stories published on PkLavc.',
       email: 'Email', placeholder: 'you@example.com', submit: 'Subscribe', close: 'Close newsletter signup',
-      privacy: 'You can unsubscribe at any time.', privacyLink: 'Privacy Policy', privacyHref: '/manu/privacy-policy/',
+      privacy: 'You can unsubscribe at any time.', privacyLink: 'Privacy Policy', privacyHref: new URL('privacy-policy/index.html', siteRoot).href,
       sending: 'Sending…', success: 'Check your email to confirm your subscription.',
       error: 'We could not process your request. Please try again later.',
       dailyLimit: "Today's subscription limit has been reached. Please try again tomorrow.",
@@ -24,7 +25,7 @@
       locale: 'pt-BR', title: 'Receba o resumo semanal',
       description: 'Um resumo conciso das principais notícias publicadas no PkLavc.',
       email: 'E-mail', placeholder: 'voce@exemplo.com', submit: 'Inscrever-se', close: 'Fechar inscrição da newsletter',
-      privacy: 'Você pode cancelar a inscrição a qualquer momento.', privacyLink: 'Política de Privacidade', privacyHref: '/manu/pt/politica-de-privacidade/',
+      privacy: 'Você pode cancelar a inscrição a qualquer momento.', privacyLink: 'Política de Privacidade', privacyHref: new URL('pt/politica-de-privacidade/index.html', siteRoot).href,
       sending: 'Enviando…', success: 'Verifique seu e-mail para confirmar a inscrição.',
       error: 'Não foi possível processar sua solicitação. Tente novamente mais tarde.',
       dailyLimit: 'Limite diário de novas inscrições atingido. Tente novamente amanhã.',
@@ -34,7 +35,7 @@
       locale: 'es', title: 'Recibe el resumen semanal',
       description: 'Un resumen conciso de las principales noticias publicadas en PkLavc.',
       email: 'Correo electrónico', placeholder: 'tu@ejemplo.com', submit: 'Suscribirse', close: 'Cerrar registro del boletín',
-      privacy: 'Puedes darte de baja en cualquier momento.', privacyLink: 'Política de Privacidad', privacyHref: '/manu/es/politica-de-privacidad/',
+      privacy: 'Puedes darte de baja en cualquier momento.', privacyLink: 'Política de Privacidad', privacyHref: new URL('es/politica-de-privacidad/index.html', siteRoot).href,
       sending: 'Enviando…', success: 'Revisa tu correo para confirmar la suscripción.',
       error: 'No pudimos procesar tu solicitud. Inténtalo de nuevo más tarde.',
       dailyLimit: 'Se alcanzó el límite diario de nuevas suscripciones. Inténtalo de nuevo mañana.',

@@ -1,5 +1,6 @@
 (function () {
   'use strict';
+  var scriptsRoot = new URL('./', document.currentScript.src);
 
   function prefersLightExperience() {
     var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
@@ -26,7 +27,7 @@
 
   // Three.js is the only library this scene actually needs. The previous loader
   // waited for seven unused post-processing scripts before the first terrain frame.
-  window.PkLavcBlogHorizonReady = loadScript('/manu/blog/assets/js/vendor/three/three.min.js?v=9274bbcec8')
+  window.PkLavcBlogHorizonReady = loadScript(new URL('vendor/three/three.min.js?v=9274bbcec8', scriptsRoot).href)
     .then(function () { return true; })
     .catch(function () { return false; });
 }());

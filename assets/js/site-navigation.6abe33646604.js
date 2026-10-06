@@ -1,6 +1,10 @@
 (function () {
   'use strict';
 
+  // The script always lives in assets/js, so its URL identifies the site root
+  // on Render, GitHub Pages, localhost and file:// alike.
+  var siteRoot = new URL('../../', document.currentScript.src);
+
   document.querySelectorAll('[data-current-year], #current-year').forEach(function (node) {
     node.textContent = String(new Date().getFullYear());
   });
@@ -68,7 +72,7 @@
 
   // Inline Lucide icons retained from the source component.
   var ICONS = {
-    home: '<path d="M3 10.8 12 3l9 7.8" fill="currentColor" stroke="none"></path><path d="M5 10v10h14V10" fill="none"></path><path d="M9 20v-6h6v6" fill="none"></path>',
+    home: '<path d="m3 11 9-8 9 8"></path><path d="M5 10v10h14V10"></path><path d="M9 20v-6h6v6"></path>',
     user: '<path d="M19 21a7 7 0 0 0-14 0"></path><circle cx="12" cy="7" r="4"></circle>',
     settings: '<circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path>'
   };
@@ -109,35 +113,13 @@
   };
 
   function getSiteBase() {
-    if (document.documentElement.hasAttribute('data-site-base-local')) return '/';
-    if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) {
-      var localPath = window.location.pathname || '/';
-      var localAboutIndex = Math.max(localPath.lastIndexOf('/about/'), localPath.lastIndexOf('/sobre/'));
-      if (localAboutIndex >= 0) return normalizePath(localPath.slice(0, localAboutIndex + 1) || '/');
-      return '/';
-    }
-    var base = document.documentElement.getAttribute('data-site-base');
-    if (base) return normalizePath(base);
-
-    var path = window.location.pathname || '/';
-    var aboutIndex = path.lastIndexOf('/about/');
-    var localizedAboutIndex = path.lastIndexOf('/sobre/');
-    var aboutStart = Math.max(aboutIndex, localizedAboutIndex);
-    if (aboutStart >= 0) return normalizePath(path.slice(0, aboutStart + 1) || '/');
-
-    var blogIndex = path.lastIndexOf('/blog/');
-    if (blogIndex >= 0) return normalizePath(path.slice(0, blogIndex + 1) || '/');
-
-    var storeIndex = path.lastIndexOf('/store/');
-    if (storeIndex >= 0) return normalizePath(path.slice(0, storeIndex + 1) || '/');
-    return '/';
+    return normalizePath(siteRoot.pathname);
   }
 
   function addSiteBase(path) {
     var route = normalizePath(path);
-    var base = getSiteBase();
-    if (base === '/') return route;
-    return normalizePath(base + route.replace(/^\//, ''));
+    if (siteRoot.protocol === 'file:' && route.slice(-1) === '/') route += 'index.html';
+    return new URL(route.replace(/^\//, ''), siteRoot).href;
   }
 
   function stripSiteBase(path) {
@@ -168,7 +150,7 @@
   }
 
   function localizedRoute(route, locale) {
-    if (!/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname) && window.PkLavcI18n && typeof window.PkLavcI18n.getLocalizedRoute === 'function') {
+    if (window.PkLavcI18n && typeof window.PkLavcI18n.getLocalizedRoute === 'function') {
       return window.PkLavcI18n.getLocalizedRoute(route, locale);
     }
 
@@ -186,6 +168,9 @@
 
   function getEnglishRoute(path) {
     var routePath = stripSiteBase(normalizePath(path));
+    if (/^\/(?:pt|es)\/$/.test(routePath)) return '/';
+    if (/^\/blog\/(?:pt|es)\//.test(routePath)) return routePath.replace(/^\/blog\/(?:pt|es)\//, '/blog/');
+    if (/^\/store\/(?:pt|es)\//.test(routePath)) return routePath.replace(/^\/store\/(?:pt|es)\//, '/store/');
     var pairs = [
       ['/pt/sobre/', '/about/'], ['/es/sobre/', '/about/'],
       ['/pt/politica-de-privacidade/', '/privacy-policy/'], ['/es/politica-de-privacidad/', '/privacy-policy/'],
@@ -201,8 +186,7 @@
   function getActiveIndex(path) {
     var routePath = stripSiteBase(normalizePath(path));
     if (window.PkLavcI18n && typeof window.PkLavcI18n.getEnglishRoute === 'function') {
-      routePath = normalizePath(window.PkLavcI18n.getEnglishRoute(addSiteBase(routePath)));
-      routePath = stripSiteBase(routePath);
+      routePath = normalizePath(window.PkLavcI18n.getEnglishRoute(path));
     }
     if (document.documentElement.hasAttribute('data-blog-navigation') && routePath === '/') return 2;
     var section = routePath.split('/').filter(Boolean)[0] || '';
@@ -227,16 +211,7 @@
       return appendCurrentLocation(i18n.getLocalizedRoute(i18n.getEnglishRoute(window.location.pathname), locale));
     }
 
-    var currentRoute = stripSiteBase(normalizePath(window.location.pathname));
-    var legalRoutes = ['/privacy-policy/', '/terms-of-use/', '/editorial-policy/', '/credits/'];
-    var localizedLegalRoutes = locale === 'pt'
-      ? ['/pt/politica-de-privacidade/', '/pt/termos-de-uso/', '/pt/politica-editorial/', '/pt/creditos/']
-      : ['/es/politica-de-privacidad/', '/es/terminos-de-uso/', '/es/politica-editorial/', '/es/creditos/'];
-    var englishLegalRoute = currentRoute;
-    for (var i = 0; i < localizedLegalRoutes.length; i += 1) {
-      if (currentRoute === localizedLegalRoutes[i]) englishLegalRoute = legalRoutes[i];
-    }
-    return appendCurrentLocation(localizedRoute(englishLegalRoute, locale));
+    return appendCurrentLocation(localizedRoute(getEnglishRoute(window.location.pathname), locale));
   }
 
   function setCurrentItem(items, activeIndex) {
