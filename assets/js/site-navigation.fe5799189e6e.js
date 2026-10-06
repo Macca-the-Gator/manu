@@ -1,38 +1,42 @@
 (function () {
   'use strict';
 
+  document.querySelectorAll('[data-current-year], #current-year').forEach(function (node) {
+    node.textContent = String(new Date().getFullYear());
+  });
+
   if (window.PkLavcSpotlightNavigation) {
     return;
   }
 
   // Inline Lucide icons retained from the source component.
   var ICONS = {
-    home: '<path d="m3 11 9-8 9 8"></path><path d="M5 10v10h14V10"></path><path d="M9 20v-6h6v6"></path>',
+    home: '<path d="M3 10.8 12 3l9 7.8" fill="currentColor" stroke="none"></path><path d="M5 10v10h14V10" fill="none"></path><path d="M9 20v-6h6v6" fill="none"></path>',
     user: '<path d="M19 21a7 7 0 0 0-14 0"></path><circle cx="12" cy="7" r="4"></circle>',
-    settings: '<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.09a2 2 0 0 1-1-1.74v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle>'
+    settings: '<circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path>'
   };
 
   // Official Lucide SVG files kept locally so their color remains CSS-editable.
   var ICON_FILES = {
-    layers: '/manu/blog/assets/icons/navigation/layers.svg?v=8f85ce6ea6',
-    newspaper: '/manu/blog/assets/icons/navigation/newspaper.svg?v=54da9f962f',
-    store: '/manu/blog/assets/icons/navigation/store.svg?v=d14f2efa30'
+    layers: 'assets/icons/navigation/layers.svg',
+    newspaper: 'assets/icons/navigation/newspaper.svg',
+    store: 'assets/icons/navigation/store.svg'
   };
 
   var COPY = {
     en: {
       navigation: 'Primary navigation',
-      items: ['Home', 'About', 'Projects', 'Blog', 'Store', 'Language'],
+      items: ['Home', 'About', 'Store', 'Blog', 'Language'],
       languageMenu: 'Choose language'
     },
     pt: {
       navigation: 'Navega\u00e7\u00e3o principal',
-      items: ['In\u00edcio', 'Sobre', 'Projetos', 'Blog', 'Loja', 'Idioma'],
+      items: ['In\u00edcio', 'Sobre', 'Loja', 'Blog', 'Idioma'],
       languageMenu: 'Escolher idioma'
     },
     es: {
       navigation: 'Navegaci\u00f3n principal',
-      items: ['Inicio', 'Sobre', 'Proyectos', 'Blog', 'Tienda', 'Idioma'],
+      items: ['Inicio', 'Sobre', 'Tienda', 'Blog', 'Idioma'],
       languageMenu: 'Elegir idioma'
     }
   };
@@ -47,6 +51,40 @@
     navigationObserver: null
   };
 
+  function getSiteBase() {
+    if (/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) return '/';
+    if (document.documentElement.hasAttribute('data-site-base-local')) return '/';
+    var base = document.documentElement.getAttribute('data-site-base');
+    if (base) return normalizePath(base);
+
+    var path = window.location.pathname || '/';
+    var aboutIndex = path.lastIndexOf('/about/');
+    var localizedAboutIndex = path.lastIndexOf('/sobre/');
+    var aboutStart = Math.max(aboutIndex, localizedAboutIndex);
+    if (aboutStart >= 0) return normalizePath(path.slice(0, aboutStart + 1) || '/');
+
+    var blogIndex = path.lastIndexOf('/blog/');
+    if (blogIndex >= 0) return normalizePath(path.slice(0, blogIndex + 1) || '/');
+
+    var storeIndex = path.lastIndexOf('/store/');
+    if (storeIndex >= 0) return normalizePath(path.slice(0, storeIndex + 1) || '/');
+    return '/';
+  }
+
+  function addSiteBase(path) {
+    var route = normalizePath(path);
+    var base = getSiteBase();
+    if (base === '/') return route;
+    return normalizePath(base + route.replace(/^\//, ''));
+  }
+
+  function stripSiteBase(path) {
+    var normalized = normalizePath(path);
+    var base = getSiteBase();
+    if (base === '/' || normalized.indexOf(base) !== 0) return normalized;
+    return normalizePath('/' + normalized.slice(base.length));
+  }
+
   function normalizePath(path) {
     var normalized = String(path || '/').replace(/\/index\.html$/i, '/');
     if (normalized.charAt(0) !== '/') normalized = '/' + normalized;
@@ -59,7 +97,7 @@
       return window.PkLavcI18n.getCurrentLanguage();
     }
 
-    var path = normalizePath(window.location.pathname);
+    var path = stripSiteBase(normalizePath(window.location.pathname));
     if (/^\/blog\/(?:pt|es)\//.test(path) || /^\/store\/(?:pt|es)\//.test(path)) {
       return path.split('/')[2];
     }
@@ -68,32 +106,32 @@
   }
 
   function localizedRoute(route, locale) {
-    if (window.PkLavcI18n && typeof window.PkLavcI18n.getLocalizedRoute === 'function') {
+    if (!/^(localhost|127\.0\.0\.1)$/.test(window.location.hostname) && window.PkLavcI18n && typeof window.PkLavcI18n.getLocalizedRoute === 'function') {
       return window.PkLavcI18n.getLocalizedRoute(route, locale);
     }
 
-    if (route === '/') return locale === 'en' ? '/' : '/' + locale + '/';
-    if (route === '/manu/blog/') return locale === 'en' ? '/manu/blog/' : '/manu/blog/' + locale + '/';
-    if (route === '/manu/store/') return locale === 'en' ? '/manu/store/' : '/manu/store/' + locale + '/';
+    if (route === '/') return addSiteBase(locale === 'en' ? '/' : '/' + locale + '/');
+    if (route === '/blog/') return addSiteBase(locale === 'en' ? '/blog/' : '/blog/' + locale + '/');
+    if (route === '/store/') return addSiteBase(locale === 'en' ? '/store/' : '/store/' + locale + '/');
 
     var translated = {
-      pt: { '/manu/about/': '/pt/sobre/', 'https://pklavc.com/projects/': '/pt/projetos/' },
-      es: { '/manu/about/': '/es/sobre/', 'https://pklavc.com/projects/': '/es/proyectos/' }
+      pt: { '/about/': '/pt/sobre/' },
+      es: { '/about/': '/es/sobre/' }
     };
 
-    return locale === 'en' ? route : translated[locale][route];
+    return addSiteBase(locale === 'en' ? route : translated[locale][route]);
   }
 
   function getActiveIndex(path) {
-    var normalized = normalizePath(path);
-    var parts = normalized.split('/').filter(Boolean);
-    var first = parts[0] || '';
-    if (document.documentElement.hasAttribute('data-blog-navigation') && (first === '' || first === 'en' || first === 'pt' || first === 'es')) return 3;
-    var section = first === 'pt' || first === 'es' ? (parts[1] || '') : first;
-
-    if (first === 'blog' || section === 'blog') return 3;
-    if (first === 'store' || section === 'store') return 4;
-    if (['projects', 'projetos', 'proyectos', 'collections', 'colecoes', 'colecciones', 'stacks'].indexOf(section) !== -1) return 2;
+    var routePath = stripSiteBase(normalizePath(path));
+    if (window.PkLavcI18n && typeof window.PkLavcI18n.getEnglishRoute === 'function') {
+      routePath = normalizePath(window.PkLavcI18n.getEnglishRoute(addSiteBase(routePath)));
+      routePath = stripSiteBase(routePath);
+    }
+    if (document.documentElement.hasAttribute('data-blog-navigation') && routePath === '/') return 2;
+    var section = routePath.split('/').filter(Boolean)[0] || '';
+    if (section === 'blog') return 3;
+    if (section === 'store') return 2;
     if (['about', 'sobre', 'resume', 'uses', 'now', 'certifications', 'visitors', 'visitantes'].indexOf(section) !== -1) return 1;
     return 0;
   }
@@ -145,6 +183,7 @@
 
     nav.style.setProperty('--spotlight-indicator-left', indicatorLeft + 'px');
     nav.style.setProperty('--spotlight-indicator-width', indicatorWidth + 'px');
+    nav.style.setProperty('--spotlight-item-left', (itemRect.left - navRect.left) + 'px');
   }
 
   function setPresentedItem(nav, items, presentedIndex, animate) {
@@ -175,10 +214,9 @@
     var activeIndex = getActiveIndex(window.location.pathname);
     var definitions = [
       { icon: ICONS.home, route: '/' },
-      { icon: ICONS.user, route: '/manu/about/' },
-      { iconFile: ICON_FILES.layers, route: 'https://pklavc.com/projects/' },
-      { iconFile: ICON_FILES.newspaper, route: '/manu/blog/' },
-      { iconFile: ICON_FILES.store, route: '/manu/store/' },
+      { icon: ICONS.user, route: '/about/' },
+      { iconFile: ICON_FILES.store, route: '/store/' },
+      { iconFile: ICON_FILES.newspaper, route: '/blog/' },
       { icon: ICONS.settings, action: 'language' }
     ];
     var shell = document.createElement('div');
@@ -211,7 +249,7 @@
         var iconMask = document.createElement('span');
         iconMask.className = 'spotlight-navigation-icon spotlight-navigation-icon-mask';
         iconMask.setAttribute('aria-hidden', 'true');
-        iconMask.style.setProperty('--spotlight-icon-url', 'url("' + definition.iconFile + '")');
+        iconMask.style.setProperty('--spotlight-icon-url', 'url("' + addSiteBase('/' + definition.iconFile) + '")');
         control.appendChild(iconMask);
       } else {
         control.innerHTML = createIcon(definition.icon);
