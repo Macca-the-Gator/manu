@@ -7,3 +7,10 @@
 
 /* Keep navigation options visible; expansion only marks the active choice. */
 .spotlight-navigation-item{opacity:1!important;visibility:visible!important}.spotlight-navigation-item:not(.is-presented){width:56px!important;padding-inline:0!important;justify-content:center!important}.spotlight-navigation-item.is-presented{width:auto!important;justify-content:flex-start!important;padding-inline:8px!important}
+
+
+/* About footer: reserve the fixed menu column and keep the credit in the shared text color. */
+.footer-about .footer-credit-link{color:inherit!important;text-decoration:none!important}.footer-about .footer-credit-link:hover{color:rgba(244,245,239,.92)!important;text-decoration:underline!important}
+.footer-about .footer-copyright-line{flex-wrap:nowrap;white-space:nowrap;gap:6px}
+@media(min-width:621px){.footer-about.footer-split .footer-container{display:grid!important;width:calc(100% - 48px)!important;max-width:none!important;grid-template-columns:minmax(0,1fr) 360px minmax(0,1fr)!important;align-items:center;gap:18px}.footer-about.footer-split .footer-split-spacer{display:block!important;min-height:48px}.footer-about .footer-split-left{justify-content:flex-start;min-width:0}.footer-about .footer-split-right{justify-content:flex-end;min-width:0}.footer-about .footer-split-right .footer-legal-inline{justify-content:flex-end;flex-wrap:nowrap;white-space:nowrap;gap:6px;font-size:clamp(9px,.68vw,12px)}}
+@media(max-width:620px){.footer-about{padding-bottom:calc(88px + env(safe-area-inset-bottom))!important}.footer-about .footer-copyright-line{font-size:clamp(10px,3vw,12px);gap:5px}.footer-about .footer-split-right .footer-legal-inline{flex-wrap:nowrap;white-space:nowrap;gap:5px;font-size:clamp(8px,2.35vw,10px)}}
