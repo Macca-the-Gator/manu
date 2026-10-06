@@ -1,0 +1,39 @@
+.about-page{margin:0;background:#30352f;color:#eef1e7;overflow-x:hidden;font-family:Lexend,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.about-scroll{position:relative;height:520vh;background:
+radial-gradient(52% 38% at 50% 42%,rgba(164,205,185,.085),transparent 72%),
+radial-gradient(60% 42% at 50% 82%,rgba(223,231,201,.07),transparent 76%),
+linear-gradient(180deg,#333831 0%,#292e29 100%)}
+.about-stage{position:sticky;top:0;height:100svh;min-height:620px;display:grid;place-items:center;overflow:hidden;isolation:isolate}
+.about-stage:before,.about-stage:after{content:"";position:absolute;inset:0;pointer-events:none}
+.about-stage:before{z-index:-3;background:
+linear-gradient(90deg,transparent 24.9%,rgba(255,255,255,.035) 25%,transparent 25.1%,transparent 74.9%,rgba(255,255,255,.035) 75%,transparent 75.1%),
+linear-gradient(180deg,transparent 49.9%,rgba(255,255,255,.025) 50%,transparent 50.1%)}
+.about-stage:after{z-index:5;background:linear-gradient(180deg,rgba(20,25,21,.18),transparent 14%,transparent 83%,rgba(20,25,21,.3));mix-blend-mode:multiply}
+.anatomy-wrap{position:relative;width:min(44vw,470px);height:min(88svh,900px);min-width:290px;transform:translateZ(0);filter:drop-shadow(0 35px 65px rgba(0,0,0,.25))}
+.anatomy-svg{width:100%;height:100%;display:block;overflow:visible}
+.anatomy-ghost{opacity:.22;filter:url(#softGlow)}
+.anatomy-surface{opacity:var(--surface,1)}
+.anatomy-muscle{opacity:var(--muscle,0)}
+.anatomy-skeleton{opacity:var(--skeleton,0)}
+.anatomy-vascular{opacity:var(--vascular,0)}
+.anatomy-organs{opacity:var(--organs,0)}
+.anatomy-layer{transition:opacity .08s linear;will-change:opacity}
+.anatomy-outline{fill:rgba(108,167,162,.055);stroke:rgba(133,210,202,.82);stroke-width:1.6;vector-effect:non-scaling-stroke}
+.anatomy-inner-line{fill:none;stroke:rgba(149,220,214,.26);stroke-width:1;vector-effect:non-scaling-stroke}
+.anatomy-muscle path,.anatomy-muscle ellipse{fill:url(#muscleFill);stroke:rgba(232,132,105,.72);stroke-width:1.1;vector-effect:non-scaling-stroke}
+.anatomy-skeleton *{fill:none;stroke:rgba(232,236,220,.88);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.anatomy-skeleton .thin{stroke-width:2.6}.anatomy-skeleton .bone-fill{fill:rgba(238,239,222,.15);stroke-width:2.8}
+.anatomy-vascular .artery{fill:none;stroke:#d26f62;stroke-width:4;stroke-linecap:round;vector-effect:non-scaling-stroke;filter:url(#vascularGlow)}
+.anatomy-vascular .vein{fill:none;stroke:#6aa4ae;stroke-width:3.3;stroke-linecap:round;vector-effect:non-scaling-stroke;filter:url(#vascularGlow)}
+.anatomy-organs path,.anatomy-organs ellipse{stroke:rgba(238,230,205,.55);stroke-width:1.2;vector-effect:non-scaling-stroke}
+.scan-line{position:absolute;left:15%;right:15%;top:var(--scan,8%);height:1px;z-index:4;background:linear-gradient(90deg,transparent,rgba(146,229,213,.9) 18%,#dceabb 50%,rgba(146,229,213,.9) 82%,transparent);box-shadow:0 0 9px rgba(139,226,209,.8),0 0 22px rgba(139,226,209,.35);opacity:.76;pointer-events:none}
+.scan-haze{position:absolute;left:12%;right:12%;top:calc(var(--scan,8%) - 26px);height:52px;z-index:3;background:linear-gradient(180deg,transparent,rgba(130,218,200,.08),transparent);filter:blur(10px);pointer-events:none}
+.anatomy-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:-1}
+.anatomy-particles i{position:absolute;width:2px;height:2px;border-radius:50%;background:rgba(177,218,194,.34);animation:floatDust var(--t,8s) ease-in-out infinite alternate}
+.anatomy-particles i:nth-child(1){left:19%;top:18%;--t:7s}.anatomy-particles i:nth-child(2){left:77%;top:24%;--t:9s}.anatomy-particles i:nth-child(3){left:13%;top:58%;--t:11s}.anatomy-particles i:nth-child(4){left:86%;top:68%;--t:8s}.anatomy-particles i:nth-child(5){left:28%;top:82%;--t:10s}.anatomy-particles i:nth-child(6){left:71%;top:88%;--t:12s}
+@keyframes floatDust{to{transform:translate3d(8px,-18px,0);opacity:.7}}
+.about-spacer-end{height:1px}
+.about-page .footer-minimal{margin-top:0}
+@media(max-width:720px){.about-scroll{height:470vh}.about-stage{min-height:560px}.anatomy-wrap{width:min(78vw,390px);height:min(82svh,760px)}}
+@media(prefers-reduced-motion:reduce){.anatomy-particles i{animation:none}.anatomy-layer{transition:none}}
