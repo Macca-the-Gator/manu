@@ -637,81 +637,112 @@
 
   /* ── narrow screens: one column, the moss becomes a band between the
         copy and the cards (760 design units wide) ───────────────────────── */
-  @media (max-width:900px){
+  
+  /* Manu tropical palette */
+  html, body{ background:#087b98; }
+  .hero{
+    background:
+      radial-gradient(62% 58% at 14% 18%, rgba(177,245,248,.25) 0%, rgba(177,245,248,0) 72%),
+      radial-gradient(78% 48% at 52% 112%, rgba(255,225,166,.38) 0%, rgba(255,225,166,.13) 42%, rgba(255,225,166,0) 76%),
+      linear-gradient(155deg, #087b98 0%, #159fba 40%, #59c9cb 72%, #e8d29c 128%);
+  }
+  .hero::after{
+    background:
+      radial-gradient(72% 42% at 50% 110%, rgba(255,235,191,.42) 0%, rgba(255,235,191,.14) 44%, rgba(255,235,191,0) 80%),
+      linear-gradient(180deg, rgba(222,252,252,.03) 0%, rgba(125,230,230,.05) 58%, rgba(255,230,177,.08) 100%);
+  }
+
+@media (max-width:900px){
     :root{ --u: calc(100vw / 760); }
     .hero{ height:auto; min-height:100svh; }
     .stage{
       position:relative; left:auto; top:auto; margin:0;
-      width:100%; height:calc(1625 * var(--u));
+      width:100%; height:calc(1420 * var(--u));
+      min-height:740px;
     }
     .hero::after{
       background:
-        radial-gradient(90% 30% at 50% 74%, rgba(238,243,231,.40) 0%, rgba(238,243,231,.14) 46%, rgba(238,243,231,0) 82%),
-        linear-gradient(180deg, rgba(238,243,231,0) 62%, rgba(238,243,231,.05) 100%);
+        radial-gradient(105% 48% at 52% 72%, rgba(255,229,166,.30) 0%, rgba(255,229,166,.12) 42%, rgba(255,229,166,0) 76%),
+        radial-gradient(85% 42% at 18% 18%, rgba(187,247,249,.16) 0%, rgba(187,247,249,0) 72%),
+        linear-gradient(180deg, rgba(219,252,252,.04) 0%, rgba(22,158,185,.08) 57%, rgba(245,220,169,.16) 100%);
     }
     .guides i:nth-child(3){ display:none; }
     .guides i:nth-child(1){ left:calc(253 * var(--u)) !important; }
     .guides i:nth-child(2){ left:calc(506 * var(--u)) !important; }
 
-    /* one column: the labels come off and the dock keeps only its glyphs,
-       because at this scale the type would be four pixels tall */
-    /* Floored with max(), not left on the design unit alone: this breakpoint
-       runs from 900px down to 320px, so a pure --u dock is a 24px bar with
-       12px targets on a phone. The floor only bites at the small end. */
-    .dock-wrap{ top:calc(30 * var(--u)); }
-    .dock{
-      height:max(56px, calc(58 * var(--u)));
-      padding:max(6px, calc(6 * var(--u)));
-      gap:max(4px, calc(4 * var(--u)));
-      border-radius:max(17px, calc(18 * var(--u)));
+    .headline{
+      left:calc(42 * var(--u)); top:calc(64 * var(--u));
+      font-size:calc(88 * var(--u)); line-height:calc(92 * var(--u));
+      text-shadow:0 calc(8 * var(--u)) calc(28 * var(--u)) rgba(3,68,91,.22);
     }
-    .dock-item{
-      height:max(44px, calc(46 * var(--u)));
-      width:max(44px, calc(46 * var(--u)));
-      padding:0; border-radius:max(12px, calc(13 * var(--u)));
+
+    /* Mobile intentionally crops deep into the near root. The goal is a
+       tropical botanical detail, not the complete desktop silhouette. */
+    .card{
+      border-radius:calc(32 * var(--u));
+      border:1px solid rgba(255,255,255,.24);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.20), rgba(255,255,255,.08));
+      box-shadow:
+        0 calc(20 * var(--u)) calc(48 * var(--u)) rgba(2,65,84,.18),
+        inset 0 1px 0 rgba(255,255,255,.20);
+      -webkit-backdrop-filter:blur(14px) saturate(1.12);
+      backdrop-filter:blur(14px) saturate(1.12);
     }
-    .dock-item span:not(.glyph){ display:none; }
-    .dock-item .glyph{ width:max(19px, calc(20 * var(--u))); height:max(19px, calc(20 * var(--u))); }
-    .dock-mark svg{ width:52%; height:52%; }
-    .knob-float{ left:calc(644 * var(--u)); top:calc(1218 * var(--u)); transform-origin:calc(-264 * var(--u)) calc(-43 * var(--u)); }
-    .headline{ left:calc(34 * var(--u)); top:calc(128 * var(--u)); font-size:calc(62 * var(--u)); line-height:calc(66 * var(--u)); }
-    .lede{ left:calc(34 * var(--u)); top:calc(288 * var(--u)); width:calc(400 * var(--u)); font-size:calc(19 * var(--u)); line-height:calc(27 * var(--u)); }
-    /* one column: the frame keeps its aspect, re-anchored to the left rail */
-    .pill-clip{
-      left:calc(34 * var(--u)); top:calc(430 * var(--u));
-      width:calc(506 * var(--u)); height:calc(334 * var(--u));
-      margin:calc(-167 * var(--u)) 0 0 calc(-79 * var(--u));
-      clip-path:inset(calc(93 * var(--u)) calc(74 * var(--u)) calc(1 * var(--u)) calc(74 * var(--u)) round calc(76 * var(--u)));
+    .card .label{
+      left:calc(28 * var(--u));
+      color:rgba(255,255,255,.68);
+      text-shadow:0 2px 10px rgba(3,57,75,.22);
     }
-    .liquid-stage--explore{ --h:calc(74.4152 * var(--u)); }
-    .play-wrap{ display:none; }
+    .card h2{
+      left:calc(28 * var(--u));
+      color:#fff;
+      text-shadow:0 3px 14px rgba(3,57,75,.28);
+    }
+    .card--about{
+      left:calc(42 * var(--u)); top:calc(940 * var(--u));
+      width:calc(676 * var(--u)); height:calc(212 * var(--u));
+    }
+    .card--about .label{ top:calc(48 * var(--u)); }
+    .card--about h2{
+      top:calc(79 * var(--u)); width:calc(350 * var(--u));
+      font-size:calc(29 * var(--u)); line-height:calc(33 * var(--u));
+    }
+    .card--about figure{
+      left:auto; right:calc(16 * var(--u)); top:calc(16 * var(--u));
+      width:calc(238 * var(--u)); height:calc(180 * var(--u));
+      border-radius:calc(24 * var(--u));
+      background:rgba(15,105,102,.18);
+      border:1px solid rgba(255,255,255,.16);
+    }
+    .knob-float{ display:none; }
 
-    .stat{ gap:calc(11 * var(--u)); }
-    .stat .mark{ width:calc(36 * var(--u)); height:calc(36 * var(--u)); }
-    .stat dt{ font-size:calc(16 * var(--u)); line-height:calc(22 * var(--u)); }
-    .stat dd{ font-size:calc(16.5 * var(--u)); line-height:calc(24 * var(--u)); }
-    .stat--a{ left:calc(34 * var(--u));  top:calc(540 * var(--u)); }
-    .stat--b{ left:calc(396 * var(--u)); top:calc(540 * var(--u)); }
-
-    .card{ border-radius:calc(40 * var(--u)); }
-    .card--about{ left:calc(34 * var(--u)); top:calc(1050 * var(--u)); width:calc(692 * var(--u)); height:calc(250 * var(--u)); }
-    .card--about .label{ top:calc(96 * var(--u)); }
-    .card--about h2{ top:calc(124 * var(--u)); width:calc(400 * var(--u)); font-size:calc(32 * var(--u)); line-height:calc(36 * var(--u)); }
-    .card--stove{ left:calc(34 * var(--u)); top:calc(1324 * var(--u)); width:calc(692 * var(--u)); height:calc(268 * var(--u)); }
-    .card--stove h2{ font-size:calc(32 * var(--u)); }
-    /* one column: both plates become a thumbnail on the card's outer edge,
-       the Ethos one still anchored to the top */
-    .card--stove figure{ left:auto; right:calc(16 * var(--u)); bottom:calc(16 * var(--u)); width:calc(300 * var(--u)); height:calc(150 * var(--u)); }
-    .card--about figure{ left:auto; right:calc(16 * var(--u)); top:calc(16 * var(--u)); width:calc(224 * var(--u)); height:calc(218 * var(--u)); }
-    .card .knob{ right:calc(24 * var(--u)); bottom:calc(24 * var(--u)); }
-    .card--stove .knob{ right:calc(30 * var(--u)); bottom:calc(30 * var(--u)); }
-
-    .scroll{ left:calc(702 * var(--u)); top:calc(470 * var(--u)); }
-    .ghost{ font-size:calc(184 * var(--u)); letter-spacing:calc(14 * var(--u)); bottom:calc(660 * var(--u)); left:calc(-10 * var(--u)); }
+    .card--stove{
+      left:calc(42 * var(--u)); top:calc(1180 * var(--u));
+      width:calc(676 * var(--u)); height:calc(220 * var(--u));
+    }
+    .card--stove .label{ top:calc(46 * var(--u)); }
+    .card--stove h2{
+      top:calc(76 * var(--u)); width:calc(350 * var(--u));
+      font-size:calc(29 * var(--u)); line-height:calc(33 * var(--u));
+    }
+    .card--stove figure{
+      left:auto; right:calc(16 * var(--u)); bottom:calc(16 * var(--u));
+      width:calc(238 * var(--u)); height:calc(154 * var(--u));
+      border-radius:calc(24 * var(--u));
+      background:rgba(15,105,102,.18);
+      border:1px solid rgba(255,255,255,.16);
+    }
+    .card .knob{
+      width:calc(58 * var(--u)); height:calc(58 * var(--u));
+      right:calc(27 * var(--u)); bottom:calc(27 * var(--u));
+      background:rgba(255,255,255,.82);
+      box-shadow:0 calc(8 * var(--u)) calc(22 * var(--u)) rgba(3,57,75,.22);
+    }
   }
 </style>
 </head>
-<body>
+<body class="home-page">
 
 <main class="hero" id="hero">
   <canvas id="scene"></canvas>
@@ -723,10 +754,7 @@
       <i style="left:calc(748 * var(--u))"></i>
       <i style="left:calc(1091 * var(--u))"></i>
     </div>
-
-    <div class="ghost fade" style="--d:1150ms" aria-hidden="true">MANU</div>
-
-    <!-- card 1 sits *behind* the canvas so the moss drapes over its shoulder -->
+<!-- card 1 sits *behind* the canvas so the moss drapes over its shoulder -->
     <article class="card card--about mask" style="--d:760ms; --pd:10; --pr:2.2">
       <figure class="portal" data-delay="920">
         <span class="portal-media"><img crossorigin="anonymous" src="../inner-green-assets/card-ethos.jpg" alt="Musgo sobre piedras cubiertas de líquenes" loading="eager" decoding="async"></span>
@@ -874,9 +902,9 @@
      moss-arch.png's box, the far one is moss-ridge.png's, so every landmark
      lands exactly where the layout was drawn around it. */
   var ARCH   = { w: 1900, left: -180, top: 306, aspect: 2800 / 1377 };
-  var ARCH_N = { w: 1120, left: -290, top: 555, aspect: 2800 / 1377 };
+  var ARCH_N = { w: 1560, left: -540, top: 330, aspect: 2800 / 1377 };
   var FAR    = { w: 1150, left:  -40, top: 320, aspect: 1600 /  757, z: -260 };
-  var FAR_N  = { w:  780, left: -110, top: 600, aspect: 1600 /  757, z: -260 };
+  var FAR_N  = { w: 1080, left: -260, top: 360, aspect: 1600 /  757, z: -260 };
 
   var renderer, scene, camera;
   var nearGroup, farGroup, motes, shadowMesh, glowMesh;
@@ -2245,13 +2273,13 @@
       uKeyCol:  { value: new THREE.Color(1.14, 1.06, 0.88) },
       uFillDir: { value: FILL.clone() },
       /* the pale pool on the floor of the hero, bouncing back up */
-      uFillCol: { value: new THREE.Color(0.78, 0.78, 0.62) },
-      uAmbCol:  { value: new THREE.Color(0.086, 0.090, 0.080) },
+      uFillCol: { value: new THREE.Color(0.66, 0.86, 0.84) },
+      uAmbCol:  { value: new THREE.Color(0.060, 0.115, 0.135) },
       /* Aerial perspective goes toward LIT air, not toward the background:
          the far ridge in the reference is paler than the page behind it, and
          so are the near crowns. Keep the amount small on the near root or the
          moss greys out (its saturation is the first thing to go). */
-      uHazeCol: { value: new THREE.Color(0.176, 0.195, 0.145) },
+      uHazeCol: { value: new THREE.Color(0.245, 0.500, 0.515) },
       uHaze:    { value: 0.14 },
       uHazeLift:{ value: 0.20 },
       uFog:     { value: 0.0 },
@@ -2296,7 +2324,7 @@
       uBoxH:   { value: BOXW / opt.aspect },
       uHaze:   { value: opt.haze },
       uFog:    { value: opt.fog },
-      uHazeCol:{ value: new THREE.Color().fromArray(opt.hazeCol || [0.176, 0.195, 0.145]) },
+      uHazeCol:{ value: new THREE.Color().fromArray(opt.hazeCol || [0.245, 0.500, 0.515]) },
       uHazeLift:{ value: opt.hazeLift === undefined ? 0.20 : opt.hazeLift },
       uAlpha:  { value: opt.alpha },
       uMask:   { value: new THREE.Vector4(opt.mask ? opt.mask[0] : 0, opt.mask ? opt.mask[1] : 1,
@@ -2503,7 +2531,7 @@
       mouse: uMouseNear, mouseR: 1.20
     });
     scene.add(nearGroup);
-    bf = null; /* disabled for smoother loading and animation */
+    bf = buildButterfly(nearGroup, nearLimbs, nearGroup.userData.uni);
 
     /* ---- far ridge: same builder, pushed back and washed into the air.
             It dissolves before it reaches the cards (local x 0.5 → 4.0) and
@@ -2513,7 +2541,7 @@
       aspect: FAR.aspect, haze: 0.16, fog: 0.26, alpha: 1.0, order: 0,
       /* dimmer air than the near root's: at 0.46 of the pale tone the ridge
          lost its silhouette entirely and read as a smudge on the background */
-      hazeCol: [0.150, 0.164, 0.120], hazeLift: 0.92,
+      hazeCol: [0.205, 0.430, 0.455], hazeLift: 0.92,
       blades: BLADES_FAR, ferns: lowPower ? 5 : 9, flowers: lowPower ? 18 : 36,
       fernSize: [0.26, 0.56], flowerSize: [0.034, 0.062],
       mask: [0.4, 3.4, 0.0, 0.42], wire: true,
@@ -2544,7 +2572,7 @@
     var geo = new THREE.PlaneGeometry(1, 1, 1, 1);
 
     shadowMesh = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({
-      map: radialTexture(256, [[0, 'rgba(12,16,10,0.62)'], [0.45, 'rgba(12,16,10,0.26)'], [1, 'rgba(12,16,10,0)']]),
+      map: radialTexture(256, [[0, 'rgba(2,58,73,0.54)'], [0.45, 'rgba(2,58,73,0.22)'], [1, 'rgba(2,58,73,0)']]),
       transparent: true, depthWrite: false, depthTest: false
     }));
     shadowMesh.renderOrder = 1;
@@ -2552,7 +2580,7 @@
     scene.add(shadowMesh);
 
     glowMesh = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({
-      map: radialTexture(256, [[0, 'rgba(226,236,212,0.30)'], [0.42, 'rgba(214,226,200,0.10)'], [1, 'rgba(214,226,200,0)']]),
+      map: radialTexture(256, [[0, 'rgba(208,245,239,0.30)'], [0.42, 'rgba(255,225,169,0.11)'], [1, 'rgba(208,245,239,0)']]),
       transparent: true, depthWrite: false, depthTest: false,
       blending: THREE.AdditiveBlending
     }));
