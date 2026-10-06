@@ -2309,3 +2309,7 @@
     .about-profile-singularity.black-hole-ready:hover .img-border,
     .about-profile-singularity.black-hole-ready:focus-within .img-border { transform: scale(.1); filter: none; opacity: .15; }
 }
+.contact-grid-linkedin .contact-item { width: min(100%, 560px); }
+.contact-grid-linkedin .contact-item > a.contact-value { width: auto; max-width: none; flex: 0 0 auto; justify-content: flex-start; overflow: visible; text-overflow: clip; white-space: nowrap; }
+.contact-grid-linkedin .contact-item > a:first-child { flex: 0 0 42px; }
+.contact-grid-linkedin .contact-item .copy-btn { flex: 0 0 auto; }
