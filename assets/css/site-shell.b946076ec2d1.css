@@ -42,9 +42,6 @@
 .footer-shared .footer-social-icon-link,.footer-shared .footer-social-icon-link:hover,.footer-shared .footer-social-icon-link:focus-visible{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
 
 /* Profile portrait sits in the opening between the root trunks. */
-.home-page .profile-portrait{position:absolute;z-index:4;left:calc(630 * var(--u));top:calc(300 * var(--u));width:calc(230 * var(--u));margin:0;pointer-events:none;opacity:.94;filter:drop-shadow(0 10px 16px rgba(16,42,42,.2))}
-.home-page .profile-portrait img{display:block;width:100%;height:auto}
-@media(max-width:900px){.home-page .profile-portrait{left:calc(205 * var(--u));top:calc(420 * var(--u));width:calc(350 * var(--u))}}
 
 /* Keep shared footer animations bounded and the mobile order predictable. */
 .footer-shared .footer-social-icon-link{overflow:hidden!important;contain:layout paint;flex:0 0 42px}

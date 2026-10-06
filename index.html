@@ -6,7 +6,7 @@
 <title>Manu</title>
     <link rel="icon" type="image/png" sizes="32x32" href="https://macca-the-gator.github.io/manu/assets/images/icons/favicon-32.90b3646c6620.png"><link rel="icon" type="image/png" sizes="16x16" href="https://macca-the-gator.github.io/manu/assets/images/icons/favicon-16.d31490012680.png"><link rel="icon" type="image/x-icon" href="https://macca-the-gator.github.io/manu/assets/images/icons/favicon.d0b985bf38b9.ico"><link rel="apple-touch-icon" sizes="180x180" href="https://macca-the-gator.github.io/manu/assets/images/icons/apple-touch-icon.ecdcf68606fa.png">
 
-<meta name="description" content="Manu — an interactive botanical experience with a living Three.js landscape."><meta name="author" content="Manu"><meta name="robots" content="index, follow, max-image-preview:large"><meta name="theme-color" content="#4a4d44"><link rel="canonical" href="https://macca-the-gator.github.io/manu/"><link rel="alternate" href="https://macca-the-gator.github.io/manu/" hreflang="en"><link rel="alternate" href="https://macca-the-gator.github.io/manu/pt/" hreflang="pt-BR"><link rel="alternate" href="https://macca-the-gator.github.io/manu/es/" hreflang="es"><link rel="alternate" href="https://macca-the-gator.github.io/manu/" hreflang="x-default"><link rel="manifest" href="https://macca-the-gator.github.io/manu/manifest.webmanifest"><meta property="og:type" content="website"><meta property="og:site_name" content="Manu"><meta property="og:locale" content="en_US"><meta property="og:title" content="Manu"><meta property="og:description" content="Manu — an interactive botanical experience with a living Three.js landscape."><meta property="og:url" content="https://macca-the-gator.github.io/manu/"><meta property="og:image" content="https://macca-the-gator.github.io/manu/inner-green-assets/card-ethos.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Manu"><meta name="twitter:description" content="Manu — an interactive botanical experience with a living Three.js landscape."><meta name="twitter:image" content="https://macca-the-gator.github.io/manu/inner-green-assets/card-ethos.jpg"><link id="spotlight-navigation-style" rel="stylesheet" href="assets/css/site-shell.f1abd0d6c1e9.css">
+<meta name="description" content="Manu — an interactive botanical experience with a living Three.js landscape."><meta name="author" content="Manu"><meta name="robots" content="index, follow, max-image-preview:large"><meta name="theme-color" content="#4a4d44"><link rel="canonical" href="https://macca-the-gator.github.io/manu/"><link rel="alternate" href="https://macca-the-gator.github.io/manu/" hreflang="en"><link rel="alternate" href="https://macca-the-gator.github.io/manu/pt/" hreflang="pt-BR"><link rel="alternate" href="https://macca-the-gator.github.io/manu/es/" hreflang="es"><link rel="alternate" href="https://macca-the-gator.github.io/manu/" hreflang="x-default"><link rel="manifest" href="https://macca-the-gator.github.io/manu/manifest.webmanifest"><meta property="og:type" content="website"><meta property="og:site_name" content="Manu"><meta property="og:locale" content="en_US"><meta property="og:title" content="Manu"><meta property="og:description" content="Manu — an interactive botanical experience with a living Three.js landscape."><meta property="og:url" content="https://macca-the-gator.github.io/manu/"><meta property="og:image" content="https://macca-the-gator.github.io/manu/inner-green-assets/card-ethos.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Manu"><meta name="twitter:description" content="Manu — an interactive botanical experience with a living Three.js landscape."><meta name="twitter:image" content="https://macca-the-gator.github.io/manu/inner-green-assets/card-ethos.jpg"><link id="spotlight-navigation-style" rel="stylesheet" href="assets/css/site-shell.b946076ec2d1.css">
 
 <script>document.documentElement.className += " js";</script>
 <style>
@@ -756,11 +756,6 @@
   <canvas id="scene"></canvas>
 
   <div class="stage" id="stage">
-
-    <figure class="profile-portrait par" aria-hidden="true">
-      <img src="assets/images/profile-base-upscale.9c633c0dc449.png" alt="" width="1571" height="2356" loading="eager" decoding="async">
-    </figure>
-
     <div class="guides fade" style="--d:900ms" aria-hidden="true">
       <i style="left:calc(405 * var(--u))"></i>
       <i style="left:calc(748 * var(--u))"></i>
@@ -914,12 +909,12 @@
      moss-arch.png's box, the far one is moss-ridge.png's, so every landmark
      lands exactly where the layout was drawn around it. */
   var ARCH   = { w: 1900, left: -180, top: 306, aspect: 2800 / 1377 };
-  var ARCH_N = { w: 1720, left: -410, top: 560, aspect: 2800 / 1377 };
+  var ARCH_N = { w: 1720, left: -410, top: 800, aspect: 2800 / 1377 };
   var FAR    = { w: 1150, left:  -40, top: 320, aspect: 1600 /  757, z: -260 };
-  var FAR_N  = { w: 1180, left: -330, top: 470, aspect: 1600 /  757, z: -260 };
+  var FAR_N  = { w: 1180, left: -330, top: 1090, aspect: 1600 /  757, z: -260 };
 
   var renderer, scene, camera;
-  var nearGroup, farGroup, motes, shadowMesh, glowMesh;
+  var nearGroup, farGroup, motes, shadowMesh, glowMesh, portraitMesh;
   var W = 1, H = 1, DIST = 1400;
   var poleTex = null;
   var scanning = false, scanT = 0, scanMax = 3000;
@@ -2561,6 +2556,28 @@
     });
     scene.add(farGroup);
 
+    /* The portrait sits in the actual 3D gap: in front of the distant ridge,
+       behind both near-root trunks. */
+    portraitMesh = new THREE.Mesh(
+      new THREE.PlaneGeometry(1, 1),
+      new THREE.MeshBasicMaterial({
+        transparent: true, side: THREE.DoubleSide, depthTest: true,
+        depthWrite: false, toneMapped: false
+      })
+    );
+    portraitMesh.renderOrder = 1.5;
+    portraitMesh.visible = false;
+    portraitMesh.frustumCulled = false;
+    scene.add(portraitMesh);
+    new THREE.TextureLoader().load('assets/images/profile-base-upscale.9c633c0dc449.png', function (texture) {
+      if (THREE.SRGBColorSpace && 'colorSpace' in texture) texture.colorSpace = THREE.SRGBColorSpace;
+      else if (THREE.sRGBEncoding && 'encoding' in texture) texture.encoding = THREE.sRGBEncoding;
+      portraitMesh.material.map = texture;
+      portraitMesh.material.needsUpdate = true;
+      portraitMesh.visible = true;
+      layout();
+    });
+
     buildAmbient();
     layout();
     window.addEventListener('resize', layout);
@@ -3309,6 +3326,22 @@
     /* the near root pins at the arch's apex; the far one at its crest */
     place(nearGroup, A, 0.732, 0.06, 0);
     place(farGroup,  F, 0.410, 0.32, F.z);
+
+    if (portraitMesh) {
+      var portraitZ = -130;
+      var perspectiveScale = (DIST - portraitZ) / DIST;
+      var portraitAspect = 1571 / 2356;
+      var portraitHeight = H * (narrow ? 0.70 : 0.76);
+      if (narrow) portraitHeight = Math.min(portraitHeight, W * 0.96 / portraitAspect);
+      var portraitWidth = portraitHeight * portraitAspect;
+      var portraitCenterX = narrow ? W * 0.5 : W * 0.42;
+      portraitMesh.scale.set(portraitWidth * perspectiveScale, portraitHeight * perspectiveScale, 1);
+      portraitMesh.position.set(
+        (portraitCenterX - W * 0.5) * perspectiveScale,
+        (portraitHeight - H) * 0.5 * perspectiveScale,
+        portraitZ
+      );
+    }
 
     var aw = A.w * u * cover, ah = aw / A.aspect;
     var cx = wx(A.left + 0.5 * A.w), cy = wy(A.top + 0.5 * (A.w / A.aspect));
