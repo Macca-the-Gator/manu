@@ -1,4 +1,4 @@
-﻿var viewportHeightFrame = 0;
+var viewportHeightFrame = 0;
 var lastViewportHeight = 0;
 
 function getCurrentViewportHeight() {
@@ -1121,7 +1121,7 @@ function loadSkyletWidgetAssets() {
     var link = document.createElement('link');
     link.id = 'skylet-widget-style';
     link.rel = 'stylesheet';
-    link.href = '/manu/about/css/skylet-widget.css?v=4d85970dfe';
+    link.href = '/manu/assets/css/skylet-widget.e3ca269f9e78.css';
     document.head.appendChild(link);
   }
 
@@ -1154,7 +1154,7 @@ function loadSpotlightNavigationAssets() {
     var link = document.createElement('link');
     link.id = 'spotlight-navigation-style';
     link.rel = 'stylesheet';
-    link.href = '/manu/about/css/spotlight-navigation.css?v=20261001k';
+    link.href = '/manu/assets/css/spotlight-navigation.81f7fc858602.css';
     link.addEventListener('load', loadScript, { once: true });
     document.head.appendChild(link);
     return;

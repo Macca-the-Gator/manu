@@ -115,7 +115,7 @@
     transform: none;
 }
 
-/* Neutralize the site's legacy global button theme for the language control. */
+/* Reset the global button theme for the language control. */
 button.spotlight-navigation-item {
     border: 0 !important;
     background: transparent !important;

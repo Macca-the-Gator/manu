@@ -9,12 +9,12 @@
   "description": "Manu — an interactive botanical experience with a living Three.js landscape.",
   "icons": [
     {
-      "src": "/manu/assets/profile-app-192.png",
+      "src": "/manu/assets/images/icons/favicon-192.bfbdc9b256a5.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/manu/assets/profile-app-512.png",
+      "src": "/manu/assets/images/icons/favicon-512.368dae3480b5.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
