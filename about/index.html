@@ -35,10 +35,11 @@
     .dissection__copy{grid-column:1;grid-row:1;align-self:start;max-width:410px;z-index:2;padding-top:clamp(15px,5vh,60px)}
     .dissection__eyebrow{margin:0 0 20px;color:#b3c1a0;font-size:.69rem;letter-spacing:.19em;text-transform:uppercase}
     .dissection__title{max-width:390px;margin:0;color:#f0eee2;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.5rem,5.4vw,5.4rem);font-weight:400;line-height:.98;letter-spacing:-.045em}
-    .dissection__model{grid-column:2;grid-row:1;position:absolute;inset:0;pointer-events:none}
+    .dissection__model{grid-column:2;grid-row:1;position:relative;width:100%;height:100svh;pointer-events:none}
     .dissection__canvas{display:block;width:100%;height:100%;outline:0}
     .dissection__canvas canvas{display:block;width:100%;height:100%}
     .dissection__loading{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:rgba(235,239,224,.65);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
+    .dissection__loading[hidden]{display:none}
     .dissection__steps{grid-column:3;grid-row:1;justify-self:end;align-self:center;width:min(100%,360px);margin:4vh 0 0;padding:0;list-style:none;z-index:2}
     .dissection__step{padding:17px 0 18px 19px;border-left:1px solid rgba(220,229,207,.16);opacity:.43;transition:opacity .35s,border-color .35s,transform .35s}
     .dissection__step[aria-current="step"]{border-color:#d4d5b4;opacity:1;transform:translateX(-5px)}
@@ -48,8 +49,8 @@
     .dissection__scan{position:absolute;z-index:1;left:30%;right:30%;top:var(--scan,10%);height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(146,229,213,.8),#dceabb,rgba(146,229,213,.8),transparent);box-shadow:0 0 14px rgba(139,226,209,.65);opacity:.65}
     .dissection__scan:after{content:"";position:absolute;inset:-20px 0;background:linear-gradient(180deg,transparent,rgba(130,218,200,.06),transparent);filter:blur(9px)}
     .about-page .footer-minimal{margin-top:0}
-    @media(max-width:850px){.dissection{height:580vh}.dissection__stage{grid-template-columns:1fr;grid-template-rows:auto 1fr auto;padding:25px 24px 32px}.dissection__copy{grid-column:1;grid-row:1;padding-top:3vh;max-width:70%;}.dissection__title{font-size:clamp(2.35rem,9vw,4rem)}.dissection__model{grid-column:1;grid-row:2;inset:10% 0 8%}.dissection__steps{grid-column:1;grid-row:3;justify-self:start;align-self:end;width:min(100%,570px);margin:0 0 6vh 0}.dissection__step{padding:10px 0 11px 14px}.dissection__step-label{margin-bottom:4px}.dissection__step p{max-width:440px;font-size:.94rem}.dissection__progress{left:24px;bottom:20px}.dissection__scan{left:15%;right:15%}}
-    @media(max-width:520px){.dissection{height:550vh}.dissection__stage{min-height:590px;padding-inline:20px}.dissection__copy{max-width:95%;padding-top:2vh}.dissection__eyebrow{margin-bottom:11px}.dissection__model{inset:17% -20% 17%}.dissection__steps{margin-bottom:7vh}.dissection__step p{font-size:.86rem;line-height:1.4}.dissection__step{padding-block:8px}.dissection__progress{left:20px;bottom:16px}}
+    @media(max-width:850px){.dissection{height:580vh}.dissection__stage{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr) auto;padding:25px 24px 32px}.dissection__copy{grid-column:1;grid-row:1;padding-top:3vh;max-width:70%;}.dissection__title{font-size:clamp(2.35rem,9vw,4rem)}.dissection__model{grid-column:1;grid-row:2;height:100%;min-height:250px}.dissection__steps{grid-column:1;grid-row:3;justify-self:start;align-self:end;width:min(100%,570px);margin:0 0 6vh 0}.dissection__step{padding:10px 0 11px 14px}.dissection__step-label{margin-bottom:4px}.dissection__step p{max-width:440px;font-size:.94rem}.dissection__progress{left:24px;bottom:20px}.dissection__scan{left:15%;right:15%}}
+    @media(max-width:520px){.dissection{height:550vh}.dissection__stage{min-height:590px;padding-inline:20px}.dissection__copy{max-width:95%;padding-top:2vh}.dissection__eyebrow{margin-bottom:11px}.dissection__steps{margin-bottom:7vh;min-height:85px}.dissection__step{display:none;padding-block:8px}.dissection__step[aria-current="step"]{display:block}.dissection__step p{font-size:.86rem;line-height:1.4}.dissection__progress{left:20px;bottom:16px}.dissection__scan{display:none}}
     @media(prefers-reduced-motion:reduce){.dissection__step{transition:none}}
   </style>
 </head>
@@ -80,9 +81,11 @@
   </main>
   <footer class="footer-minimal footer-split"><div class="footer-container"><div class="footer-split-left"><span class="footer-copyright-line">&copy; <span data-current-year></span> Manu</span></div><span class="footer-split-spacer" aria-hidden="true"></span><div class="footer-split-right"><span class="footer-legal-inline"><a class="footer-legal-link" href="https://macca-the-gator.github.io/manu/privacy-policy/">Privacy Policy</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="https://macca-the-gator.github.io/manu/terms-of-use/">Terms of Use</a><span aria-hidden="true">/</span><a class="footer-legal-link" href="https://macca-the-gator.github.io/manu/credits/">Credits</a></span></div></div></footer>
   <script src="https://macca-the-gator.github.io/manu/assets/site-shell.js" defer></script>
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
   <script type="module">
-    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js';
-    import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/loaders/GLTFLoader.js';
+    import * as THREE from 'three';
+    import { GLTFLoader } from './vendor/GLTFLoader.js';
+    import { MeshoptDecoder } from './vendor/meshopt_decoder.module.js';
 
     (() => {
       const section = document.querySelector('.dissection');
@@ -92,7 +95,7 @@
       const loading = document.querySelector('#model-loading');
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(30, 1, 0.01, 1000);
-      camera.position.set(0, 0.82, 5.2);
+      camera.position.set(0, 0, 8.4);
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.7));
       renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -113,11 +116,13 @@
       figure.add(pivot);
       scene.add(figure);
       let modelGroups = [];
+      let layerMaterials = [];
       let active = 0;
       let targetScroll = 0;
       let smoothScroll = 0;
       let resizeObserver;
       const loader = new GLTFLoader();
+      loader.setMeshoptDecoder(MeshoptDecoder);
       const models = [
         { file: 'skin-shell.glb', name: 'Surface', tint: null },
         { file: 'muscles.glb', name: 'Muscle', tint: 0xd99579 },
@@ -131,7 +136,7 @@
         if (!rect.width || !rect.height) return;
         renderer.setSize(rect.width, rect.height, false);
         camera.aspect = rect.width / rect.height;
-        camera.position.z = rect.width < 600 ? 6.0 : 5.2;
+        camera.position.z = rect.width < 600 ? 9 : 8.4;
         camera.updateProjectionMatrix();
       }
       function normalize(root, index) {
@@ -140,16 +145,18 @@
         const size = bounds.getSize(new THREE.Vector3());
         const center = bounds.getCenter(new THREE.Vector3());
         const height = Math.max(size.y, size.x, size.z, 0.001);
-        const scale = 3.55 / height;
+        const scale = (index === 4 ? 1.3 : 3.55) / height;
         root.scale.setScalar(scale);
-        root.position.set(-center.x * scale, -center.y * scale, -center.z * scale);
+        root.position.set(-center.x * scale, -center.y * scale + (index === 4 ? 0.65 : 0), -center.z * scale);
         root.rotation.y = index === 4 ? 0.12 : 0;
+        const materials = new Set();
         root.traverse((object) => {
           if (!object.isMesh) return;
           object.frustumCulled = false;
           if (object.material) {
-            const materials = Array.isArray(object.material) ? object.material : [object.material];
-            for (const material of materials) {
+            const meshMaterials = Array.isArray(object.material) ? object.material : [object.material];
+            for (const material of meshMaterials) {
+              materials.add(material);
               material.side = THREE.DoubleSide;
               if (models[index].tint && material.color) {
                 material.color.lerp(new THREE.Color(models[index].tint), 0.18);
@@ -158,6 +165,7 @@
             }
           }
         });
+        layerMaterials[index] = [...materials];
       }
       function updateStep(value) {
         const next = Math.min(4, Math.max(0, Math.floor(value * 5)));
@@ -178,20 +186,16 @@
       }
       function animate() {
         requestAnimationFrame(animate);
-        smoothScroll += (targetScroll - smoothScroll) * 0.055;
+        smoothScroll += (targetScroll - smoothScroll) * 0.14;
         const position = smoothScroll * (models.length - 1);
         modelGroups.forEach((group, index) => {
           const distance = Math.abs(position - index);
           const opacity = Math.max(0, 1 - distance * 1.35);
-          group.traverse((object) => {
-            if (!object.isMesh) return;
-            const materials = Array.isArray(object.material) ? object.material : [object.material];
-            for (const material of materials) {
-              material.transparent = opacity < 0.995;
-              material.opacity = opacity;
-              material.depthWrite = opacity > 0.72;
-            }
-          });
+          for (const material of layerMaterials[index]) {
+            material.transparent = opacity < 0.995;
+            material.opacity = opacity;
+            material.depthWrite = opacity > 0.72;
+          }
           group.visible = opacity > 0.015;
         });
         figure.rotation.y = Math.sin(smoothScroll * Math.PI * 2) * 0.035;
@@ -211,6 +215,7 @@
         });
         if (!modelGroups.some(Boolean)) throw new Error('No anatomy models could be loaded.');
         modelGroups = modelGroups.map((group) => group || new THREE.Group());
+        layerMaterials = models.map((_, index) => layerMaterials[index] || []);
         loading.hidden = true;
         resize();
         onScroll();
