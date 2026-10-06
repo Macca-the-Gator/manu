@@ -214,7 +214,6 @@
       return addBasePath(locale === 'en' ? '/store/' : '/store/' + locale + '/');
     }
 
-    // Skylet uses the same final /ia slug in every localized route.
     if (route === '/ia/') {
       return addBasePath(locale === 'en' ? '/ia/' : '/' + locale + '/ia/');
     }

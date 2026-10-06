@@ -236,22 +236,11 @@ body.seo-layout .footer-minimal {
     }
 }
 
-.page-index .header-content .firstline,
-.page-index .header-content .secondline,
-.page-index .remote-text,
-.page-index .social-media-links a,
-.page-index .contactpic,
-.page-index #index-skylet-btn img {
-    --intro-end-opacity: 1;
-    animation: foregroundIntro 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
-    transform-origin: center;
-}
 
 .page-index .header-content .secondline { animation-delay: 0.06s; }
 .page-index .remote-text { --intro-end-opacity: 0.9; animation-delay: 0.12s; }
 .page-index .social-media-links a { animation-delay: 0.18s; }
 .page-index .contactpic { --intro-end-opacity: 0.72; animation-delay: 0.2s; }
-.page-index #index-skylet-btn img { animation-delay: 0.24s; }
 
 @keyframes foregroundIntro {
     from {
@@ -270,9 +259,6 @@ body.seo-layout .footer-minimal {
     .page-index .remote-text,
     .page-index .social-media-links a,
     .page-index .contactpic,
-    .page-index #index-skylet-btn img {
-        animation: none;
-    }
 }
 
 .social-media-links{ height: 100vh; height: var(--app-viewport-height); position: absolute; z-index: 2; padding: 60px; width: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; }
@@ -847,7 +833,7 @@ body.seo-layout .footer-minimal {
 /* End of global.css */
 
 
-/* Mobile footer social alignment: keep icons clear of Skylet on the right. */
+/* Mobile footer social alignment. */
 @media screen and (max-width: 768px) {
     .footer-minimal .footer-split-right {
         width: 100%;

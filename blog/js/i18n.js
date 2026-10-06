@@ -190,7 +190,6 @@
       return locale === 'en' ? '/manu/store/' : '/manu/store/' + locale + '/';
     }
 
-    // Skylet uses the same final /ia slug in every localized route.
     if (route === '/ia/') {
       return locale === 'en' ? '/ia/' : '/' + locale + '/ia/';
     }

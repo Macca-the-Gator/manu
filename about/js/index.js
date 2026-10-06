@@ -1072,11 +1072,6 @@ function initSpaceReveals() {
   });
 }
 
-function isSkyletAssistantPage() {
-  var path = window.location.pathname || '/';
-  return /^\/(?:(?:pt|es)\/)?ia\/?$/i.test(path);
-}
-
 function loadLottiePlayerAssets(forceReload) {
   if (!document.querySelector('lottie-player')) {
     return;
@@ -1112,28 +1107,6 @@ function ensureLottiePlayerAssets() {
   }, 1800);
 }
 
-function loadSkyletWidgetAssets() {
-  if (isSkyletAssistantPage()) {
-    return;
-  }
-
-  if (!document.getElementById('skylet-widget-style')) {
-    var link = document.createElement('link');
-    link.id = 'skylet-widget-style';
-    link.rel = 'stylesheet';
-    link.href = '/manu/assets/css/skylet-widget.e3ca269f9e78.css';
-    document.head.appendChild(link);
-  }
-
-  if (!document.getElementById('skylet-widget-script')) {
-    var script = document.createElement('script');
-    script.id = 'skylet-widget-script';
-    script.src = '/manu/about/js/skylet-widget.js?v=20261002desktop6';
-    script.defer = true;
-    document.body.appendChild(script);
-  }
-}
-
 // Spotlight navigation is the sole site navigation.
 function loadSpotlightNavigationAssets() {
   var scriptId = 'spotlight-navigation-script';
@@ -1160,7 +1133,7 @@ function loadSpotlightNavigationAssets() {
     style = document.createElement('link');
     style.id = styleId;
     style.rel = 'stylesheet';
-    style.href = sitePath('assets/css/site-shell.67f131abf62e.css');
+    style.href = sitePath('assets/css/site-shell.fb2910af50b2.css');
     style.addEventListener('load', loadScript, { once: true });
     style.addEventListener('error', loadScript, { once: true });
     document.head.appendChild(style);
@@ -1213,13 +1186,11 @@ function initIndexFooterAwareSocialLinks() {
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initSpaceReveals, { once: true });
   document.addEventListener('DOMContentLoaded', ensureLottiePlayerAssets, { once: true });
-  document.addEventListener('DOMContentLoaded', loadSkyletWidgetAssets, { once: true });
   document.addEventListener('DOMContentLoaded', loadSpotlightNavigationAssets, { once: true });
   document.addEventListener('DOMContentLoaded', initIndexFooterAwareSocialLinks, { once: true });
 } else {
   initSpaceReveals();
   ensureLottiePlayerAssets();
-  loadSkyletWidgetAssets();
   loadSpotlightNavigationAssets();
   initIndexFooterAwareSocialLinks();
 }

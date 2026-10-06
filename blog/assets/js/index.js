@@ -1177,24 +1177,6 @@ function ensureLottiePlayerAssets() {
 }
 
 
-function loadSkyletWidgetAssets() {
-  if (document.getElementById('skylet-widget-style') || document.getElementById('skylet-widget-script')) {
-    return;
-  }
-
-  var style = document.createElement('link');
-  style.id = 'skylet-widget-style';
-  style.rel = 'stylesheet';
-  style.href = '/manu/blog/css/skylet-widget.css?v=4d85970dfe';
-  document.head.appendChild(style);
-
-  var script = document.createElement('script');
-  script.id = 'skylet-widget-script';
-  script.src = '/manu/blog/js/skylet-widget.js?v=20261001desktop3';
-  script.defer = true;
-  document.body.appendChild(script);
-}
-
 function normalizeUnifiedFooter() {
   // Shared footer markup and behavior are provided by the root site assets.
 }
@@ -1250,14 +1232,12 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', normalizeUnifiedFooter, { once: true });
   document.addEventListener('DOMContentLoaded', initSpaceReveals, { once: true });
   document.addEventListener('DOMContentLoaded', ensureLottiePlayerAssets, { once: true });
-  document.addEventListener('DOMContentLoaded', loadSkyletWidgetAssets, { once: true });
   document.addEventListener('DOMContentLoaded', initIndexFooterAwareSocialLinks, { once: true });
   document.addEventListener('DOMContentLoaded', loadBlogRelatedPostNavigation, { once: true });
 } else {
   normalizeUnifiedFooter();
   initSpaceReveals();
   ensureLottiePlayerAssets();
-  loadSkyletWidgetAssets();
   initIndexFooterAwareSocialLinks();
   loadBlogRelatedPostNavigation();
 }
